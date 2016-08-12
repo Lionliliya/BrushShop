@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - beautydbRus@localhost" uuid="92b518ba-b07d-4559-82dc-e5177472709e">
+    <database-info product="MySQL" version="5.7.13-0ubuntu0.16.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="beautydbRus"/>
+    <table name="Admins" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="role" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="domainName" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="emailAddress" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phoneNumber1" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phoneNumber2" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="Categories" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Cname" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="info" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="KeyWord" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MetaDesc" sqlType="VARCHAR" precision="160" scale="0" nullable="true" jdbcType="12"/>
+      <column name="metaTitle" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK7mwlviymhj4bl4mvr24ixj8dh" table="Products" schema="" catalog="beautydbRus" columns="category_id"/>
+      <exported-key name="Products_ibfk_1" table="Products" schema="" catalog="beautydbRus" columns="category_id"/>
+    </table>
+    <table name="Clients" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PhoneNumber" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FKfr2o9umxknx1p583n0xbkq2a1" table="Feedbacks" schema="" catalog="beautydbRus" columns="client_id"/>
+      <exported-key name="Feedbacks_ibfk_2" table="Feedbacks" schema="" catalog="beautydbRus" columns="client_id"/>
+      <exported-key name="FKe8j9oiwrfs7espr1mq4nf5tan" table="Orders" schema="" catalog="beautydbRus" columns="client_id"/>
+      <exported-key name="Orders_ibfk_1" table="Orders" schema="" catalog="beautydbRus" columns="client_id"/>
+    </table>
+    <table name="Feedbacks" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="product_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="client_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="evaluation" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="feedback" sqlType="VARCHAR" precision="600" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKbauvbo6i4qv95ydof82nycxjp" columns="product_id" ref-table="Products" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKfr2o9umxknx1p583n0xbkq2a1" columns="client_id" ref-table="Clients" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Feedbacks_ibfk_1" columns="product_id" ref-table="Products" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Feedbacks_ibfk_2" columns="client_id" ref-table="Clients" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKbauvbo6i4qv95ydof82nycxjp" unique="false" columns="product_id"/>
+      <index name="FKfr2o9umxknx1p583n0xbkq2a1" unique="false" columns="client_id"/>
+    </table>
+    <table name="Info" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="imagePath" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="shortDescription" sqlType="VARCHAR" precision="800" scale="0" nullable="false" jdbcType="12"/>
+      <column name="datePubl" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="buttonText" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="KeyWord" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MetaDesc" sqlType="VARCHAR" precision="160" scale="0" nullable="true" jdbcType="12"/>
+      <column name="metaTitle" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="Orders" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="delivery" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="comments" sqlType="VARCHAR" precision="400" scale="0" nullable="true" jdbcType="12"/>
+      <column name="client_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="totalAmount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKe8j9oiwrfs7espr1mq4nf5tan" columns="client_id" ref-table="Clients" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Orders_ibfk_1" columns="client_id" ref-table="Clients" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKb9yafa2n1o2edh60kk9x6kolu" table="Products_In_Cart" schema="" catalog="beautydbRus" columns="order_id"/>
+      <exported-key name="Products_In_Cart_ibfk_1" table="Products_In_Cart" schema="" catalog="beautydbRus" columns="order_id"/>
+      <index name="FKe8j9oiwrfs7espr1mq4nf5tan" unique="false" columns="client_id"/>
+    </table>
+    <table name="Products" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Pname" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="currency" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="category_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="inStock" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="600" scale="0" nullable="false" jdbcType="12"/>
+      <column name="shortDesc" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="smallimage" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="smallimage1" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image1" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image2" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image3" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image4" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FeedBack_mark" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="KeyWord" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MetaDesc" sqlType="VARCHAR" precision="160" scale="0" nullable="true" jdbcType="12"/>
+      <column name="metaTitle" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK7mwlviymhj4bl4mvr24ixj8dh" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Products_ibfk_1" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKbauvbo6i4qv95ydof82nycxjp" table="Feedbacks" schema="" catalog="beautydbRus" columns="product_id"/>
+      <exported-key name="Feedbacks_ibfk_1" table="Feedbacks" schema="" catalog="beautydbRus" columns="product_id"/>
+      <exported-key name="FKaw743mwi36y0hlrir9bo6wdmn" table="Products_In_Cart" schema="" catalog="beautydbRus" columns="product_id"/>
+      <exported-key name="Products_In_Cart_ibfk_2" table="Products_In_Cart" schema="" catalog="beautydbRus" columns="product_id"/>
+      <index name="FK7mwlviymhj4bl4mvr24ixj8dh" unique="false" columns="category_id"/>
+    </table>
+    <table name="Products_In_Cart" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="product_In_Cart_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="product_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Pname" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="currency" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="smallimage" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="product_In_Cart_id"/>
+      <foreign-key name="FKaw743mwi36y0hlrir9bo6wdmn" columns="product_id" ref-table="Products" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKb9yafa2n1o2edh60kk9x6kolu" columns="order_id" ref-table="Orders" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Products_In_Cart_ibfk_1" columns="order_id" ref-table="Orders" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Products_In_Cart_ibfk_2" columns="product_id" ref-table="Products" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKaw743mwi36y0hlrir9bo6wdmn" unique="false" columns="product_id"/>
+      <index name="FKb9yafa2n1o2edh60kk9x6kolu" unique="false" columns="order_id"/>
+    </table>
+    <table name="hibernate_sequence" schema="" catalog="beautydbRus" type="TABLE">
+      <column name="next_val" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+  </data-source>
+</component>
