@@ -102,7 +102,7 @@ public class CategoryController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-        modelAndView.setViewName("contacts");
+        modelAndView.setViewName("contact");
         return modelAndView;
     }
 

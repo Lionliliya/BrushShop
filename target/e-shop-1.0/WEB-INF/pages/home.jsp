@@ -132,7 +132,7 @@
                         <a href="/">Главная</a>
                     </li>
                     <li class="yamm-fw">
-                        <a href="/home">Советы и новости</a>
+                        <a href="/news">Советы и новости</a>
                     </li>
                     <li class="dropdown yamm-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
