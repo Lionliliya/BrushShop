@@ -59,7 +59,7 @@ public class CategoryController {
         HttpSession session = request.getSession();
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("category", categoryDAO.getCategoryById(id));
+        modelAndView.addObject("currentCategory", categoryDAO.getCategoryById(id));
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         if (productDAO.getProductsByCategoryId(id).size() == 0) {

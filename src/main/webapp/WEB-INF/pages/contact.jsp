@@ -54,7 +54,7 @@
                 <ul class="menu">
                     <li><a href="#" data-toggle="modal" data-target="#login-modal">Войти</a>
                     </li>
-                    <li><a href="register.html">Регистрация</a>
+                    <li><a href="#">Регистрация</a>
                     </li>
                     <li><a href="/contacts">Контакты</a>
                     </li>
@@ -107,7 +107,7 @@
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="home.jsp" data-animate-hover="bounce">
+                <a class="navbar-brand home" href="/" data-animate-hover="bounce">
                     <img src="/resources/img/logo.png" alt="Obaju logo" class="hidden-xs">
                     <img src="/resources/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">BeautyTree - go to homepage</span>
                 </a>
@@ -179,7 +179,7 @@
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">${cartSize} ед. в корзине</span></a>
+                    <a href="/cart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">${cartSize} ед. в корзине</span></a>
                 </div>
                 <!--/.nav-collapse -->
 
