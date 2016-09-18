@@ -131,7 +131,7 @@
                         <a href="/news">Советы и новости</a>
                     </li>
                     <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
+                        <a href="/catalog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="yamm-content">
@@ -156,6 +156,12 @@
                                                 </li>
                                                 <li><a href="#">MSQ Professional</a>
                                                 </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Другое</h5>
+                                            <ul>
+                                                <li><a href="/catalog">Все товары</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -190,7 +196,7 @@
 
                 <form class="navbar-form" role="search" method="post" action="/search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Поиск">
+                        <input type="text" class="form-control" name="pattern" placeholder="Поиск">
                         <span class="input-group-btn">
 
 			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
@@ -275,6 +281,80 @@
                             </div>
                             <!-- /.table-responsive -->
 
+
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Имя</label>
+                                            <input type="text" name="firstName" class="form-control" id="firstname">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Фамилия</label>
+                                            <input type="text" name="secondName" class="form-control" id="lastname">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="phone">Телефон</label>
+                                            <input type="text" name="phoneNumber" class="form-control" id="phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control" id="email">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>Самовывоз</h4>
+
+                                            <p>Заберите свой товар у нас на Левом берегу</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="Самовывоз">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box shipping-method">
+
+                                            <h4>Новая почта</h4>
+
+                                            <p>Доставка на удобный для вам склад Новой почты</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="delivery" value="Новая почта">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <textarea rows="5" class="form-control" name="comments" placeholder="Напишите склад Новой почты, город или твои коментарии и пожеланя"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <!-- /.row -->
+                            </div>
+
                             <div class="box-footer">
                                 <div class="pull-left">
                                     <a href="/catalog"  onclick="history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i> Продолжить покупки</a>
@@ -307,7 +387,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Сумма заказа</td>
-                                        <th>${totalAmount}</th>
+                                        <th>${totalAmount} грн</th>
                                     </tr>
                                 </tbody>
                             </table>

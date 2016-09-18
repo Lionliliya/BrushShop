@@ -118,6 +118,11 @@ public class ProductDAOImpl implements ProductDAO {
     public List<Product> search(String pattern){
         Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.name LIKE :pattern", Product.class);
         query.setParameter("pattern", "%" + pattern + "%");
-        return (List<Product>)query.getResultList();
+        try {
+            List<Product> resultList = (List<Product>) query.getResultList();
+            return resultList;
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }

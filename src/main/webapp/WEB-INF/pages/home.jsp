@@ -135,7 +135,7 @@
                         <a href="/news">Советы и новости</a>
                     </li>
                     <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
+                        <a href="/catalog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="yamm-content">
@@ -160,6 +160,12 @@
                                                 </li>
                                                 <li><a href="#">MSQ Professional</a>
                                                 </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Другое</h5>
+                                            <ul>
+                                                <li><a href="/catalog">Все товары</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -194,7 +200,7 @@
 
                 <form class="navbar-form" role="search" method="post" action="/search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Поиск">
+                        <input type="text" class="form-control" name="pattern" placeholder="Поиск">
                         <span class="input-group-btn">
 
 			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>

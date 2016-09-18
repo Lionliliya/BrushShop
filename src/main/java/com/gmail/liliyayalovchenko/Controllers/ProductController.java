@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -119,7 +120,12 @@ public class ProductController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("products", productDAO.search(pattern));
+        List<Product> productList = productDAO.search(pattern);
+        if (productList == null) {
+            modelAndView.addObject("size", 0);
+        } else {
+            modelAndView.addObject("products", productList);
+        }
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("search");
         return modelAndView;

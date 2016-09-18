@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,8 +60,17 @@ public class OrderController {
         }
         orderDAO.saveOrder(order);
         productInCartDAO.saveProductInCart(ProductsCart);
-
-        modelAndView.addObject("orderId", order.getId());
+        Notification notification = new Notification();
+        System.out.println("TRY TO SEND EMAIL");
+        System.out.println("TRY TO SEND EMAIL");
+        System.out.println("TRY TO SEND EMAIL");
+        System.out.println("TRY TO SEND EMAIL");
+        notification.sendHttpEmail("liliyayalovchenko@gmail.com", "liliya_efimenko@mail.ru",
+                "localhost", "Твой заказ № " + order.getId() + " принят в обработку", order);
+        modelAndView.addObject("order", order);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String date = sdf.format(order.getDate());
+        modelAndView.addObject("date", date);
         modelAndView.addObject("delivery", order.getDelivery());
         modelAndView.addObject("totalAmount", totalAmount(session));
         session.removeAttribute("ProductsInCart");
