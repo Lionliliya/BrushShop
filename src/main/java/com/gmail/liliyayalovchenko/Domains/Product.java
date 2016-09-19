@@ -262,5 +262,6 @@ public class Product implements Serializable {
 
     public void addFeedBack(FeedBack feedBack) {
         this.feedBackList.add(feedBack);
+        feedBack.setProduct(this);
     }
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 
@@ -320,7 +321,11 @@
                         <div class="col-sm-6">
                             <div class="box">
                                 <h1 class="text-center">${product.name}</h1>
-                                <p class="goToDescription"><a href="#details" class="scroll-to">Перейти к детальному описанию товара</a>
+                                <p class="goToDescription"><a href="#details" class="scroll-to">
+                                    Перейти к детальному описанию товара</a>
+                                </p>
+                                <p class="goToDescription"><a href="#reviews" class="scroll-to">
+                                    Перейти к отзывам</a>
                                 </p>
                                 <p class="price">${product.price} грн</p>
                                 <form action="/cart" method="post">
@@ -376,8 +381,80 @@
                             </div>
                     </div>
 
+                    <div class="box" id="reviews">
+                        <h4>Отзывы</h4>
+                        <hr>
+                        <c:forEach items="${product.feedBackList}" var="feedBack">
+                            <div class="social">
+                                <h4>${feedBack.client.firstName}</h4>
+                                <p class="date-comments">
+                                    <c:set var="date" value="${feedBack.date}" />
+                                    <a href="#"><i class="fa fa-calendar-o"></i>
+                                        <fmt:formatDate type="both" dateStyle="short" timeStyle="short"
+                                        value="${date}" />
+                                    </a>
+                                </p>
+                                <p>${feedBack.feedback}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
 
-                    </div><!-- /.col-md-9 -->
+                    <div class="box" id="leaveReview">
+
+                        <h2>Оставить отзыв</h2>
+
+                        <form action="/product/${product.id}" method="post">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Ваше имя</label>
+                                        <input class="form-control" id="firstname" name="firstName" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Ваша электронная почта</label>
+                                        <input class="form-control" id="email" name="email" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <p>Выберите оценку</p>
+                                    <div class="row">
+                                        <div class="col-sm-2 col-sm-offset-1">
+                                            <input type="radio" name="evaluation" id="optionsRadios1" value="1"> 1
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="radio" name="evaluation" id="optionsRadios2" value="2"> 2
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="radio" name="evaluation" id="optionsRadios3" value="3"> 3
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="radio" name="evaluation" id="optionsRadios4" value="4"> 4
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="radio" name="evaluation" id="optionsRadios5" value="5" checked> 5
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="message">Напшите отзыв</label>
+                                        <textarea id="message" class="form-control" name="feedback"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Отправить отзыв</button>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </form>
+
+                    </div>
+                </div><!-- /.col-md-9 -->
                 </div>
             <!-- /.container -->
         </div>
