@@ -11,9 +11,11 @@ public interface ClientDAO {
 
     Client getClient(int id);
 
-    Client findClientByNameAndEmail(String FirstName, String Email);
+    Client findClientByPhone(String phone, String email);
 
     void saveClient(Client client, int id);
 
     void addClient(Client client);
+
+    Client findClientByEmail(String email);
 }

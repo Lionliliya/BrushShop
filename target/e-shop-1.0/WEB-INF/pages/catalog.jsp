@@ -295,50 +295,6 @@ _________________________________________________________ -->
           </div>
         </div>
 
-        <%--<div class="panel panel-default sidebar-menu">--%>
-
-        <%--<div class="panel-heading">--%>
-        <%--<h3 class="panel-title">Colours <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> Clear</a></h3>--%>
-        <%--</div>--%>
-
-        <%--<div class="panel-body">--%>
-
-        <%--<form>--%>
-        <%--<div class="form-group">--%>
-        <%--<div class="checkbox">--%>
-        <%--<label>--%>
-        <%--<input type="checkbox"> <span class="colour white"></span> White (14)--%>
-        <%--</label>--%>
-        <%--</div>--%>
-        <%--<div class="checkbox">--%>
-        <%--<label>--%>
-        <%--<input type="checkbox"> <span class="colour blue"></span> Blue (10)--%>
-        <%--</label>--%>
-        <%--</div>--%>
-        <%--<div class="checkbox">--%>
-        <%--<label>--%>
-        <%--<input type="checkbox"> <span class="colour green"></span> Green (20)--%>
-        <%--</label>--%>
-        <%--</div>--%>
-        <%--<div class="checkbox">--%>
-        <%--<label>--%>
-        <%--<input type="checkbox"> <span class="colour yellow"></span> Yellow (13)--%>
-        <%--</label>--%>
-        <%--</div>--%>
-        <%--<div class="checkbox">--%>
-        <%--<label>--%>
-        <%--<input type="checkbox"> <span class="colour red"></span> Red (10)--%>
-        <%--</label>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-
-        <%--<button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>--%>
-
-        <%--</form>--%>
-
-        <%--</div>--%>
-        <%--</div>--%>
-
         <!-- *** MENUS AND FILTERS END *** -->
 
         <div class="banner">
@@ -352,29 +308,26 @@ _________________________________________________________ -->
 
         <div class="box info-bar">
           <div class="row">
-            <%--<div class="col-sm-12 col-md-4 products-showing">--%>
-            <%--Showing <strong>12</strong> of <strong>25</strong> products--%>
-            <%--</div>--%>
 
             <div class="col-sm-12 col-md-8  products-number-sort">
               <div class="row">
-                <form class="form-inline">
-                  <%--<div class="col-md-6 col-sm-6">--%>
-                  <%--<div class="products-number">--%>
-                  <%--<strong>Show</strong>  <a href="#" class="btn btn-default btn-sm btn-primary">12</a>  <a href="#" class="btn btn-default btn-sm">24</a>  <a href="#" class="btn btn-default btn-sm">All</a> products--%>
-                  <%--</div>--%>
-                  <%--</div>--%>
-                  <div class="col-md-6 col-sm-6">
-                    <div class="products-sort-by">
-                      <strong>Сортировать по</strong>
-                      <select name="sort-by" class="form-control">
-                        <option>Цена по возрастанию</option>
-                        <option>Цена по убывынию</option>
 
-                      </select>
+                <div class="col-sm-12">
+                  <div class="products-sort-by">
+                    <div class="row">
+                      <div class="col-xs-4"><strong>Сортировать по</strong></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <a href="/catalog/priceUp"><i class="fa fa-arrow-up"></i> Цена вверх</a>
+                      </div>
+                      <div class="col-xs-3">
+                        <a href="/catalog/priceDown"><i class="fa fa-arrow-down"></i> Цена вниз</a>
+                      </div>
                     </div>
                   </div>
-                </form>
+                </div>
+
               </div>
             </div>
           </div>
@@ -401,7 +354,7 @@ _________________________________________________________ -->
                           </div>
                           <div class="back">
                             <a href="/product/${product.id}">
-                              <img src="/resources/${product.smallimage1}" alt="${product.name} Киев" class="img-responsive">
+                              <img src="/resources/${product.image2}" alt="${product.name} Киев" class="img-responsive">
                             </a>
                           </div>
                         </div>
@@ -411,6 +364,8 @@ _________________________________________________________ -->
                       </a>
                       <div class="text">
                         <h3><a href="/product/${product.id}">${product.name}</a></h3>
+                        <c:set value="${product.getRating()}" var="rate"/>
+                        <p class="text-center">${product.getStarRate(rate)}</p>
                         <p class="price">${product.price} грн</p>
                         <p class="buttons">
                           <a href="/product/${product.id}" class="btn btn-default">Подробнее</a>

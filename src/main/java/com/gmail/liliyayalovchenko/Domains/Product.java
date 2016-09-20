@@ -50,9 +50,6 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<FeedBack> feedBackList;
 
-    @Column(name="FeedBack_mark", precision=2, scale = 2)
-    private double clientsMark = getValue(feedBackList);
-
     @Column(name="KeyWord")
     private String metaKeyWords;
 
@@ -87,8 +84,8 @@ public class Product implements Serializable {
     }
 
 
-    public double getValue (List<FeedBack> feedBackList) {
-        if (feedBackList==null) {
+    public double getRating() {
+        if (feedBackList.size() == 0) {
             return 0;
         } else {
             double mark = 0;
@@ -97,6 +94,57 @@ public class Product implements Serializable {
             }
             mark /= feedBackList.size();
             return mark;
+        }
+    }
+
+    public String getStarRate(double mark) {
+        if (mark == 5) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>";
+        } else if (mark > 4 && mark < 5) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-half\" aria-hidden=\"true\"></i>";
+        } else if (mark == 4) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else if (mark > 3 && mark < 4) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-half\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else if (mark == 3) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+
+        } else if (mark > 2 && mark < 3) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-half\" aria-hidden=\"true\"></i>";
+        } else if (mark == 2) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else {
+            return "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
         }
     }
 
@@ -226,14 +274,6 @@ public class Product implements Serializable {
 
     public void setFeedBackList(List<FeedBack> feedBackList) {
         this.feedBackList = feedBackList;
-    }
-
-    public double getClientsMark() {
-        return clientsMark;
-    }
-
-    public void setClientsMark(double mark) {
-        this.clientsMark = mark;
     }
 
     public String getMetaKeyWords() {

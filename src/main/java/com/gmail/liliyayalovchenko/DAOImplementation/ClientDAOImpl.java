@@ -27,11 +27,19 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public Client findClientByNameAndEmail(String firstName, String email) {
-        Query query = entityManager.createQuery("SELECT a FROM Client a WHERE a.firstName =:var1 AND a.email =:var2",
+    public Client findClientByPhone(String phone, String email) {
+        Query query = entityManager.createQuery("SELECT a FROM Client a WHERE  a.phoneNumber =:var2 and a.email =:var1",
                 Client.class);
-        query.setParameter("var1", firstName);
-        query.setParameter("var2", email);
+        query.setParameter("var2", phone);
+        query.setParameter("var1", email);
+        return (Client) query.getResultList().get(0);
+    }
+
+    @Override
+    public Client findClientByEmail(String email) {
+        Query query = entityManager.createQuery("SELECT a FROM Client a WHERE  a.email =:var1",
+                Client.class);
+        query.setParameter("var1", email);
         return (Client) query.getResultList().get(0);
     }
 

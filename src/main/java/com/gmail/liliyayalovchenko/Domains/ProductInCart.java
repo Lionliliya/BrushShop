@@ -30,19 +30,23 @@ public class ProductInCart implements Serializable{
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    @Column(nullable = false)
+    private int quantity;
+
     private String smallimage;
 
 
     public ProductInCart() {}
 
     public ProductInCart(Product product_id, String category, String smallimage, String name,  int price,
-                          String currency) {
+                          String currency, int quantity) {
         this.product_id = product_id;
         this.category = category;
         this.smallimage = smallimage;
         this.name = name;
         this.price = price;
         this.currency = currency;
+        this.quantity = quantity;
     }
 
     public int getProduct_In_Cart_id() {
@@ -115,5 +119,13 @@ public class ProductInCart implements Serializable{
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

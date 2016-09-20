@@ -258,8 +258,8 @@
                     <div class="box">
                         <h1>Заказ #${order.id}</h1>
 
-                        <p class="lead">Заказ #${order.id} оформлен <strong>${date}</strong> и сейчас <strong>обрабатывается.</strong>.</p>
-                        <p class="text-muted">Если у тебя есть любые вопросы, <a href="/contact">свяжись с нами</a>, мы будем рады тебе помоч.</p>
+                        <p class="lead">${client.firstName}, твой заказ #10${order.id} оформлен <strong>${date}</strong> и сейчас <strong>обрабатывается.</strong>.</p>
+                        <p class="text-muted">Если у тебя есть любые вопросы, <a href="/contact">свяжись с нами</a>, мы будем рады тебе помочь.</p>
 
                         <hr>
 
@@ -269,8 +269,8 @@
                                     <tr>
                                         <th colspan="2">Товар</th>
                                         <th>Количество</th>
-                                        <th>Цена за единицу</th>
-
+                                        <th>Цена</th>
+                                        <th>Скидка</th>
                                         <th>Всего</th>
                                     </tr>
                                 </thead>
@@ -283,9 +283,10 @@
                                             </a>
                                         </td>
                                         <td><a href="/product/${product.product_id.id}">${product.name}</a>
-                                        <td></td>
-                                        <td>${product.price} грн</td>
-                                        <td></td>
+                                        <td>${product.quantity}</td>
+                                        <td>₴${product.price}</td>
+                                        <td>₴0.00</td>
+                                        <td>₴${product.price * product.quantity}</td>
 
                                     </tr>
                                 </c:forEach>
@@ -294,7 +295,7 @@
                                 <tfoot>
                                     <tr>
                                         <th colspan="5" class="text-right">Итог</th>
-                                        <th>${totalAmount}</th>
+                                        <th>₴${totalAmount}</th>
                                     </tr>
                                     <tr>
                                         <th colspan="5" class="text-right">Доставка</th>

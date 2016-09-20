@@ -232,7 +232,7 @@
 
                     <div class="box">
 
-                        <form method="post" action="/ordering">
+                        <form method="post" action="/updateCart">
 
                             <h1>Корзина</h1>
                             <p class="text-muted">Сейчас у вас ${cartSize} товара в корзине.</p>
@@ -243,12 +243,13 @@
                                         <tr>
                                             <th colspan="2">Товар</th>
                                             <th>Кол-во</th>
-                                            <th>Цена за ед.</th>
+                                            <th>Цена</th>
                                             <th>Удалить</th>
                                             <th colspan="2">Всего</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         <c:forEach items="${ProductsInCart}" var="product">
                                             <tr>
                                                 <td>
@@ -259,13 +260,11 @@
                                                 <td><a href="/product/${product.product_id.id}">${product.name}</a>
                                                 </td>
                                                 <td>
-                                                    <input type="number" name="quantity" value="1" class="form-control">
+                                                    <input type="number" name="quantity" value="${product.quantity}" class="form-control">
                                                 </td>
-                                                <td>${product.price}<input type="hidden" name="price" value="${product.price}"/></td>
+                                                <td>₴${product.price}</td>
                                                 <td><a href="/deleteFromCart"><i class="fa fa-trash-o"></i></a>
-                                                <td></td>
-
-                                                </td>
+                                                <td>₴${product.price * product.quantity}</td>
                                             </tr>
                                         </c:forEach>
 
@@ -273,27 +272,38 @@
                                     <tfoot>
                                         <tr>
                                             <th colspan="5">Всего</th>
-                                            <th colspan="2">${totalAmount} грн</th>
+                                            <th colspan="3">₴${totalValue}</th>
                                         </tr>
                                     </tfoot>
                                 </table>
 
                             </div>
                             <!-- /.table-responsive -->
+                            <div class="box-footer">
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-refresh"></i> Обновить корзну</button>
+                                </div>
 
+                                <div class="pull-left">
+                                    <a href="/catalog"  onclick="history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i> Продолжить покупки</a>
+                                </div>
 
-                            <div class="content">
+                            </div>
+                        </form>
+                        <hr>
+                        <form action="/ordering" method="POST">
+                        <div class="content">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="firstname">Имя</label>
-                                            <input type="text" name="firstName" class="form-control" id="firstname">
+                                            <input type="text" name="firstName" maxlength="25" class="form-control" id="firstname" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="lastname">Фамилия</label>
-                                            <input type="text" name="secondName" class="form-control" id="lastname">
+                                            <input type="text" name="secondName" maxlength="25" class="form-control" id="lastname" pattern="[A-Za-z ]+">
                                         </div>
                                     </div>
                                 </div>
@@ -303,14 +313,15 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="phone">Телефон</label>
-                                            <input type="text" name="phoneNumber" class="form-control" id="phone">
+                                            <label for="phone">Введите телефон в формате 38-0xx-xxx-xx-xx, где вместо x
+                                                должна быть цифра</label>
+                                            <input type="text" name="phoneNumber" maxlength="25" class="form-control" id="phone" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control" id="email">
+                                            <input type="email" name="email" maxlength="40" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                         </div>
                                     </div>
 
@@ -347,7 +358,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <textarea rows="5" class="form-control" name="comments" placeholder="Напишите склад Новой почты, город или твои коментарии и пожеланя"></textarea>
+                                        <textarea rows="5" class="form-control" name="comments" maxlength="400" placeholder="Напиши склад Новой почты, город или твои коментарии и пожеланя"></textarea>
                                     </div>
                                 </div>
 
@@ -360,7 +371,6 @@
                                     <a href="/catalog"  onclick="history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i> Продолжить покупки</a>
                                 </div>
                                 <div class="pull-right">
-                                    <%--<button class="btn btn-default"><i class="fa fa-refresh"></i>Update basket</button>--%>
                                     <button type="submit" class="btn btn-primary">
                                         Оформить заказ <i class="fa fa-chevron-right"></i>
                                     </button>
@@ -380,14 +390,12 @@
                         <div class="box-header">
                             <h3>Итоги заказа</h3>
                         </div>
-                        <p class="text-muted">Общая цена</p>
-
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
                                     <tr>
                                         <td>Сумма заказа</td>
-                                        <th>${totalAmount} грн</th>
+                                        <th>₴${totalValue}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -539,8 +547,6 @@
     <script src="/resources/js/bootstrap-hover-dropdown.js"></script>
     <script src="/resources/js/owl.carousel.min.js"></script>
     <script src="/resources/js/front.js"></script>
-
-
 
 </body>
 

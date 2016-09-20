@@ -30,4 +30,13 @@ public class ProductInCartDAOImpl implements ProductInCartDAO {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public ProductInCart getById(int id) {
+       return (ProductInCart) entityManager
+               .createQuery("select p from ProductInCart p where p.product_In_Cart_id = :var")
+               .setParameter("var", id)
+               .getResultList()
+               .get(0);
+    }
 }

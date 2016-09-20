@@ -22,6 +22,17 @@ public class ProductDAOImpl implements ProductDAO {
         return (List<Product>)query.getResultList();
     }
 
+    @Override
+    public List<Product> getAllPriceDown() {
+        Query query = entityManager.createQuery("SELECT a FROM Product a order by a.price desc ", Product.class);
+        return (List<Product>)query.getResultList();
+    }
+
+    @Override
+    public List<Product> getAllPriceUp() {
+        Query query = entityManager.createQuery("SELECT a FROM Product a order by a.price asc ", Product.class);
+        return (List<Product>)query.getResultList();
+    }
 
     @Override
     public List<Product> getProductsByCategory(String CategoryName) {
@@ -61,6 +72,20 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<Product> getProductsByCategoryId(int id) {
         Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.productCategory.id =:var", Product.class);
+        query.setParameter("var", id);
+        return (List<Product>)query.getResultList();
+    }
+
+    @Override
+    public List<Product> getProductsByCategoryPriceDown(int id) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.productCategory.id =:var order by p.price desc ", Product.class);
+        query.setParameter("var", id);
+        return (List<Product>)query.getResultList();
+    }
+
+    @Override
+    public List<Product> getProductsByCategoryPriceUp(int id) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.productCategory.id =:var order by p.price asc", Product.class);
         query.setParameter("var", id);
         return (List<Product>)query.getResultList();
     }
@@ -125,4 +150,5 @@ public class ProductDAOImpl implements ProductDAO {
             return null;
         }
     }
+
 }

@@ -50,6 +50,30 @@ public class ProductController {
         return modelAndView;
     }
 
+    @RequestMapping("/catalog/priceDown")
+    public ModelAndView priceDown(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("products", productDAO.getAllPriceDown());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("catalog");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/priceUp")
+    public ModelAndView priceUp(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("products", productDAO.getAllPriceUp());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("catalog");
+        return modelAndView;
+    }
+
 
     @RequestMapping(value = "/cart", method = RequestMethod.POST)
     //на странице товара при нажатии кнопки добавить в корзину
@@ -63,7 +87,7 @@ public class ProductController {
         HttpSession session = request.getSession();
         checkSession(session);
         Product product = productDAO.getProductById(id);
-        ProductInCart productInCart = new ProductInCart(product, category, smallimage, name, price, currency);
+        ProductInCart productInCart = new ProductInCart(product, category, smallimage, name, price, currency, 1);
 
         ArrayList<ProductInCart> productsInCart = (ArrayList<ProductInCart>) session.getAttribute("ProductsInCart");
         productsInCart.add(productInCart);
@@ -72,7 +96,7 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
-        modelAndView.addObject("totalAmount", totalAmount(session));
+        modelAndView.addObject("totalValue", totalAmount(session));
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("cart");
         return modelAndView;
@@ -100,17 +124,24 @@ public class ProductController {
                                 HttpServletRequest request) {
         HttpSession session = request.getSession();
         checkSession(session);
-        Product product = productDAO.getProductById(id);
-        /**Поиск клиента по эмейилу только!!!**/
-        Client client = clientDAO.findClientByNameAndEmail(firstName, email);
-        FeedBack feedBack = new FeedBack(product, new Date(), client, evaluation, feedback);
-        feedBackDAO.saveFeedBack(feedBack);
-        productDAO.addFeedbackToProduct(feedBack, id);
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("product");
+        Product product = productDAO.getProductById(id);
+        Client client;
+        try {
+            client = clientDAO.findClientByEmail(email);
+            FeedBack feedBack = new FeedBack(product, new Date(), client, evaluation, feedback);
+            feedBackDAO.saveFeedBack(feedBack);
+            productDAO.addFeedbackToProduct(feedBack, id);
+        } catch (IndexOutOfBoundsException ex) {
+            modelAndView.addObject("message", "Ой-ой...Отзывы могуть оставлять только клиенты. " +
+                    "К сожалению, Вы не сделали ни одного заказа у нас.");
+        }
+
+
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("product", productDAO.getProductById(id));
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-        modelAndView.setViewName("product");
         return modelAndView;
     }
 

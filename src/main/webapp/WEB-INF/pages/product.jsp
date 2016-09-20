@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
@@ -35,6 +36,13 @@
     <script src="/resources/js/respond.min.js"></script>
 
     <link rel="shortcut icon" href="/resources/favicon.png">
+
+    <script type="text/javascript">
+        function AlertIt() {
+            confirm("Ой-ой...Отзывы могуть оставлять только клиенты. " +
+            "К сожалению, Вы не сделали ни одного заказа у нас.");
+        }
+    </script>
 </head>
 
 <body>
@@ -225,13 +233,18 @@
                         <li><a href="/">Главная</a>
                         </li>
 
-                        <li><a href="/category/${product.productCategory.name}">${product.productCategory.name}</a>
+                        <li><a href="/catalog/${product.productCategory.id}">${product.productCategory.name}</a>
                         </li>
                         <li>${product.name}</li>
                     </ul>
 
                 </div>
-
+                <c:set var="message" value="${message}"/>
+                <c:if test="${message ne null}">
+                    <script type="text/javascript">
+                        AlertIt();
+                    </script>
+                </c:if>
                 <div class="col-md-3">
 
                     <div class="panel panel-default sidebar-menu">
@@ -264,7 +277,7 @@
                     <div class="panel panel-default sidebar-menu">
 
                         <div class="panel-heading">
-                            <h3 class="panel-title">Бренды <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> Clear</a></h3>
+                            <h3 class="panel-title">Бренды </h3>
                         </div>
 
                         <div class="panel-body">
@@ -321,6 +334,8 @@
                         <div class="col-sm-6">
                             <div class="box">
                                 <h1 class="text-center">${product.name}</h1>
+                                <c:set value="${product.getRating()}" var="rate"/>
+                                <p class="text-center">${product.getStarRate(rate)}</p>
                                 <p class="goToDescription"><a href="#details" class="scroll-to">
                                     Перейти к детальному описанию товара</a>
                                 </p>
@@ -381,6 +396,7 @@
                             </div>
                     </div>
 
+                    <c:if test="${fn:length(product.feedBackList) gt 0}">
                     <div class="box" id="reviews">
                         <h4>Отзывы</h4>
                         <hr>
@@ -390,14 +406,16 @@
                                 <p class="date-comments">
                                     <c:set var="date" value="${feedBack.date}" />
                                     <a href="#"><i class="fa fa-calendar-o"></i>
-                                        <fmt:formatDate type="both" dateStyle="short" timeStyle="short"
+                                        <fmt:formatDate type="date" dateStyle="short" timeStyle="short"
                                         value="${date}" />
                                     </a>
                                 </p>
+                                <p>${feedBack.getStarRate()}</p>
                                 <p>${feedBack.feedback}</p>
                             </div>
                         </c:forEach>
                     </div>
+                    </c:if>
 
                     <div class="box" id="leaveReview">
 
@@ -421,6 +439,7 @@
                                 <div class="col-sm-12">
                                     <p>Выберите оценку</p>
                                     <div class="row">
+
                                         <div class="col-sm-2 col-sm-offset-1">
                                             <input type="radio" name="evaluation" id="optionsRadios1" value="1"> 1
                                         </div>

@@ -33,6 +33,40 @@ public class FeedBack implements Serializable {
         this.feedback = feedback;
     }
 
+    public String getStarRate() {
+        if (this.evaluation == 5) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>";
+        } else if (this.evaluation == 4) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else if (this.evaluation == 3) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else if (this.evaluation == 2) {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        } else {
+            return "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>" +
+                    "<i class=\"fa fa-star-empty\" aria-hidden=\"true\"></i>";
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -80,4 +114,6 @@ public class FeedBack implements Serializable {
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
+
+
 }

@@ -10,4 +10,6 @@ public interface ProductInCartDAO {
     List<ProductInCart> getProductsInCart();
 
     void saveProductInCart(List<ProductInCart> ProductsCart);
+
+    ProductInCart getById(int id);
 }

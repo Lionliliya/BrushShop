@@ -26,4 +26,12 @@ public interface ProductDAO {
     void addFeedbackToProduct(FeedBack feedBack, int productId);
 
     List<Product> search(String pattern);
+
+    List<Product> getProductsByCategoryPriceDown(int id);
+
+    List<Product> getProductsByCategoryPriceUp(int id);
+
+    List<Product> getAllPriceDown();
+
+    List<Product> getAllPriceUp();
 }
