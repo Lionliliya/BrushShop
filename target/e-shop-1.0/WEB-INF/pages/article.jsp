@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -231,7 +232,8 @@
                         </li>
                         <li><a href="/news">Блог</a>
                         </li>
-                        <li>Запись в блоге ${article.dateOfPublication}</li>
+                        <c:set var="date" value="${article.dateOfPublication}" />
+                        <li>Запись в блоге  <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" /></li>
                     </ul>
                 </div>
 
@@ -241,7 +243,10 @@
                     <div class="box">
 
                         <h1>${article.title}</h1>
-                        <p class="author-date">${article.dateOfPublication}</p>
+
+                        <p class="author-date">
+                            <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
+                        </p>
                         <p class="lead">${article.shortDescription}</p>
 
                         <div id="post-content">

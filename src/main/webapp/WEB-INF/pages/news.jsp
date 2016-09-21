@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -261,7 +262,10 @@
 
                             <hr>
                             <p class="date-comments">
-                                <a href="/news/${article.id}"><i class="fa fa-calendar-o"></i> ${article.dateOfPublication}</a>
+                                <c:set var="date" value="${article.dateOfPublication}" />
+                                <a href="/news/${article.id}"><i class="fa fa-calendar-o"></i>
+                                    <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
+                                </a>
                                 <%--<a href="post.html"><i class="fa fa-comment-o"></i> 8 Comments</a>--%>
                             </p>
                             <div class="image">

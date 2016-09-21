@@ -4,6 +4,7 @@ import com.gmail.liliyayalovchenko.DAO.*;
 import com.gmail.liliyayalovchenko.Domains.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -142,14 +143,13 @@ public class AdminController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ModelAndView adminAccess (@RequestParam(value = "username") String username,
                                      @RequestParam(value = "password") String password,
+                                     ModelMap model,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
         if((username.equals(administratorDAO.getAdminUsername("admin")))&&(password.equals(administratorDAO.getAdminPassword("admin")))) {
             session.setAttribute("status", "admin");
-            modelAndView.setViewName("adminIndex");
-            modelAndView.addObject("orders", orderDAO.getOrders());
-            return modelAndView;
+            return new ModelAndView("redirect:/admin/", model);
         } else {
             modelAndView.setViewName("adminLogin");
             modelAndView.addObject("notification", "Неверный логин или пароль");
@@ -482,48 +482,61 @@ public class AdminController {
         }
         return modelAndView;
     }
-    @RequestMapping(value = "/orders/edit", method = RequestMethod.GET)
-    public ModelAndView editOrder (@RequestParam(value="id") int id, HttpServletRequest request) {
+    @RequestMapping(value = "/order/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editOrder (@PathVariable int id,
+                                   HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
             modelAndView.addObject("order", orderDAO.getOrder(id));
-            modelAndView.setViewName("editOrder");
+            modelAndView.setViewName("adminOrderEdit");
         } else {
             modelAndView.setViewName("adminLogin");
           }
         return modelAndView;
     }
 
-    @RequestMapping(value = "/orders/delete", method = RequestMethod.GET)
-    public ModelAndView deleteOrder (@RequestParam(value="id") int id, HttpServletRequest request) {
+    @RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
+    public ModelAndView viewOrder (@PathVariable int id,
+                                   HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
-            orderDAO.deleteOrder(id);
-            modelAndView.addObject("orders", orderDAO.getOrders());
-            modelAndView.setViewName("adminIndex");
+            modelAndView.addObject("order", orderDAO.getOrder(id));
+            modelAndView.setViewName("adminOrder");
         } else {
             modelAndView.setViewName("adminLogin");
         }
         return modelAndView;
     }
 
+    @RequestMapping(value = "/order/remove/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteOrder (@PathVariable int id,
+                                     ModelMap model,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            orderDAO.deleteOrder(id);
+            return new ModelAndView("redirect:/admin/", model);
+        } else {
+            return new ModelAndView("adminLogin", model);
+        }
+    }
+
     @RequestMapping(value = "/orders/save", method = RequestMethod.POST)
     public ModelAndView saveOrder (@RequestParam(value="id") int id,
                                    @RequestParam(value="delivery") String delivery,
                                    @RequestParam(value="comments") String comments,
+                                   ModelMap model,
                                    HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
             orderDAO.saveOrder(id, delivery, comments);
-            modelAndView.addObject("orders", orderDAO.getOrders());
-            modelAndView.setViewName("adminIndex");
+            return new ModelAndView("redirect:/admin/", model);
         } else {
-            modelAndView.setViewName("adminLogin");
+            return new ModelAndView("adminLogin", model);
         }
-        return modelAndView;
     }
     @RequestMapping("/clients")
     public ModelAndView clientsPage (HttpServletRequest request) {
