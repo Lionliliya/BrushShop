@@ -16,6 +16,8 @@ public class ProductDAOImpl implements ProductDAO {
     @Autowired
     private EntityManager entityManager;
 
+
+
     @Override
     public List<Product> getAllProducts() {
         Query query = entityManager.createQuery("SELECT a FROM Product a", Product.class);

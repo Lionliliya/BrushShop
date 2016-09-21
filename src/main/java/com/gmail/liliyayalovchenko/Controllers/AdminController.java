@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -29,6 +31,9 @@ public class AdminController {
 
     @Autowired
     private ProductDAO productDAO;
+
+    @Autowired
+    private ProductInCartDAO productInCartDAO;
 
     @Autowired
     private CategoryDAO categoryDAO;
@@ -488,7 +493,9 @@ public class AdminController {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
-            modelAndView.addObject("order", orderDAO.getOrder(id));
+            Order order = orderDAO.getOrder(id);
+            modelAndView.addObject("order", order);
+            session.setAttribute("productList", order.getProductsInCart());
             modelAndView.setViewName("adminOrderEdit");
         } else {
             modelAndView.setViewName("adminLogin");
@@ -524,15 +531,54 @@ public class AdminController {
         }
     }
 
-    @RequestMapping(value = "/orders/save", method = RequestMethod.POST)
-    public ModelAndView saveOrder (@RequestParam(value="id") int id,
+    @RequestMapping(value = "/order/removeProduct/{id}", method = RequestMethod.POST)
+    public ModelAndView deleteFromOrder(@PathVariable int id,
+                                        HttpServletRequest request,
+                                        ModelMap model) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            String productToDelete = request.getParameter("delete");
+            Integer idProduct = Integer.valueOf(productToDelete);
+            ProductInCart product = productInCartDAO.getById(idProduct);
+
+            List<ProductInCart> productInCarts = (List<ProductInCart>) session.getAttribute("productList");
+            List<ProductInCart> newList = new ArrayList<>();
+            for (ProductInCart productInCart : productInCarts) {
+                if (productInCart.getProduct_In_Cart_id() != idProduct) {
+                    newList.add(productInCart);
+                }
+            }
+            System.out.println("New List!!!");
+            for (ProductInCart productInCart : newList) {
+                System.out.println(productInCart);
+            }
+
+            session.setAttribute("productList", newList);
+            System.out.println("Try to delete product");
+//            productInCartDAO.delete(product);
+            orderDAO.deleteProduct(product, id);
+            orderDAO.updateOrderAmount(id, product.getPrice());
+            productInCartDAO.delete(product);
+            return new ModelAndView("redirect:/admin/", model);
+        } else {
+            return new ModelAndView("adminLogin", model);
+        }
+
+    }
+
+    @RequestMapping(value = "/order/save/{id}", method = RequestMethod.POST)
+    public ModelAndView saveOrder (@PathVariable int id,
+                                   @RequestParam(value="date") String date,
+                                   @RequestParam(value = "totalAmount") int totalAmount,
                                    @RequestParam(value="delivery") String delivery,
                                    @RequestParam(value="comments") String comments,
                                    ModelMap model,
-                                   HttpServletRequest request) {
+                                   HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
         if (checkStatus(session)) {
-            orderDAO.saveOrder(id, delivery, comments);
+            Date orderDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            orderDAO.saveOrder(id, orderDate, totalAmount, delivery, comments);
             return new ModelAndView("redirect:/admin/", model);
         } else {
             return new ModelAndView("adminLogin", model);

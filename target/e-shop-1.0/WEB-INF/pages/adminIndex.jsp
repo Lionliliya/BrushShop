@@ -154,6 +154,7 @@ _________________________________________________________ -->
                 <th>№</th>
                 <th>Дата</th>
                 <th>Сумма</th>
+                <th>Клиент</th>
                 <th>Статус</th>
                 <th>Доставка</th>
                 <th>Действие</th>
@@ -166,6 +167,7 @@ _________________________________________________________ -->
                   <td>10${order.id}</td>
                   <td><fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
                   <td>₴${order.totalAmount}</td>
+                  <td>${order.client.firstName}</td>
                   <td><span class="label label-info">статус</span></td>
                   <td>${order.delivery}</td>
                   <td>

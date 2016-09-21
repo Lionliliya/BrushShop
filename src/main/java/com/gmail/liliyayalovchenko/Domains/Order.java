@@ -20,9 +20,9 @@ public class Order implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     private List<ProductInCart> productsInCart;
-    private int totalAmount = calculateTotalAmount(productsInCart);
+    private int totalAmount;
 
     public Order() {}
 
@@ -101,5 +101,13 @@ public class Order implements Serializable {
 
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public void removeFromProductList(ProductInCart product) {
+        this.productsInCart.remove(product);
+    }
+
+    public void changeTotalAmount(int amount) {
+        this.totalAmount -= amount;
     }
 }

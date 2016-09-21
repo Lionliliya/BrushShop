@@ -11,7 +11,7 @@ public class ProductInCart implements Serializable{
     @GeneratedValue
     private int product_In_Cart_id;
 
-    @OneToOne (fetch = FetchType.LAZY)
+    @OneToOne (fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "product_id")
     private Product product_id;
 

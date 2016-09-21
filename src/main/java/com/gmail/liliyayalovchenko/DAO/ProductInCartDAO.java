@@ -12,4 +12,6 @@ public interface ProductInCartDAO {
     void saveProductInCart(List<ProductInCart> ProductsCart);
 
     ProductInCart getById(int id);
+
+    void delete(ProductInCart product);
 }

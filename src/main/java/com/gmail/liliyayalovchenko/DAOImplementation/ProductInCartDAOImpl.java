@@ -14,6 +14,18 @@ public class ProductInCartDAOImpl implements ProductInCartDAO {
     private EntityManager entityManager;
 
     @Override
+    public void delete(ProductInCart product) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(product);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
     public List<ProductInCart> getProductsInCart() {
         Query query = entityManager.createQuery("SELECT a FROM ProductInCart a", ProductInCart.class);
         return (List<ProductInCart>)query.getResultList();

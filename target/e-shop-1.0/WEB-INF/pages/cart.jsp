@@ -303,7 +303,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="lastname">Фамилия</label>
-                                            <input type="text" name="secondName" maxlength="25" class="form-control" id="lastname" pattern="[A-Za-z ]+">
+                                            <input type="text" name="secondName" maxlength="25" class="form-control" id="lastname" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+">
                                         </div>
                                     </div>
                                 </div>

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -56,10 +57,11 @@ public class GlobalExceptionHandler {
     public ModelAndView handleRuntimeException(HttpServletRequest request, Exception ex) {
         LOGGER.error("Requested URL=" + request.getRequestURL());
         LOGGER.error("Exception Raised=" + ex);
+        LOGGER.error("Stack Trace=" + Arrays.toString(ex.getStackTrace()));
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("url", request.getRequestURL());
-
+        modelAndView.addObject("error", ex.getStackTrace());
         modelAndView.setViewName("error");
         return modelAndView;
     }

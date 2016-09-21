@@ -85,7 +85,7 @@ public class OrderController {
         if (client == null) {
             client = new Client(firstName, phoneNumber, email);
         }
-
+        clientDAO.addClient(client);
         int amount = 0;
         for (ProductInCart aProductsCart1 : productsInCart) {
             amount += aProductsCart1.getPrice()*aProductsCart1.getQuantity();

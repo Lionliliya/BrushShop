@@ -32,7 +32,11 @@ public class ClientDAOImpl implements ClientDAO {
                 Client.class);
         query.setParameter("var2", phone);
         query.setParameter("var1", email);
-        return (Client) query.getResultList().get(0);
+        List<Client> resultList = query.getResultList();
+        if (resultList.size() != 0) {
+            return resultList.get(0);
+        }
+        return null;
     }
 
     @Override
