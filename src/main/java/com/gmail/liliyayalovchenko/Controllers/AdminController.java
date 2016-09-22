@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -543,20 +543,9 @@ public class AdminController {
             ProductInCart product = productInCartDAO.getById(idProduct);
 
             List<ProductInCart> productInCarts = (List<ProductInCart>) session.getAttribute("productList");
-            List<ProductInCart> newList = new ArrayList<>();
-            for (ProductInCart productInCart : productInCarts) {
-                if (productInCart.getProduct_In_Cart_id() != idProduct) {
-                    newList.add(productInCart);
-                }
-            }
-            System.out.println("New List!!!");
-            for (ProductInCart productInCart : newList) {
-                System.out.println(productInCart);
-            }
+            List<ProductInCart> newList = productInCarts.stream().filter(productInCart -> productInCart.getProduct_In_Cart_id() != idProduct).collect(Collectors.toList());
 
             session.setAttribute("productList", newList);
-            System.out.println("Try to delete product");
-//            productInCartDAO.delete(product);
             orderDAO.deleteProduct(product, id);
             orderDAO.updateOrderAmount(id, product.getPrice());
             productInCartDAO.delete(product);
@@ -577,14 +566,55 @@ public class AdminController {
                                    HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
         if (checkStatus(session)) {
-            Date orderDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            Date orderDate = new SimpleDateFormat("dd.MM.yyyy hh:mm").parse(date);
             orderDAO.saveOrder(id, orderDate, totalAmount, delivery, comments);
             return new ModelAndView("redirect:/admin/", model);
         } else {
             return new ModelAndView("adminLogin", model);
         }
     }
-    @RequestMapping("/clients")
+
+    @RequestMapping(value = "/order/sort/{dateUp}", method = RequestMethod.GET)
+    public ModelAndView sortOrder(@PathVariable String dateUp,
+                                  ModelMap model,
+                                  HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if (checkStatus(session)) {
+            List<Order> orderList;
+            if ("dateUp".equals(dateUp)) {
+                orderList =  orderDAO.getSortedByDateUp();
+            } else {
+                orderList = orderDAO.getSortedByDateDown();
+            }
+            modelAndView.addObject("orders", orderList);
+            modelAndView.setViewName("adminIndex");
+            return modelAndView;
+        } else {
+            return new ModelAndView("adminLogin", model);
+        }
+
+    }
+
+    @RequestMapping(value = "/order/sort/amount", method = RequestMethod.GET)
+    public ModelAndView sortOrderByAmount(HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if (checkStatus(session)) {
+            modelAndView.addObject("orders", orderDAO.getSortedByAmountDown());
+            modelAndView.setViewName("adminIndex");
+            return modelAndView;
+        } else {
+            modelAndView.setViewName("adminLogin");
+            return modelAndView;
+        }
+
+    }
+
+
+    @RequestMapping("/client")
     public ModelAndView clientsPage (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
@@ -597,19 +627,93 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/clients/edit", method = RequestMethod.GET)
-    public ModelAndView clientEdit (@RequestParam(value="id") int id,
-                                    HttpServletRequest request) {
+    @RequestMapping("/client/sort/name")
+    public ModelAndView clientSortName (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
-            modelAndView.setViewName("clientEdit");
-            modelAndView.addObject("client", clientDAO.getClient(id));
+            modelAndView.setViewName("adminClients");
+            modelAndView.addObject("clients", clientDAO.getSortedByName());
         } else {
             modelAndView.setViewName("adminLogin");
         }
         return modelAndView;
     }
+
+    @RequestMapping("/client/sort/email")
+    public ModelAndView clientSortEmail (HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminClients");
+            modelAndView.addObject("clients", clientDAO.getSortedByEmail());
+        } else {
+            modelAndView.setViewName("adminLogin");
+        }
+        return modelAndView;
+    }
+
+
+
+    @RequestMapping(value = "/client/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView clientEdit (@PathVariable int id,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminClientEdit");
+            Client client = clientDAO.getClient(id);
+            modelAndView.addObject("client", client);
+        } else {
+            modelAndView.setViewName("adminLogin");
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/client/{id}", method = RequestMethod.GET)
+    public ModelAndView clientView (@PathVariable int id,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminClient");
+            modelAndView.addObject("client", clientDAO.getClient(id));
+            modelAndView.addObject("orders", orderDAO.getAllOrdersByClient(id));
+        } else {
+            modelAndView.setViewName("adminLogin");
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/client/remove/{id}", method = RequestMethod.GET)
+    public ModelAndView clientRemove (@PathVariable int id,
+                                      ModelMap model,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (checkStatus(session)) {
+            Client client = clientDAO.getClient(id);
+            clientDAO.remove(client);
+            return new ModelAndView("redirect:/admin/client", model);
+        }
+        return new ModelAndView("adminLogin", model);
+    }
+
+    @RequestMapping(value = "/client/removeFeedback/{id}", method = RequestMethod.POST)
+    public ModelAndView removeFeedBackFromClient(@PathVariable int id,
+                                                 HttpServletRequest request,
+                                                 ModelMap model) {
+
+        HttpSession session = request.getSession();
+        if (checkStatus(session)) {
+            Client client = clientDAO.getClient(id);
+            String feedBackId = request.getParameter("delete");
+            FeedBack feedBack = feedBackDAO.getFeedBackById(Integer.valueOf(feedBackId));
+            feedBackDAO.delete(feedBack);
+            return new ModelAndView("redirect:/admin/client", model);
+        }
+        return new ModelAndView("adminLogin", model);
+    }
+
 
     @RequestMapping(value = "/clients/save", method = RequestMethod.POST)
     public ModelAndView clientSave (@RequestParam(value="id") int id,

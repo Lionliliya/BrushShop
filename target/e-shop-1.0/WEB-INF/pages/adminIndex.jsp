@@ -89,7 +89,7 @@ _________________________________________________________ -->
           <a href="/admin/catalog">Каталог продукции</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/clients">Клиенты</a>
+          <a href="/admin/client">Клиенты</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/feedbacks">Отзывы</a>
@@ -132,10 +132,13 @@ _________________________________________________________ -->
 
                 <div class="row">
                   <div class="col-xs-3">
-                    <a href="/admin/order/dateUp"><i class="fa fa-arrow-up"></i>Сначала новые</a>
+                    <a href="/admin/order/sort/dateUp"><i class="fa fa-arrow-up"></i>Сначала новые</a>
                   </div>
                   <div class="col-xs-3">
-                    <a href="/catalog/order/dateDown"><i class="fa fa-arrow-down"></i> Сначала старые</a>
+                    <a href="/admin/order/sort/dateDown"><i class="fa fa-arrow-down"></i> Сначала старые</a>
+                  </div>
+                  <div class="col-xs-3">
+                    <a href="/admin/order/sort/amount"><i class="fa fa-arrow-down"></i> Сумма заказа</a>
                   </div>
                 </div>
               </div>
@@ -165,7 +168,7 @@ _________________________________________________________ -->
               <c:forEach items="${orders}" var="order">
                 <tr>
                   <td>10${order.id}</td>
-                  <td><fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
+                  <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
                   <td>₴${order.totalAmount}</td>
                   <td>${order.client.firstName}</td>
                   <td><span class="label label-info">статус</span></td>

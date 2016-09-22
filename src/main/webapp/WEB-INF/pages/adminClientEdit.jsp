@@ -126,31 +126,25 @@ _________________________________________________________ -->
       <div class="col-md-8 col-md-offset-2" id="customer-order">
         <div class="box">
 
-          <form role="form" action="/admin/order/save/${order.id}" method="post">
+          <form role="form" action="/admin/client/save/${client.id}" method="post">
             <div class="form-group">
-              <label for="menuId">№ заказа</label>
-              <input type="text" id="menuId" class="form-control" name="id" value="${order.id}" readonly>
+              <label for="clientId">№ клиента</label>
+              <input type="text" id="clientId" class="form-control" name="id" value="${client.id}" readonly>
             </div>
 
             <div class="form-group">
-              <label for="orderDate">Дата в формате dd.MM.yyyy, например: 02.06.2016</label>
-              <input type="text" id="orderDate" class="form-control" name="date"
-                     value="<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}"/>">
+              <label for="clientName">Имя</label>
+              <input type="text" id="clientName" class="form-control" name="firstName" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" value="${client.firstName}" required/>
             </div>
 
             <div class="form-group">
-              <label for="delivery">Доставка</label>
-              <input type="text" id="delivery" class="form-control" name="delivery" value="${order.delivery}">
+              <label for="phoneNumber">Телефон</label>
+              <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" value="${client.phoneNumber}" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
             </div>
 
             <div class="form-group">
-              <label for="comments">Коментарии</label>
-              <textarea id="comments" class="form-control" name="comments" value="${order.comments}"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="amount">Общая сумма</label>
-              <input type="number" id="amount" class="form-control" name="totalAmount" value="${order.totalAmount}">
+              <label for="clientEmail">Эл. адресс</label>
+              <input type="text" id="clientEmail" class="form-control" name="email" value="${client.email}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
             </div>
 
             <button type="submit" class="btn btn-success">Сохранить</button>
@@ -158,48 +152,59 @@ _________________________________________________________ -->
           </form>
 
           <hr>
-          <form role="form" action="/admin/order/removeProduct/${order.id}" method="post">
+          <form role="form" action="/admin/client/removeFeedback/${client.id}" method="post">
 
             <label for="table1">
-              Список товаров для заказа. Вибрете товар, что бы удалить его, и нажите кнопку "Удалить"
+              Список отзывов. Вибрете отзыв, что бы удалить его, и нажите кнопку "Удалить"
             </label>
 
-            <div class="table-responsive" id="table1">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th colspan="2">Товар</th>
-                  <th>Количество</th>
-                  <th>Цена</th>
-                  <th>Скидка</th>
-                  <th>Всего</th>
-                  <th>Удалить</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <c:forEach items="${order.productsInCart}" var="product">
+            <c:if test="${fn:length(client.feedBacks) eq 0}">
+              <h5>У клиента нет отзывов</h5>
+            </c:if>
+            <c:if test="${fn:length(client.feedBacks) gt 0}">
+              <div class="table-responsive">
+                <table class="table table-hover" id="table1">
+                  <thead>
                   <tr>
-                    <td>
-                      <a href="/product/${product.product_id.id}">
-                        <img src="/resources/${product.product_id.image1}" alt="${product.name}">
-                      </a>
-                    </td>
-                    <td><a href="/product/${product.product_id.id}">${product.name}</a>
-                    <td>${product.quantity}</td>
-                    <td>₴${product.price}</td>
-                    <td>₴0.00</td>
-                    <td>₴${product.price * product.quantity}</td>
-                    <td><input type="radio" name="delete" value="${product.product_In_Cart_id}"></td>
+                    <th>№</th>
+                    <th>Дата</th>
+                    <th colspan="2">Товар</th>
+                    <th>Оценка</th>
+                    <th>Отзыв</th>
+                    <th>Удалить</th>
                   </tr>
+                  </thead>
+                  <tbody>
+
+                  <c:forEach items="${client.feedBacks}" var="feedback">
+                    <tr>
+                      <td>${feedback.id}</td>
+                      <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
+                      <td>
+                        <a href="/admin/product/${feedback.product.id}">
+                            ${feedback.product.name}
+                        </a>
+                      </td>
+                      <td>
+                        <a href="/admin/product/${feedback.product.id}">
+                          <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
+                        </a>
+                      </td>
+                      <td>${feedback.evaluation}</td>
+                      <td>${feedback.feedback}</td>
+                      <td><input type="radio" value="${feedback.id}" name="delete"></td>
+                    </tr>
                   </c:forEach>
                   </tbody>
                 </table>
               </div>
+            </c:if>
+
             <button type="submit" class="btn btn-success">Удалить</button>
           </form>
 
-          </div>
-          <!-- /.table-responsive -->
+        </div>
+        <!-- /.table-responsive -->
       </div>
 
     </div>

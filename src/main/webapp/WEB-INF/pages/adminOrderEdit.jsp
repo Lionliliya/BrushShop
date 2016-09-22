@@ -90,7 +90,7 @@ _________________________________________________________ -->
           <a href="/admin/catalog">Каталог продукции</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/clients">Клиенты</a>
+          <a href="/admin/client">Клиенты</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/feedbacks">Отзывы</a>
@@ -133,9 +133,9 @@ _________________________________________________________ -->
             </div>
 
             <div class="form-group">
-              <label for="orderDate">Дата в формате dd/MM/yyyy, например: 02/06/2016</label>
+              <label for="orderDate">Дата в формате dd.MM.yyyy, например: 02.06.2016</label>
               <input type="text" id="orderDate" class="form-control" name="date"
-                     value="<fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${order.date}"/>">
+                     value="<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}"/>">
             </div>
 
             <div class="form-group">

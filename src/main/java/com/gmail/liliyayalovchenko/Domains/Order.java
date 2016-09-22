@@ -17,10 +17,10 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private String delivery;
     private String comments;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ProductInCart> productsInCart;
     private int totalAmount;
 

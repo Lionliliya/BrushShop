@@ -12,11 +12,11 @@ public class FeedBack implements Serializable {
     @Id
     @GeneratedValue
     private int id;
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "product_id")
     private Product product;
     private Date date;
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "client_id")
     private Client client;
     private int evaluation;
@@ -114,6 +114,5 @@ public class FeedBack implements Serializable {
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
-
 
 }

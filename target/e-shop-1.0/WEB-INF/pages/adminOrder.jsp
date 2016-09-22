@@ -90,7 +90,7 @@ _________________________________________________________ -->
           <a href="/admin/catalog">Каталог продукции</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/clients">Клиенты</a>
+          <a href="/admin/client">Клиенты</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/feedbacks">Отзывы</a>
@@ -131,7 +131,7 @@ _________________________________________________________ -->
           <h3><a href="/admin/client/${order.client.id}">Имя клиента - ${order.client.firstName}</a></h3>
           <h4>Контактный телефон -${order.client.phoneNumber} </h4>
           <h4>Эл. почта - ${order.client.email} </h4>
-          <p>Дата - <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${order.date}" /></p>
+          <p>Дата - <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}" /></p>
           <hr>
 
           <div class="table-responsive">

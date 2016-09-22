@@ -40,11 +40,8 @@ public class OrderDAOImpl implements OrderDAO {
         try{
             entityManager.getTransaction().begin();
             order.removeFromProductList(product);
-            System.out.println("Trying to change amount");
             int newAmount = order.getTotalAmount() - product.getPrice();
-            System.out.println("New amount - " + newAmount);
             order.setTotalAmount(newAmount);
-            System.out.println("new amount of order " + order.getTotalAmount());
             entityManager.refresh(order);
             entityManager.getTransaction().commit();
         }
@@ -116,5 +113,28 @@ public class OrderDAOImpl implements OrderDAO {
         return (List<Order>)query.getResultList();
     }
 
+    @Override
+    public List<Order> getAllOrdersByClient(int id) {
+        Query query = entityManager.createQuery("SELECT o FROM Order o where o.client.id =:var", Order.class);
+        query.setParameter("var", id);
+        return (List<Order>)query.getResultList();
+    }
 
+    @Override
+    public List<Order> getSortedByDateUp() {
+        Query query = entityManager.createQuery("SELECT o FROM Order o order by o.date desc ", Order.class);
+        return (List<Order>)query.getResultList();
+    }
+
+    @Override
+    public List<Order> getSortedByDateDown() {
+        Query query = entityManager.createQuery("SELECT o FROM Order o order by o.date asc", Order.class);
+        return (List<Order>)query.getResultList();
+    }
+
+    @Override
+    public List<Order> getSortedByAmountDown() {
+        Query query = entityManager.createQuery("SELECT o FROM Order o order by o.totalAmount desc", Order.class);
+        return (List<Order>)query.getResultList();
+    }
 }

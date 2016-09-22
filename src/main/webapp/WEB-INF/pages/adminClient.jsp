@@ -37,9 +37,9 @@
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(id) {
-      var answer = confirm("Вы собираетесь удалить заказ № " + id + ". Нажмите OK что бы продолжить.")
+      var answer = confirm("Вы собираетесь удалить клиента № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8080/admin/order/remove/" + id + "";
+        window.location = "http://localhost:8080/admin/client/remove/" + id + "";
     }
   </script>
 
@@ -123,83 +123,93 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-8 col-md-offset-2" id="customer-order">
+      <div class="col-md-10 col-md-offset-1" id="customer-order">
         <div class="box">
-
-          <form role="form" action="/admin/order/save/${order.id}" method="post">
-            <div class="form-group">
-              <label for="menuId">№ заказа</label>
-              <input type="text" id="menuId" class="form-control" name="id" value="${order.id}" readonly>
-            </div>
-
-            <div class="form-group">
-              <label for="orderDate">Дата в формате dd.MM.yyyy, например: 02.06.2016</label>
-              <input type="text" id="orderDate" class="form-control" name="date"
-                     value="<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}"/>">
-            </div>
-
-            <div class="form-group">
-              <label for="delivery">Доставка</label>
-              <input type="text" id="delivery" class="form-control" name="delivery" value="${order.delivery}">
-            </div>
-
-            <div class="form-group">
-              <label for="comments">Коментарии</label>
-              <textarea id="comments" class="form-control" name="comments" value="${order.comments}"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="amount">Общая сумма</label>
-              <input type="number" id="amount" class="form-control" name="totalAmount" value="${order.totalAmount}">
-            </div>
-
-            <button type="submit" class="btn btn-success">Сохранить</button>
-
-          </form>
-
+          <c:set var="client" value="${client}"/>
+          <h2>Клиент #${client.id}</h2>
+          <a href="/admin/client/edit/${client.id}" class="btn btn-primary btn-sm">Редактировать</a>
+          <a href="javascript:AlertIt(${client.id});" class="btn btn-primary btn-sm">Удалить</a>
+          <h3>Имя клиента - ${client.firstName}</h3>
+          <h4>Контактный телефон -${client.phoneNumber} </h4>
+          <h4>Эл. почта - ${client.email} </h4>
           <hr>
-          <form role="form" action="/admin/order/removeProduct/${order.id}" method="post">
-
-            <label for="table1">
-              Список товаров для заказа. Вибрете товар, что бы удалить его, и нажите кнопку "Удалить"
-            </label>
-
-            <div class="table-responsive" id="table1">
-              <table class="table">
+          <h3>Список заказов клиента</h3>
+          <c:if test="${fn:length(orders) eq 0}">
+           <h5>У клиента нет заказов</h5>
+          </c:if>
+          <c:if test="${fn:length(orders) gt 0}">
+            <div class="table-responsive">
+              <table class="table table-hover">
                 <thead>
                 <tr>
-                  <th colspan="2">Товар</th>
-                  <th>Количество</th>
-                  <th>Цена</th>
-                  <th>Скидка</th>
-                  <th>Всего</th>
-                  <th>Удалить</th>
+                  <th>№</th>
+                  <th>Дата</th>
+                  <th>Сумма</th>
+                  <th>Статус</th>
+                  <th>Доставка</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="${order.productsInCart}" var="product">
+
+                <c:forEach items="${orders}" var="order">
                   <tr>
+                    <td><a href="/admin/order/${order.id}">10${order.id}</a></td>
+                    <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
+                    <td>₴${order.totalAmount}</td>
+                    <td><span class="label label-info">статус</span></td>
+                    <td>${order.delivery}</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </c:if>
+
+
+          <h3>Отзывы клиента</h3>
+          <c:if test="${fn:length(client.feedBacks) eq 0}">
+            <h5>У клиента нет отзывов</h5>
+          </c:if>
+          <c:if test="${fn:length(client.feedBacks) gt 0}">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Дата</th>
+                  <th colspan="2">Товар</th>
+                  <th>Оценка</th>
+                  <th>Отзыв</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach items="${client.feedBacks}" var="feedback">
+                  <tr>
+                    <td>${feedback.id}</td>
+                    <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
                     <td>
-                      <a href="/product/${product.product_id.id}">
-                        <img src="/resources/${product.product_id.image1}" alt="${product.name}">
+                      <a href="/admin/product/${feedback.product.id}">
+                        ${feedback.product.name}
                       </a>
                     </td>
-                    <td><a href="/product/${product.product_id.id}">${product.name}</a>
-                    <td>${product.quantity}</td>
-                    <td>₴${product.price}</td>
-                    <td>₴0.00</td>
-                    <td>₴${product.price * product.quantity}</td>
-                    <td><input type="radio" name="delete" value="${product.product_In_Cart_id}"></td>
+                    <td>
+                      <a href="/admin/product/${feedback.product.id}">
+                        <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
+                      </a>
+                    </td>
+                    <td>${feedback.evaluation}</td>
+                    <td>${feedback.feedback}</td>
                   </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
-              </div>
-            <button type="submit" class="btn btn-success">Удалить</button>
-          </form>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </c:if>
 
-          </div>
           <!-- /.table-responsive -->
+
+        </div>
       </div>
 
     </div>

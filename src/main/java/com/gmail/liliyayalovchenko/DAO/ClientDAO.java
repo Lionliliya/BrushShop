@@ -18,4 +18,10 @@ public interface ClientDAO {
     void addClient(Client client);
 
     Client findClientByEmail(String email);
+
+    List<Client> getSortedByName();
+
+    List<Client> getSortedByEmail();
+
+    void remove(Client client);
 }

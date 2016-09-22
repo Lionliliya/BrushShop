@@ -22,4 +22,12 @@ public interface OrderDAO {
     void deleteProduct(ProductInCart product, int id);
 
     void updateOrderAmount(int id, int price);
+
+    List<Order> getSortedByDateUp();
+
+    List<Order> getSortedByDateDown();
+
+    List<Order> getSortedByAmountDown();
+
+    List<Order> getAllOrdersByClient(int id);
 }

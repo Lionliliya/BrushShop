@@ -2,39 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210644af-f650-4d3c-95df-f9bd2d957a64" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClient.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClientEdit.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClients.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ClientDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ClientDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ClientDAO.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ClientDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Domains/Order.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Domains/Order.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Domains/Order.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Domains/Order.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/OrderDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/OrderDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/OrderDAO.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/OrderDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/FeedBackDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/FeedBackDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/ProductInCart.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/ProductInCart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminIndex.jsp" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminIndex.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminOrder.jsp" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminOrder.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminOrderEdit.jsp" afterPath="$PROJECT_DIR$/target/e-shop-1.0/WEB-INF/pages/adminOrderEdit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BrushShop.iws" />
@@ -108,18 +107,28 @@
       <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="9354" max-vertical-offset="14094">
-              <caret line="560" column="34" selection-start-line="560" selection-start-column="34" selection-end-line="560" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="12134" max-vertical-offset="15966">
+              <caret line="709" column="89" selection-start-line="709" selection-start-column="89" selection-end-line="709" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java">
+      <file leaf-file-name="FeedBack.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
-              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+            <state vertical-scroll-proportion="1.5405406" vertical-offset="3" max-vertical-offset="1764">
+              <caret line="18" column="128" selection-start-line="18" selection-start-column="128" selection-end-line="18" selection-end-column="128" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedBackDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/FeedBackDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -128,84 +137,72 @@
       <file leaf-file-name="OrderDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="881" max-vertical-offset="2124">
-              <caret line="72" column="50" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="2484">
+              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ordering.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp">
+      <file leaf-file-name="FeedBackDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.518518" vertical-offset="4567" max-vertical-offset="8244">
-              <caret line="271" column="53" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="581" max-vertical-offset="1746">
+              <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java">
+      <file leaf-file-name="adminClientEdit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClientEdit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="951" max-vertical-offset="3132">
-              <caret line="65" column="60" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="60" />
+            <state vertical-scroll-proportion="-4.111111" vertical-offset="2661" max-vertical-offset="4248">
+              <caret line="154" column="77" selection-start-line="154" selection-start-column="42" selection-end-line="154" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="929" max-vertical-offset="2034">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="575" max-vertical-offset="1206">
+              <caret line="80" column="40" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+              <folding>
+                <element signature="e#1865#1866#0" expanded="true" />
+                <element signature="e#1912#1913#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminOrderEdit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.7407408" vertical-offset="1555" max-vertical-offset="4158">
+              <caret line="92" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="225" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57297295" vertical-offset="5172" max-vertical-offset="10044">
-              <caret line="305" column="164" selection-start-line="305" selection-start-column="164" selection-end-line="305" selection-end-column="164" />
+            <state vertical-scroll-proportion="-14.592592" vertical-offset="5420" max-vertical-offset="10044">
+              <caret line="323" column="173" selection-start-line="323" selection-start-column="123" selection-end-line="323" selection-end-column="173" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java">
+      <file leaf-file-name="adminClient.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClient.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1458">
-              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state vertical-scroll-proportion="-15.888889" vertical-offset="3315" max-vertical-offset="4338">
+              <caret line="208" column="0" selection-start-line="169" selection-start-column="10" selection-end-line="208" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminIndex.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.740741" vertical-offset="2617" max-vertical-offset="3834">
-              <caret line="169" column="46" selection-start-line="169" selection-start-column="46" selection-end-line="169" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="1584">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-              <folding>
-                <element signature="e#2646#2647#0" expanded="true" />
-                <element signature="e#2697#2698#0" expanded="true" />
-                <element signature="e#2746#2747#0" expanded="true" />
-                <element signature="e#2788#2789#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -218,11 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/AdministratorDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/CategoryDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/InformationController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/InformationDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/InformationDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/style.violet.css" />
@@ -238,13 +230,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Configurations/AppLogging.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
@@ -252,23 +240,32 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminLogin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductInCartDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/ProductInCart.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java" />
-        <option value="db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClients.jsp" />
+        <option value="db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClient.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClientEdit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/FeedBackDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java" />
       </list>
     </option>
   </component>
@@ -931,7 +928,7 @@
     </configuration>
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.26" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="update-resources" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="BrushShop:war exploded">
           <settings>
@@ -941,7 +938,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_BrushShop" />
-        <option name="JNDI_PORT" value="2001" />
+        <option name="JNDI_PORT" value="2000" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -1033,16 +1030,17 @@
       <workItem from="1474210130399" duration="10793000" />
       <workItem from="1474277585122" duration="34015000" />
       <workItem from="1474445056168" duration="12836000" />
-      <workItem from="1474467228999" duration="8928000" />
+      <workItem from="1474467228999" duration="8973000" />
+      <workItem from="1474536711722" duration="18550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143947000" />
+    <option name="totallyTimeSpent" value="162542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="24" width="1321" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1054,9 +1052,9 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32784313" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24941176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24941176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24941176" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1064,22 +1062,22 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" x="145" y="224" width="1121" height="544" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6352" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6352" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2698039" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5776" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2698039" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2698039" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60030866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2698039" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60030866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1109,34 +1107,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/style.default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32686085" vertical-offset="22676" max-vertical-offset="30186">
-          <caret line="1271" column="24" selection-start-line="1271" selection-start-column="24" selection-end-line="1271" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/style.violet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="24654" max-vertical-offset="30186">
-          <caret line="1389" column="23" selection-start-line="1389" selection-start-column="23" selection-end-line="1389" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.444445" vertical-offset="3273" max-vertical-offset="9198">
-          <caret line="202" column="78" selection-start-line="202" selection-start-column="78" selection-end-line="202" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="7110">
@@ -1221,20 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="1296">
-          <caret line="57" column="98" selection-start-line="57" selection-start-column="98" selection-end-line="57" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="450">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Category.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1548">
@@ -1248,40 +1204,6 @@
           <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="1782">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2990#2991#0" expanded="false" />
-            <element signature="e#3015#3016#0" expanded="false" />
-            <element signature="e#3048#3049#0" expanded="false" />
-            <element signature="e#3076#3077#0" expanded="false" />
-            <element signature="e#3111#3112#0" expanded="false" />
-            <element signature="e#3141#3142#0" expanded="false" />
-            <element signature="e#3188#3189#0" expanded="false" />
-            <element signature="e#3226#3227#0" expanded="false" />
-            <element signature="e#3255#3256#0" expanded="false" />
-            <element signature="e#3282#3283#0" expanded="false" />
-            <element signature="e#3320#3321#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#3385#3386#0" expanded="false" />
-            <element signature="e#3414#3415#0" expanded="false" />
-            <element signature="e#3458#3459#0" expanded="false" />
-            <element signature="e#3494#3495#0" expanded="false" />
-            <element signature="e#3528#3529#0" expanded="false" />
-            <element signature="e#3561#3562#0" expanded="false" />
-            <element signature="e#3610#3611#0" expanded="false" />
-            <element signature="e#3654#3655#0" expanded="false" />
-            <element signature="e#3689#3690#0" expanded="false" />
-            <element signature="e#3720#3721#0" expanded="false" />
-            <element signature="e#3768#3769#0" expanded="false" />
-            <element signature="e#3808#3809#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1322,7 +1244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1998">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1348,34 +1269,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="43.814816" vertical-offset="1993" max-vertical-offset="3870">
-          <caret line="45" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="209" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="1134">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38062283" vertical-offset="8060" max-vertical-offset="11070">
-          <caret line="460" column="55" selection-start-line="460" selection-start-column="32" selection-end-line="460" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductInCartDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
           <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1387,19 +1284,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.148148" vertical-offset="2849" max-vertical-offset="4158">
-          <caret line="211" column="14" selection-start-line="211" selection-start-column="14" selection-end-line="211" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="468">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1407,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1080">
           <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,14 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1296">
           <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1558" max-vertical-offset="4230">
-          <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1439,7 +1318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="972">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,26 +1329,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9354" max-vertical-offset="14094">
-          <caret line="560" column="34" selection-start-line="560" selection-start-column="34" selection-end-line="560" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="881" max-vertical-offset="2124">
-          <caret line="72" column="50" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4567" max-vertical-offset="8244">
+          <caret line="271" column="53" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1478,60 +1340,170 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="929" max-vertical-offset="2034">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ClientDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15929204" vertical-offset="0" max-vertical-offset="565">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ClientDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1458">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.7525773" vertical-offset="1200" max-vertical-offset="1908">
+          <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="701" max-vertical-offset="1584">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding>
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2697#2698#0" expanded="true" />
-            <element signature="e#2746#2747#0" expanded="true" />
-            <element signature="e#2788#2789#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1512">
+          <caret line="19" column="104" selection-start-line="19" selection-start-column="104" selection-end-line="19" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22300886" vertical-offset="0" max-vertical-offset="565">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/OrderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7579832" vertical-offset="35" max-vertical-offset="630">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrder.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.7777777" vertical-offset="1500" max-vertical-offset="3870">
+          <caret line="92" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="209" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminIndex.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.740741" vertical-offset="2617" max-vertical-offset="3834">
-          <caret line="169" column="46" selection-start-line="169" selection-start-column="46" selection-end-line="169" selection-end-column="46" />
+        <state vertical-scroll-proportion="-31.333334" vertical-offset="2484" max-vertical-offset="3888">
+          <caret line="185" column="17" selection-start-line="148" selection-start-column="10" selection-end-line="185" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.518518" vertical-offset="4567" max-vertical-offset="8244">
-          <caret line="271" column="53" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1558" max-vertical-offset="4230">
+          <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClients.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11111111" vertical-offset="2685" max-vertical-offset="3780">
+          <caret line="149" column="42" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminOrderEdit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7407408" vertical-offset="1555" max-vertical-offset="4158">
+          <caret line="92" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="225" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57297295" vertical-offset="5172" max-vertical-offset="10044">
-          <caret line="305" column="164" selection-start-line="305" selection-start-column="164" selection-end-line="305" selection-end-column="164" />
+        <state vertical-scroll-proportion="-14.592592" vertical-offset="5420" max-vertical-offset="10044">
+          <caret line="323" column="173" selection-start-line="323" selection-start-column="123" selection-end-line="323" selection-end-column="173" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6972973" vertical-offset="6870" max-vertical-offset="11070">
+          <caret line="434" column="163" selection-start-line="434" selection-start-column="163" selection-end-line="434" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClient.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.888889" vertical-offset="3315" max-vertical-offset="4338">
+          <caret line="208" column="0" selection-start-line="169" selection-start-column="10" selection-end-line="208" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminClientEdit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.111111" vertical-offset="2661" max-vertical-offset="4248">
+          <caret line="154" column="77" selection-start-line="154" selection-start-column="42" selection-end-line="154" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/OrderDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="2484">
+          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="575" max-vertical-offset="1206">
+          <caret line="80" column="40" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+          <folding>
+            <element signature="e#1865#1866#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/FeedBackDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/FeedBackDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="1746">
+          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12134" max-vertical-offset="15966">
+          <caret line="709" column="89" selection-start-line="709" selection-start-column="89" selection-end-line="709" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5405406" vertical-offset="3" max-vertical-offset="1764">
+          <caret line="18" column="128" selection-start-line="18" selection-start-column="128" selection-end-line="18" selection-end-column="128" />
           <folding />
         </state>
       </provider>

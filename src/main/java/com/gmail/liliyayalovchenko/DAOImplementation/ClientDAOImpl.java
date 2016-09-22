@@ -20,6 +20,18 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
+    public List<Client> getSortedByName() {
+        Query query = entityManager.createQuery("SELECT c FROM Client c order by c.firstName", Client.class);
+        return (List<Client>) query.getResultList();
+    }
+
+    @Override
+    public List<Client> getSortedByEmail() {
+        Query query = entityManager.createQuery("SELECT c FROM Client c order by c.email", Client.class);
+        return (List<Client>) query.getResultList();
+    }
+
+    @Override
     public Client getClient(int id) {
         Query query = entityManager.createQuery("SELECT a FROM Client a  WHERE a.id =:var", Client.class);
         query.setParameter("var", id);
@@ -77,5 +89,18 @@ public class ClientDAOImpl implements ClientDAO {
             ex.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void remove(Client client) {
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(client);
+            entityManager.getTransaction().commit();
+        }
+        catch(Exception ex){
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
     }
 }

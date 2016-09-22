@@ -426,13 +426,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="firstname">Ваше имя</label>
-                                        <input class="form-control" id="firstname" name="firstName" type="text">
+                                        <input class="form-control" id="firstname" name="firstName" type="text" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="email">Ваша электронная почта</label>
-                                        <input class="form-control" id="email" name="email" type="text">
+                                        <input class="form-control" id="email" name="email" type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                                     </div>
                                 </div>
 

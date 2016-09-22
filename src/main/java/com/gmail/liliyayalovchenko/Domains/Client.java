@@ -76,4 +76,8 @@ public class Client implements Serializable{
     public void setFeedBacks(List<FeedBack> feedBacks) {
         this.feedBacks = feedBacks;
     }
+
+    public void removeFeedBack(FeedBack feedBack) {
+        this.feedBacks.remove(feedBack);
+    }
 }

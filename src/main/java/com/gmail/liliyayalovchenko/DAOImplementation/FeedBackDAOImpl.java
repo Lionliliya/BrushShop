@@ -27,6 +27,31 @@ public class FeedBackDAOImpl implements FeedBackDAO {
     }
 
     @Override
+    public void delete(Client client, FeedBack feedBack) {
+        try {
+            entityManager.getTransaction().begin();
+            client.removeFeedBack(feedBack);
+            entityManager.refresh(client);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delete(FeedBack feedBack) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(feedBack);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
     public List<FeedBack> getAllFeedBacks() {
         Query query = entityManager.createQuery("SELECT a FROM FeedBack a", FeedBack.class);
         return (List<FeedBack>)query.getResultList();
