@@ -158,10 +158,10 @@ _________________________________________________________ -->
               Список отзывов. Вибрете отзыв, что бы удалить его, и нажите кнопку "Удалить"
             </label>
 
-            <c:if test="${fn:length(client.feedBacks) eq 0}">
+            <c:if test="${fn:length(feedBacks) eq 0}">
               <h5>У клиента нет отзывов</h5>
             </c:if>
-            <c:if test="${fn:length(client.feedBacks) gt 0}">
+            <c:if test="${fn:length(feedBacks) gt 0}">
               <div class="table-responsive">
                 <table class="table table-hover" id="table1">
                   <thead>
@@ -176,7 +176,7 @@ _________________________________________________________ -->
                   </thead>
                   <tbody>
 
-                  <c:forEach items="${client.feedBacks}" var="feedback">
+                  <c:forEach items="${feedBacks}" var="feedback">
                     <tr>
                       <td>${feedback.id}</td>
                       <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>

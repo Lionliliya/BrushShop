@@ -313,8 +313,7 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="phone">Введите телефон в формате 38-0xx-xxx-xx-xx, где вместо x
-                                                должна быть цифра</label>
+                                            <label for="phone">Введите телефон в формате 38-0xx-xxx-xx-xx</label>
                                             <input type="text" name="phoneNumber" maxlength="25" class="form-control" id="phone" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
                                         </div>
                                     </div>

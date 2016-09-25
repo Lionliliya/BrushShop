@@ -2,6 +2,7 @@ package com.gmail.liliyayalovchenko.DAOImplementation;
 
 import com.gmail.liliyayalovchenko.DAO.ClientDAO;
 import com.gmail.liliyayalovchenko.Domains.Client;
+import com.gmail.liliyayalovchenko.Domains.FeedBack;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
@@ -103,4 +104,5 @@ public class ClientDAOImpl implements ClientDAO {
             ex.printStackTrace();
         }
     }
+
 }

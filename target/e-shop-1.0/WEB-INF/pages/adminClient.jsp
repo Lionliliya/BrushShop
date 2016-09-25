@@ -123,7 +123,7 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-10 col-md-offset-1" id="customer-order">
+      <div class="col-xs-10 col-xs-offset-1" id="customer-order">
         <div class="box">
           <c:set var="client" value="${client}"/>
           <h2>Клиент #${client.id}</h2>
@@ -167,10 +167,10 @@ _________________________________________________________ -->
 
 
           <h3>Отзывы клиента</h3>
-          <c:if test="${fn:length(client.feedBacks) eq 0}">
+          <c:if test="${fn:length(feedBacks) eq 0}">
             <h5>У клиента нет отзывов</h5>
           </c:if>
-          <c:if test="${fn:length(client.feedBacks) gt 0}">
+          <c:if test="${fn:length(feedBacks) gt 0}">
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -184,13 +184,13 @@ _________________________________________________________ -->
                 </thead>
                 <tbody>
 
-                <c:forEach items="${client.feedBacks}" var="feedback">
+                <c:forEach items="${feedBacks}" var="feedback">
                   <tr>
-                    <td>${feedback.id}</td>
+                    <td><a href="/admin/feedback/${feedback.id}">${feedback.id}</a></td>
                     <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
                     <td>
-                      <a href="/admin/product/${feedback.product.id}">
-                        ${feedback.product.name}
+                      <a href="/product/${feedback.product.id}">
+                          ${feedback.product.name}
                       </a>
                     </td>
                     <td>
@@ -208,7 +208,42 @@ _________________________________________________________ -->
           </c:if>
 
           <!-- /.table-responsive -->
+        <h3>Добавить отзыв</h3>
+        <form role = "form" action="/admin/feedback/add/${client.id}" method="post">
+          <div class="row">
+            <div class="box">
 
+          <div class="form-group">
+            <label for="productId">Товар</label>
+            <select  class="form-control" id="productId" name="product" required>
+              <c:forEach items="${products}" var="product">
+                <option value="${product.id}">${product.name}</option>
+              </c:forEach>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="dateFeedBack">Дата в формате dd.mm.yyyy hh:mm Напр.: 22.05.2016 17:46</label>
+            <input type="text" id="dateFeedBack" class="form-control" name="date" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="rate">Оценка от 1 до 5</label>
+            <input type="number" id="rate" class="form-control" name="evaluation" required pattern="[0-5]{1}"/>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Напшите отзыв</label>
+            <textarea id="message" class="form-control" name="feedback"></textarea>
+          </div>
+          <div class="row">
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Отправить отзыв</button>
+          </div>
+          </div>
+            </div>
+        </div>
+        </form>
         </div>
       </div>
 

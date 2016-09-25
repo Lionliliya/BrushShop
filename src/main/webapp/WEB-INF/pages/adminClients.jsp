@@ -101,9 +101,6 @@ _________________________________________________________ -->
           <a href="/admin/parameters">Настройки</a>
         </li>
         <li class="yamm-fw">
-          <a href="/">Перейти в интернет-магазин</a>
-        </li>
-        <li class="yamm-fw">
           <a href="/admin/logout">Выйти</a>
         </li>
       </ul>
@@ -178,6 +175,38 @@ _________________________________________________________ -->
               </table>
             </div>
           </c:if>
+        </div>
+
+        <hr>
+
+
+          <div class="box">
+            <h3>Добавить клиента</h3>
+            <form role = "form" action="/admin/client/add" method="post">
+
+                  <div class="form-group">
+                    <label for="clientName">Имя клиента</label>
+                    <input type="text" id="clientName" class="form-control" name="firstName" required pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="clientEmail">Ваша электронная почта</label>
+                    <input class="form-control" id="clientEmail" name="email" type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phoneNumber">Телефон в формате 38-0xx-xxx-xx-xx</label>
+                    <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Добавить клиента</button>
+                    </div>
+                  </div>
+
+            </form>
+          </div>
         </div>
       </div>
 

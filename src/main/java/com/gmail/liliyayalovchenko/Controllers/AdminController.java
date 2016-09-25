@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Controller
@@ -613,17 +614,17 @@ public class AdminController {
 
     }
 
-
     @RequestMapping("/client")
     public ModelAndView clientsPage (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             modelAndView.setViewName("adminClients");
             modelAndView.addObject("clients", clientDAO.getClients());
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -631,12 +632,13 @@ public class AdminController {
     public ModelAndView clientSortName (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             modelAndView.setViewName("adminClients");
             modelAndView.addObject("clients", clientDAO.getSortedByName());
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -647,26 +649,9 @@ public class AdminController {
         if (checkStatus(session)) {
             modelAndView.setViewName("adminClients");
             modelAndView.addObject("clients", clientDAO.getSortedByEmail());
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
-        return modelAndView;
-    }
 
-
-
-    @RequestMapping(value = "/client/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView clientEdit (@PathVariable int id,
-                                    HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-        if (checkStatus(session)) {
-            modelAndView.setViewName("adminClientEdit");
-            Client client = clientDAO.getClient(id);
-            modelAndView.addObject("client", client);
-        } else {
-            modelAndView.setViewName("adminLogin");
-        }
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -678,10 +663,12 @@ public class AdminController {
         if (checkStatus(session)) {
             modelAndView.setViewName("adminClient");
             modelAndView.addObject("client", clientDAO.getClient(id));
+            modelAndView.addObject("feedBacks", feedBackDAO.getFeedBacksByClientId(id));
+            modelAndView.addObject("products", productDAO.getAllProducts());
             modelAndView.addObject("orders", orderDAO.getAllOrdersByClient(id));
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -690,11 +677,13 @@ public class AdminController {
                                       ModelMap model,
                                     HttpServletRequest request) {
         HttpSession session = request.getSession();
+
         if (checkStatus(session)) {
             Client client = clientDAO.getClient(id);
             clientDAO.remove(client);
             return new ModelAndView("redirect:/admin/client", model);
         }
+
         return new ModelAndView("adminLogin", model);
     }
 
@@ -702,18 +691,36 @@ public class AdminController {
     public ModelAndView removeFeedBackFromClient(@PathVariable int id,
                                                  HttpServletRequest request,
                                                  ModelMap model) {
-
         HttpSession session = request.getSession();
+
         if (checkStatus(session)) {
-            Client client = clientDAO.getClient(id);
             String feedBackId = request.getParameter("delete");
             FeedBack feedBack = feedBackDAO.getFeedBackById(Integer.valueOf(feedBackId));
+            System.out.println(feedBack.getId() + "id of feedback");
+            productDAO.removeFeedBack(feedBack);
             feedBackDAO.delete(feedBack);
-            return new ModelAndView("redirect:/admin/client", model);
+            return new ModelAndView("redirect:/admin/client/{id}", model);
         }
+
         return new ModelAndView("adminLogin", model);
     }
 
+    @RequestMapping(value = "/client/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView clientEdit (@PathVariable int id,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminClientEdit");
+            Client client = clientDAO.getClient(id);
+            modelAndView.addObject("feedBacks", feedBackDAO.getFeedBacksByClientId(id));
+            modelAndView.addObject("client", client);
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/clients/save", method = RequestMethod.POST)
     public ModelAndView clientSave (@RequestParam(value="id") int id,
@@ -723,61 +730,47 @@ public class AdminController {
                                     HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             Client client = new Client(firstName, phoneNumber, email);
             clientDAO.saveClient(client, id);
             modelAndView.setViewName("adminClients");
             modelAndView.addObject("clients", clientDAO.getClients());
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
-        return  modelAndView;
-    }
 
-    @RequestMapping(value = "/clients/add")
-    public ModelAndView clientAdd (HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-        if (checkStatus(session)) {
-            modelAndView.setViewName("addClient");
-
-        } else {
-            modelAndView.setViewName("adminLogin");
-        }
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/clients/save-new-client", method = RequestMethod.POST)
+    @RequestMapping(value = "/client/add", method = RequestMethod.POST)
     public ModelAndView saveNewClient (@RequestParam(value="firstName") String firstName,
                                        @RequestParam(value="phoneNumber") String phoneNumber,
                                        @RequestParam(value="email") String email,
+                                       ModelMap model,
                                        HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             Client client = new Client (firstName, phoneNumber, email);
             clientDAO.addClient(client);
-            modelAndView.setViewName("adminClients");
-            modelAndView.addObject("clients", clientDAO.getClients());
-
-        } else {
-            modelAndView.setViewName("adminLogin");
+            return new ModelAndView("redirect:/admin/client", model);
         }
-        return modelAndView;
+
+        return new ModelAndView("adminLogin", model);
     }
 
     @RequestMapping(value = "/feedbacks")
     public ModelAndView adminFeedbacks (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
-        if (checkStatus(session)) {
 
+        if (checkStatus(session)) {
             modelAndView.setViewName("adminFeedbacks");
             modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacks());
 
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -786,13 +779,14 @@ public class AdminController {
                                                 HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             modelAndView.setViewName("adminFeedbacks");
             modelAndView.addObject("feedbacks", feedBackDAO.getFeedBacksByClientId(id));
 
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -801,13 +795,14 @@ public class AdminController {
                                                 HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             modelAndView.setViewName("adminFeedbacks");
             modelAndView.addObject("feedbacks", feedBackDAO.getFeedBacksByProductId(id));
 
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -816,12 +811,13 @@ public class AdminController {
                                     HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             modelAndView.setViewName("feedbackEdit");
             modelAndView.addObject("feedback", feedBackDAO.getFeedBackById(id));
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
+
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
@@ -835,6 +831,7 @@ public class AdminController {
                                         HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
             Client client = clientDAO.getClient(clientId);
             Product product = productDAO.getProductById(productId);
@@ -842,57 +839,36 @@ public class AdminController {
             feedBackDAO.saveFeedBack(feedBack, id);
             modelAndView.setViewName("adminFeedbacks");
             modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacks());
-        } else {
-            modelAndView.setViewName("adminLogin");
         }
-        return  modelAndView;
-    }
 
-    @RequestMapping(value = "/feedbacks/add")
-    public ModelAndView addFeedBack(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-        if (checkStatus(session)) {
-            modelAndView.setViewName("addFeedBack");
-            modelAndView.addObject("clients", clientDAO.getClients());
-            modelAndView.addObject("products", productDAO.getAllProducts());
-        } else {
-            modelAndView.setViewName("adminLogin");
-        }
+        modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/feedbacks/saveNewFeedback", method = RequestMethod.POST)
-    public ModelAndView saveNewClient (@RequestParam(value="product") int id,
-                                       @RequestParam(value = "client") int idclient,
-                                       @RequestParam(value="evaluation") int evaluation,
-                                       @RequestParam(value="feedback") String feedback,
-                                       HttpServletRequest request) {
+    @RequestMapping(value = "/feedback/add/{id}", method = RequestMethod.POST)
+    public ModelAndView saveNewFeedBack (@PathVariable int id,
+                                         @RequestParam int product,
+                                         @RequestParam String date,
+                                         @RequestParam int evaluation,
+                                         @RequestParam String feedback,
+                                         ModelMap model,
+                                         HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
-            Product resultproduct = productDAO.getProductById(id);
-            Client resultclient = clientDAO.getClient(idclient);
-            FeedBack feedBack = new FeedBack(resultproduct, new Date(), resultclient, evaluation, feedback);
+            Product productById = productDAO.getProductById(product);
+            Client client = clientDAO.getClient(id);
+            Date dateOfFeedBack = new SimpleDateFormat("dd.MM.yyyy hh:mm").parse(date);
+            FeedBack feedBack = new FeedBack(productById, dateOfFeedBack, client, evaluation, feedback);
             feedBackDAO.saveFeedBack(feedBack);
-            modelAndView.setViewName("adminFeedbacks");
-            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacks());
-        } else {
-            modelAndView.setViewName("adminLogin");
+            productDAO.addFeedbackToProduct(feedBack, product);
+            return new ModelAndView("redirect:/admin/client/{id}", model);
         }
-        return modelAndView;
+
+        return new ModelAndView("adminLogin", model);
     }
-
-
 
     public boolean checkStatus(HttpSession session){
-        boolean checking;
-        String status = (String)session.getAttribute("status");
-        if (status=="admin") checking = true;
-        else checking=false;
-        return checking;
+        return Objects.equals(session.getAttribute("status"), "admin");
     }
-
-
-
 }

@@ -34,4 +34,6 @@ public interface ProductDAO {
     List<Product> getAllPriceDown();
 
     List<Product> getAllPriceUp();
+
+    void removeFeedBack(FeedBack feedBack);
 }

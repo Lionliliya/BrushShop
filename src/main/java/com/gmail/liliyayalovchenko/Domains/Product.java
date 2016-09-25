@@ -47,7 +47,7 @@ public class Product implements Serializable {
 
     private String image4;
 
-    @OneToMany(mappedBy = "product", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<FeedBack> feedBackList;
 
     @Column(name="KeyWord")
@@ -148,7 +148,7 @@ public class Product implements Serializable {
         }
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -303,5 +303,9 @@ public class Product implements Serializable {
     public void addFeedBack(FeedBack feedBack) {
         this.feedBackList.add(feedBack);
         feedBack.setProduct(this);
+    }
+
+    public void removeFeedBack(FeedBack feedBack) {
+        this.feedBackList.remove(feedBack);
     }
 }

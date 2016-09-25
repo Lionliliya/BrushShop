@@ -19,17 +19,10 @@ public class Client implements Serializable{
     @Column(name="Email", nullable = false)
     private String email;
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="client")
-    private List<FeedBack> feedBacks;
+//    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="client")
+//    private List<FeedBack> feedBacks;
 
     public Client() {}
-
-    public Client(String firstName, String phoneNumber, List<FeedBack> feedBacks, String email) {
-        this.firstName = firstName;
-        this.phoneNumber = phoneNumber;
-        this.feedBacks = feedBacks;
-        this.email = email;
-    }
 
     public Client(String firstName, String phoneNumber, String email) {
         this.firstName = firstName;
@@ -67,17 +60,5 @@ public class Client implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<FeedBack> getFeedBacks() {
-        return feedBacks;
-    }
-
-    public void setFeedBacks(List<FeedBack> feedBacks) {
-        this.feedBacks = feedBacks;
-    }
-
-    public void removeFeedBack(FeedBack feedBack) {
-        this.feedBacks.remove(feedBack);
     }
 }
