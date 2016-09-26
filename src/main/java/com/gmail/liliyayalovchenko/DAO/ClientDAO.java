@@ -13,7 +13,7 @@ public interface ClientDAO {
 
     Client findClientByPhone(String phone, String email);
 
-    void saveClient(Client client, int id);
+    void saveClient(int id, String name, String phone, String email);
 
     void addClient(Client client);
 

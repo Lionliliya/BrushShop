@@ -400,20 +400,24 @@
                     <div class="box" id="reviews">
                         <h4>Отзывы</h4>
                         <hr>
-                        <c:forEach items="${product.feedBackList}" var="feedBack">
-                            <div class="social">
-                                <h4>${feedBack.client.firstName}</h4>
-                                <p class="date-comments">
-                                    <c:set var="date" value="${feedBack.date}" />
-                                    <a href="#"><i class="fa fa-calendar-o"></i>
-                                        <fmt:formatDate type="date" dateStyle="short" timeStyle="short"
-                                        value="${date}" />
-                                    </a>
-                                </p>
-                                <p>${feedBack.getStarRate()}</p>
-                                <p>${feedBack.feedback}</p>
-                            </div>
-                        </c:forEach>
+
+                            <c:forEach items="${product.feedBackList}" var="feedBack">
+                                <div class="box">
+                                <div class="social">
+                                    <h4>${feedBack.client.firstName}</h4>
+                                    <p class="date-comments">
+                                        <c:set var="date" value="${feedBack.date}" />
+                                        <a href="#"><i class="fa fa-calendar-o"></i>
+                                            <fmt:formatDate type="date" dateStyle="short" timeStyle="short"
+                                            value="${date}" />
+                                        </a>
+                                    </p>
+                                    <p>${feedBack.getStarRate()}</p>
+                                    <p>${feedBack.feedback}</p>
+                                </div>
+                                </div>
+                            </c:forEach>
+
                     </div>
                     </c:if>
 

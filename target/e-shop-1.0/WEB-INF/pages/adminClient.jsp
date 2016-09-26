@@ -132,80 +132,86 @@ _________________________________________________________ -->
           <h3>Имя клиента - ${client.firstName}</h3>
           <h4>Контактный телефон -${client.phoneNumber} </h4>
           <h4>Эл. почта - ${client.email} </h4>
-          <hr>
-          <h3>Список заказов клиента</h3>
-          <c:if test="${fn:length(orders) eq 0}">
-           <h5>У клиента нет заказов</h5>
-          </c:if>
-          <c:if test="${fn:length(orders) gt 0}">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>№</th>
-                  <th>Дата</th>
-                  <th>Сумма</th>
-                  <th>Статус</th>
-                  <th>Доставка</th>
-                </tr>
-                </thead>
-                <tbody>
 
-                <c:forEach items="${orders}" var="order">
+          <div class="row">
+            <div class="box">
+            <h3>Список заказов клиента</h3>
+            <c:if test="${fn:length(orders) eq 0}">
+              <h5>У клиента нет заказов</h5>
+            </c:if>
+            <c:if test="${fn:length(orders) gt 0}">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
                   <tr>
-                    <td><a href="/admin/order/${order.id}">10${order.id}</a></td>
-                    <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
-                    <td>₴${order.totalAmount}</td>
-                    <td><span class="label label-info">статус</span></td>
-                    <td>${order.delivery}</td>
+                    <th>№</th>
+                    <th>Дата</th>
+                    <th>Сумма</th>
+                    <th>Статус</th>
+                    <th>Доставка</th>
                   </tr>
-                </c:forEach>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                  <c:forEach items="${orders}" var="order">
+                    <tr>
+                      <td><a href="/admin/order/${order.id}">10${order.id}</a></td>
+                      <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${order.date}" /></td>
+                      <td>₴${order.totalAmount}</td>
+                      <td><span class="label label-info">статус</span></td>
+                      <td>${order.delivery}</td>
+                    </tr>
+                  </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+            </c:if>
             </div>
-          </c:if>
+          </div>
 
+          <div class="row">
+            <div class="box">
+              <h3>Отзывы клиента</h3>
+              <c:if test="${fn:length(feedBacks) eq 0}">
+                <h5>У клиента нет отзывов</h5>
+              </c:if>
+              <c:if test="${fn:length(feedBacks) gt 0}">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                    <tr>
+                      <th>№</th>
+                      <th>Дата</th>
+                      <th colspan="2">Товар</th>
+                      <th>Оценка</th>
+                      <th>Отзыв</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-          <h3>Отзывы клиента</h3>
-          <c:if test="${fn:length(feedBacks) eq 0}">
-            <h5>У клиента нет отзывов</h5>
-          </c:if>
-          <c:if test="${fn:length(feedBacks) gt 0}">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>№</th>
-                  <th>Дата</th>
-                  <th colspan="2">Товар</th>
-                  <th>Оценка</th>
-                  <th>Отзыв</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                <c:forEach items="${feedBacks}" var="feedback">
-                  <tr>
-                    <td><a href="/admin/feedback/${feedback.id}">${feedback.id}</a></td>
-                    <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
-                    <td>
-                      <a href="/product/${feedback.product.id}">
-                          ${feedback.product.name}
-                      </a>
-                    </td>
-                    <td>
-                      <a href="/admin/product/${feedback.product.id}">
-                        <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
-                      </a>
-                    </td>
-                    <td>${feedback.evaluation}</td>
-                    <td>${feedback.feedback}</td>
-                  </tr>
-                </c:forEach>
-                </tbody>
-              </table>
+                    <c:forEach items="${feedBacks}" var="feedback">
+                      <tr>
+                        <td><a href="/admin/feedback/${feedback.id}">${feedback.id}</a></td>
+                        <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
+                        <td>
+                          <a href="/product/${feedback.product.id}">
+                              ${feedback.product.name}
+                          </a>
+                        </td>
+                        <td>
+                          <a href="/admin/product/${feedback.product.id}">
+                            <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
+                          </a>
+                        </td>
+                        <td>${feedback.evaluation}</td>
+                        <td>${feedback.feedback}</td>
+                      </tr>
+                    </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+              </c:if>
             </div>
-          </c:if>
+          </div>
 
           <!-- /.table-responsive -->
         <h3>Добавить отзыв</h3>

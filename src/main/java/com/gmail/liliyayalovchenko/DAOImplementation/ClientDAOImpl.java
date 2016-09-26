@@ -2,7 +2,6 @@ package com.gmail.liliyayalovchenko.DAOImplementation;
 
 import com.gmail.liliyayalovchenko.DAO.ClientDAO;
 import com.gmail.liliyayalovchenko.Domains.Client;
-import com.gmail.liliyayalovchenko.Domains.FeedBack;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
@@ -61,15 +60,15 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public void saveClient(Client client, int id) {
+    public void saveClient(int id, String name, String phone, String email) {
         Query query = entityManager.createQuery("SELECT a FROM Client a  WHERE a.id =:var", Client.class);
         query.setParameter("var", id);
         Client resultClient = (Client) query.getResultList().get(0);
         try{
             entityManager.getTransaction().begin();
-            resultClient.setFirstName(client.getFirstName());
-            resultClient.setPhoneNumber(client.getPhoneNumber());
-            resultClient.setEmail(client.getEmail());
+            resultClient.setFirstName(name);
+            resultClient.setPhoneNumber(phone);
+            resultClient.setEmail(email);
             entityManager.getTransaction().commit();
         }
         catch(Exception ex){

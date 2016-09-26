@@ -172,4 +172,16 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
+    @Override
+    public void updateProduct(Product productById) {
+        try {
+
+            entityManager.getTransaction().begin();
+            entityManager.refresh(productById);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
 }
