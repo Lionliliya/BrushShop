@@ -37,12 +37,11 @@
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(id) {
-      var answer = confirm("Вы собираетесь удалить заказ № " + id + ". Нажмите OK что бы продолжить.")
+      var answer = confirm("Вы собираетесь удалить клиента  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8080/admin/order/remove/" + id + "";
+        window.location = "http://localhost:8080/admin/client/remove/" + id + "";
     }
   </script>
-
 
 </head>
 
@@ -120,95 +119,69 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-8 col-md-offset-2" id="customer-order">
-        <div class="box">
-
-          <form role="form" action="/admin/client/save/${client.id}" method="post">
-            <div class="form-group">
-              <label for="clientId">№ клиента</label>
-              <input type="text" id="clientId" class="form-control" name="id" value="${client.id}" readonly>
+      <div class="col-md-8 col-md-offset-2" id="customer-orders">
+        <div class="row">
+          <div class="box">
+            <h3 class="text-center"> Категория: ${category.name}</h3>
+            <div class="box" style="background-color: #ddb3d7;">
+              <h5><i class="fa fa-info-circle"></i> Описание</h5>
+              <hr>
+              <p>${category.info}</p>
             </div>
 
-            <div class="form-group">
-              <label for="clientName">Имя</label>
-              <input type="text" id="clientName" class="form-control" name="firstName" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" value="${client.firstName}" required/>
+            <div class="box" style="background-color: #ddb3d7;">
+              <h5><i class="fa fa-tags"></i> Meta tags блок</h5>
+              <hr>
+              <p>Meta key words - ${category.metaKeyWords}</p>
+              <p>Meta description - ${category.metaDescription}</p>
+              <p>Meta title - ${category.metaTitle}</p>
             </div>
 
-            <div class="form-group">
-              <label for="phoneNumber">Телефон</label>
-              <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" value="${client.phoneNumber}" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
-            </div>
 
-            <div class="form-group">
-              <label for="clientEmail">Эл. адресс</label>
-              <input type="text" id="clientEmail" class="form-control" name="email" value="${client.email}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-            </div>
+          </div>
 
-            <button type="submit" class="btn btn-success">Сохранить</button>
-
-          </form>
-
-          <hr>
-          <form role="form" action="/admin/client/removeFeedback/${client.id}" method="post">
-
-            <label for="table1">
-              Список отзывов. Вибрете отзыв, что бы удалить его, и нажите кнопку "Удалить"
-            </label>
-
-            <c:if test="${fn:length(feedBacks) eq 0}">
-              <h5>У клиента нет отзывов</h5>
-            </c:if>
-            <c:if test="${fn:length(feedBacks) gt 0}">
-              <div class="table-responsive">
-                <table class="table table-hover" id="table1">
-                  <thead>
+          <div class="box">
+            <h5><i class="fa fa-shopping-cart"></i> Товары в этой категории</h5>
+            <hr>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>№</th>
+                  <th colspan="2">Товар</th>
+                  <th>Цена</th>
+                  <th>Количество в уп.</th>
+                  <th>В наличии</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${products}" var="product">
                   <tr>
-                    <th>№</th>
-                    <th>Дата</th>
-                    <th colspan="2">Товар</th>
-                    <th>Оценка</th>
-                    <th>Отзыв</th>
-                    <th>Удалить</th>
+                    <td>${product.id}</td>
+                    <td>
+                      <a href="/product/${product.id}">
+                        <img src="/resources/${product.smallimage}" alt="${product.name}" width="50">
+                      </a>
+                    </td>
+                    <td><a href="/product/${product.id}">${product.name}</a>
+                    <td>₴${product.price}</td>
+                    <td>${product.amount}</td>
+                    <td>${product.inStock}</td>
                   </tr>
-                  </thead>
-                  <tbody>
-
-                  <c:forEach items="${feedBacks}" var="feedback">
-                    <tr>
-                      <td>${feedback.id}</td>
-                      <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
-                      <td>
-                        <a href="/admin/product/${feedback.product.id}">
-                            ${feedback.product.name}
-                        </a>
-                      </td>
-                      <td>
-                        <a href="/admin/product/${feedback.product.id}">
-                          <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
-                        </a>
-                      </td>
-                      <td>${feedback.evaluation}</td>
-                      <td>${feedback.feedback}</td>
-                      <td><input type="radio" value="${feedback.id}" name="delete"></td>
-                    </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
-              </div>
-            </c:if>
-
-            <button type="submit" class="btn btn-success">Удалить</button>
-          </form>
-
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <!-- /.table-responsive -->
-      </div>
 
     </div>
-    <!-- /.container -->
-  </div>
 
-  <!-- /#content -->
+  </div>
+  <!-- /.container -->
+</div>
+
+<!-- /#content -->
 
 </div>
 <!-- /#all -->

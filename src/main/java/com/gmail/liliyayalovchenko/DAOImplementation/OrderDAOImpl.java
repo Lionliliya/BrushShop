@@ -33,26 +33,6 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public void deleteProduct(ProductInCart product, int id) {
-        Query query = entityManager.createQuery("SELECT o FROM Order o  WHERE o.id =:var", Order.class);
-        query.setParameter("var", id);
-        Order order = (Order) query.getResultList().get(0);
-        try{
-            entityManager.getTransaction().begin();
-            order.removeFromProductList(product);
-            int newAmount = order.getTotalAmount() - product.getPrice();
-            order.setTotalAmount(newAmount);
-            entityManager.refresh(order);
-            entityManager.getTransaction().commit();
-        }
-        catch(Exception e){
-            entityManager.getTransaction().rollback();
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
     public Order getOrder(int id) {
         Query query = entityManager.createQuery("SELECT a FROM Order a  WHERE a.id =:var", Order.class);
         query.setParameter("var", id);
@@ -60,11 +40,12 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public void updateOrderAmount(int id, int price) {
+    public void updateOrderAmount(int id, ProductInCart productInCart, boolean b) {
         Query query = entityManager.createQuery("SELECT a FROM Order a  WHERE a.id =:var", Order.class);
         query.setParameter("var", id);
         Order resultOrder = (Order) query.getResultList().get(0);
-        int newAmount = resultOrder.getTotalAmount() - price;
+        int newAmount = b ? resultOrder.getTotalAmount() + productInCart.getQuantity()*productInCart.getPrice()
+                          : resultOrder.getTotalAmount() - productInCart.getQuantity()*productInCart.getPrice();
         try{
             entityManager.getTransaction().begin();
             resultOrder.setTotalAmount(newAmount);

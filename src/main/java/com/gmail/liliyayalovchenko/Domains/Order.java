@@ -20,18 +20,15 @@ public class Order implements Serializable {
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ProductInCart> productsInCart;
     private int totalAmount;
 
     public Order() {}
 
-    public Order(Date date, String delivery, String comments, Client client, List<ProductInCart> productsInCart, int totalAmount) {
+    public Order(Date date, String delivery, String comments, Client client, int totalAmount) {
         this.date = date;
         this.delivery = delivery;
         this.comments = comments;
         this.client = client;
-        this.productsInCart = productsInCart;
         this.totalAmount = totalAmount;
     }
 
@@ -87,10 +84,6 @@ public class Order implements Serializable {
         this.client = client;
     }
 
-    public List<ProductInCart> getProductsInCart() {
-        return productsInCart;
-    }
-
     public void setProductsInCart(List<ProductInCart> productsInCart) {
         productsInCart = productsInCart;
     }
@@ -103,11 +96,33 @@ public class Order implements Serializable {
         this.totalAmount = totalAmount;
     }
 
-    public void removeFromProductList(ProductInCart product) {
-        this.productsInCart.remove(product);
-    }
-
     public void changeTotalAmount(int amount) {
         this.totalAmount -= amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        if (totalAmount != order.totalAmount) return false;
+        if (client != null ? !client.equals(order.client) : order.client != null) return false;
+        if (comments != null ? !comments.equals(order.comments) : order.comments != null) return false;
+        if (date != null ? !date.equals(order.date) : order.date != null) return false;
+        if (delivery != null ? !delivery.equals(order.delivery) : order.delivery != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (delivery != null ? delivery.hashCode() : 0);
+        result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        result = 31 * result + totalAmount;
+        return result;
     }
 }

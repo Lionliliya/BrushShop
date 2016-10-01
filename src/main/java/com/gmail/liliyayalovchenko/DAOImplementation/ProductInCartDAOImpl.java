@@ -44,11 +44,31 @@ public class ProductInCartDAOImpl implements ProductInCartDAO {
     }
 
     @Override
+    public void saveProductInCart(ProductInCart productInCart) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(productInCart);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
     public ProductInCart getById(int id) {
        return (ProductInCart) entityManager
                .createQuery("select p from ProductInCart p where p.product_In_Cart_id = :var")
                .setParameter("var", id)
                .getResultList()
                .get(0);
+    }
+
+    @Override
+    public List<ProductInCart> getProductsInCart(int id) {
+        return entityManager
+                .createQuery("select p from ProductInCart p where p.order.id = :var")
+                .setParameter("var", id)
+                .getResultList();
     }
 }

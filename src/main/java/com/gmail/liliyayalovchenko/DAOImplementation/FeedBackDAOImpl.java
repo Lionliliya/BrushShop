@@ -1,12 +1,13 @@
 package com.gmail.liliyayalovchenko.DAOImplementation;
 
 import com.gmail.liliyayalovchenko.DAO.FeedBackDAO;
-import com.gmail.liliyayalovchenko.Domains.Client;
 import com.gmail.liliyayalovchenko.Domains.FeedBack;
+import com.gmail.liliyayalovchenko.Domains.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.Date;
 import java.util.List;
 
 public class FeedBackDAOImpl implements FeedBackDAO {
@@ -25,20 +26,6 @@ public class FeedBackDAOImpl implements FeedBackDAO {
             ex.printStackTrace();
         }
     }
-
-//    @Override
-//    public void delete(int id, FeedBack feedBack) {
-//        try {
-//            entityManager.getTransaction().begin();
-//
-//            client.removeFeedBack(feedBack);
-//            entityManager.refresh(client);
-//            entityManager.getTransaction().commit();
-//        } catch (Exception ex) {
-//            entityManager.getTransaction().rollback();
-//            ex.printStackTrace();
-//        }
-//    }
 
     @Override
     public void delete(FeedBack feedBack) {
@@ -80,18 +67,55 @@ public class FeedBackDAOImpl implements FeedBackDAO {
     }
 
     @Override
-    public void saveFeedBack(FeedBack feedBack, int id) {
-        Query query = entityManager.createQuery("SELECT a FROM FeedBack a  WHERE a.id =:var", Client.class);
-        query.setParameter("var", id);
-        FeedBack resultFeedBack = (FeedBack) query.getResultList().get(0);
-        try{
+    public void saveFeedBack(int id, Date date, int evaluation, String feedback) {
+        Query query = entityManager.createQuery("SELECT a FROM FeedBack a WHERE a.id =:pattern", FeedBack.class);
+        query.setParameter("pattern", id);
+        FeedBack feedBack = (FeedBack) query.getResultList().get(0);
+        try {
             entityManager.getTransaction().begin();
-            resultFeedBack.setDate(feedBack.getDate());
-            resultFeedBack.setEvaluation(feedBack.getEvaluation());
-            resultFeedBack.setFeedback(feedBack.getFeedback());
+            feedBack.setDate(date);
+            feedBack.setEvaluation(evaluation);
+            feedBack.setFeedback(feedback);
             entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
         }
-        catch(Exception ex){
+    }
+
+    @Override
+    public List<FeedBack> getAllFeedBacksDateUp() {
+        Query query = entityManager.createQuery("SELECT a FROM FeedBack a order by a.date desc", FeedBack.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<FeedBack> getAllFeedBacksDateDown() {
+        Query query = entityManager.createQuery("SELECT a FROM FeedBack a order by a.date", FeedBack.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<FeedBack> getAllFeedBacksRateDown() {
+        Query query = entityManager.createQuery("SELECT a FROM FeedBack a order by a.evaluation desc", FeedBack.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<FeedBack> getAllFeedBacksRateUp() {
+        Query query = entityManager.createQuery("SELECT a FROM FeedBack a order by a.evaluation", FeedBack.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public void remove(FeedBack feedBackById) {
+        try {
+            entityManager.getTransaction().begin();
+            Product product = feedBackById.getProduct();
+            product.removeFeedBack(feedBackById);
+            entityManager.remove(feedBackById);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
             entityManager.getTransaction().rollback();
             ex.printStackTrace();
         }

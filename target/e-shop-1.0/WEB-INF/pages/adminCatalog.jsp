@@ -37,12 +37,11 @@
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(id) {
-      var answer = confirm("Вы собираетесь удалить заказ № " + id + ". Нажмите OK что бы продолжить.")
+      var answer = confirm("Вы собираетесь удалить клиента  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8080/admin/order/remove/" + id + "";
+        window.location = "http://localhost:8080/admin/client/remove/" + id + "";
     }
   </script>
-
 
 </head>
 
@@ -120,76 +119,41 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-8 col-md-offset-2" id="customer-order">
-        <div class="box">
-
-          <form role="form" action="/admin/client/save/${client.id}" method="post">
-            <div class="form-group">
-              <label for="clientId">№ клиента</label>
-              <input type="text" id="clientId" class="form-control" name="id" value="${client.id}" readonly>
-            </div>
-
-            <div class="form-group">
-              <label for="clientName">Имя</label>
-              <input type="text" id="clientName" class="form-control" name="firstName" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" value="${client.firstName}" required/>
-            </div>
-
-            <div class="form-group">
-              <label for="phoneNumber">Телефон</label>
-              <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" value="${client.phoneNumber}" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
-            </div>
-
-            <div class="form-group">
-              <label for="clientEmail">Эл. адресс</label>
-              <input type="text" id="clientEmail" class="form-control" name="email" value="${client.email}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-            </div>
-
-            <button type="submit" class="btn btn-success">Сохранить</button>
-
-          </form>
-
-          <hr>
-          <form role="form" action="/admin/client/removeFeedback/${client.id}" method="post">
-
-            <label for="table1">
-              Список отзывов. Вибрете отзыв, что бы удалить его, и нажите кнопку "Удалить"
-            </label>
-
-            <c:if test="${fn:length(feedBacks) eq 0}">
-              <h5>У клиента нет отзывов</h5>
+      <div class="col-md-10 col-md-offset-1" id="customer-orders">
+        <div class="row">
+          <div class="box">
+            <c:set var="categories" value="${categories}"/>
+            <c:if test="${fn:length(categories) eq 0}">
+              <div class="col-md-12"><article class="art-head"><h2>У вас нет категорий товаров</h2></article></div>
             </c:if>
-            <c:if test="${fn:length(feedBacks) gt 0}">
+            <c:if test="${fn:length(categories) gt 0}">
               <div class="table-responsive">
-                <table class="table table-hover" id="table1">
+                <table class="table table-hover">
                   <thead>
                   <tr>
                     <th>№</th>
-                    <th>Дата</th>
-                    <th colspan="2">Товар</th>
-                    <th>Оценка</th>
-                    <th>Отзыв</th>
-                    <th>Удалить</th>
+                    <th>Имя</th>
+                    <th>Описание</th>
+                    <th>Meta key words</th>
+                    <th>Meta description</th>
+                    <th>Meta title</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <c:forEach items="${feedBacks}" var="feedback">
+                  <c:forEach items="${categories}" var="category">
                     <tr>
-                      <td>${feedback.id}</td>
-                      <td><fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${feedback.date}" /></td>
+                      <td>${category.id}</td>
+                      <td>${category.name}</td>
+                      <td>${client.info}</td>
+                      <td>${client.metaKeyWords}</td>
+                      <td>${client.metaDescription}</td>
+                      <td>${client.metaTitle}</td>
                       <td>
-                        <a href="/admin/product/${feedback.product.id}">
-                            ${feedback.product.name}
-                        </a>
+                        <a href="/admin/categoty/edit/${category.id}" class="btn btn-primary btn-sm">Редактировать</a>
+                        <a href="javascript:AlertIt(${category.id});" class="btn btn-primary btn-sm">Удалить</a>
+                        <a href="/admin/catalog/${category.name}" class="btn btn-primary btn-sm">Просмотреть</a>
                       </td>
-                      <td>
-                        <a href="/admin/product/${feedback.product.id}">
-                          <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
-                        </a>
-                      </td>
-                      <td>${feedback.evaluation}</td>
-                      <td>${feedback.feedback}</td>
-                      <td><input type="radio" value="${feedback.id}" name="delete"></td>
                     </tr>
                   </c:forEach>
                   </tbody>
@@ -197,18 +161,16 @@ _________________________________________________________ -->
               </div>
             </c:if>
 
-            <button type="submit" class="btn btn-success">Удалить</button>
-          </form>
-
+          </div>
         </div>
-        <!-- /.table-responsive -->
       </div>
-
     </div>
-    <!-- /.container -->
-  </div>
 
-  <!-- /#content -->
+  </div>
+  <!-- /.container -->
+</div>
+
+<!-- /#content -->
 
 </div>
 <!-- /#all -->

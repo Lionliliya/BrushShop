@@ -16,7 +16,6 @@ import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -191,21 +190,21 @@ public class AdminController {
 
 
 
-    @RequestMapping("/catalog") /**добавление категорий и товаров, удаление**/
-    public ModelAndView ProductCatalog(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("adminCatalog");
-            modelAndView.addObject("products", productDAO.getAllProducts());
-            modelAndView.addObject("categories", categoryDAO.getAllCategories());
-            return  modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
+//    @RequestMapping("/catalog") /**добавление категорий и товаров, удаление**/
+//    public ModelAndView ProductCatalog(HttpServletRequest request) {
+//        HttpSession session = request.getSession();
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        if (checkStatus(session)) {
+//            modelAndView.setViewName("adminCatalog");
+//            modelAndView.addObject("products", productDAO.getAllProducts());
+//            modelAndView.addObject("categories", categoryDAO.getAllCategories());
+//            return  modelAndView;
+//        }
+//
+//        modelAndView.setViewName("adminLogin");
+//        return modelAndView;
+//    }
 
     @RequestMapping("/articles") /**добавление статтей и новостей, удаление и редактирование**/
     public ModelAndView adminArticles(HttpServletRequest request) {
@@ -360,22 +359,6 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/category/edit/{name}")
-    public ModelAndView categoryEdit(@PathVariable("name") String name,
-                                     HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("categoryEdit");
-            modelAndView.addObject("category", categoryDAO.getCategoryByName(name));
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/category/save")
     public ModelAndView categorySave(@RequestParam(value="id") int id,
                                      @RequestParam(value="name") String name,
@@ -453,19 +436,37 @@ public class AdminController {
         return  modelAndView;
     }
 
-    @RequestMapping("/catalog/addPage") /**добавление категорий и товаров, удаление**/
+    @RequestMapping("/catalog") /**добавление категорий и товаров, удаление**/
     public ModelAndView addPage(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("addPage");
+            modelAndView.setViewName("adminCatalog");
             modelAndView.addObject("categories", categoryDAO.getAllCategories());
             return modelAndView;
         }
         modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/catalog/{name}")
+    public ModelAndView categoryEdit(@PathVariable("name") String name,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminCategory");
+            modelAndView.addObject("category", categoryDAO.getCategoryByName(name));
+            modelAndView.addObject("products", productDAO.getProductsByCategory(name));
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
     @RequestMapping(value="/catalog/addProduct", method = RequestMethod.POST) /**Сохранение товра**/
     public ModelAndView addProduct(@RequestParam(value="name") String name,
                                    @RequestParam(value="price") int price,
@@ -561,7 +562,6 @@ public class AdminController {
             order.setDelivery(delivery);
             order.setComments(comments);
             order.setTotalAmount(amount);
-            order.setProductsInCart(productInCarts);
             order.setClient(clientDAO.getClient(client));
 
             for (ProductInCart productInCart : productInCarts) {
@@ -584,7 +584,8 @@ public class AdminController {
         if (checkStatus(session)) {
             Order order = orderDAO.getOrder(id);
             modelAndView.addObject("order", order);
-            session.setAttribute("productList", order.getProductsInCart());
+            modelAndView.addObject("products", productDAO.getAllProducts());
+            session.setAttribute("productList", productInCartDAO.getProductsInCart(id));
             modelAndView.setViewName("adminOrderEdit");
         } else {
             modelAndView.setViewName("adminLogin");
@@ -599,6 +600,7 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
         if (checkStatus(session)) {
             modelAndView.addObject("order", orderDAO.getOrder(id));
+            modelAndView.addObject("products", productInCartDAO.getProductsInCart(id));
             modelAndView.setViewName("adminOrder");
             return modelAndView;
         }
@@ -623,27 +625,54 @@ public class AdminController {
 
     @RequestMapping(value = "/order/removeProduct/{id}", method = RequestMethod.POST)
     public ModelAndView deleteFromOrder(@PathVariable int id,
+                                        @RequestParam int delete,
                                         HttpServletRequest request,
                                         ModelMap model) {
         HttpSession session = request.getSession();
 
         if (checkStatus(session)) {
-            String productToDelete = request.getParameter("delete");
-            Integer idProduct = Integer.valueOf(productToDelete);
-            ProductInCart product = productInCartDAO.getById(idProduct);
-
-            List<ProductInCart> productInCarts = (List<ProductInCart>) session.getAttribute("productList");
-            List<ProductInCart> newList = productInCarts.stream().filter(productInCart -> productInCart.getProduct_In_Cart_id() != idProduct).collect(Collectors.toList());
-
-            session.setAttribute("productList", newList);
-            orderDAO.deleteProduct(product, id);
-            orderDAO.updateOrderAmount(id, product.getPrice());
+            ProductInCart product = productInCartDAO.getById(delete);
+            orderDAO.updateOrderAmount(id, product, false);
             productInCartDAO.delete(product);
             return new ModelAndView("redirect:/admin/", model);
         }
 
         return new ModelAndView("adminLogin", model);
     }
+
+    @RequestMapping(value = "/order/addProduct/{id}", method = RequestMethod.POST)
+    public ModelAndView addToOrder(@PathVariable int id,
+                                   @RequestParam int product,
+                                   HttpServletRequest request,
+                                   ModelMap model) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+
+            Product productById = productDAO.getProductById(product);
+            List<String> quantities = Arrays.asList(request.getParameterValues("quantity"));
+            int quantity = 1;
+
+            for (String s : quantities) {
+
+                if (!"".equals(s)) {
+                    quantity = Integer.valueOf(s);
+                }
+            }
+
+            ProductInCart productInCart = new ProductInCart(productById, productById.getProductCategory().getName(),
+                                    productById.getSmallimage(), productById.getName(), productById.getPrice(),
+                                    productById.getCurrency(), quantity);
+
+            productInCart.setOrder(orderDAO.getOrder(id));
+            productInCartDAO.saveProductInCart(productInCart);
+            orderDAO.updateOrderAmount(id, productInCart, true);
+            return new ModelAndView("redirect:/admin/", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
 
     @RequestMapping(value = "/order/save/{id}", method = RequestMethod.POST)
     public ModelAndView saveOrder (@PathVariable int id,
@@ -849,7 +878,7 @@ public class AdminController {
         return new ModelAndView("adminLogin", model);
     }
 
-    @RequestMapping(value = "/feedbacks")
+    @RequestMapping(value = "/feedback")
     public ModelAndView adminFeedbacks (HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
@@ -864,15 +893,14 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/feedbacks/byClientId", method = RequestMethod.POST)
-    public ModelAndView adminFeedbacksByClient (@RequestParam(value="id") int id,
-                                                HttpServletRequest request) {
+    @RequestMapping(value = "/feedback/sort/dateUp", method = RequestMethod.GET)
+    public ModelAndView sortFeedBackDateUp(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
             modelAndView.setViewName("adminFeedbacks");
-            modelAndView.addObject("feedbacks", feedBackDAO.getFeedBacksByClientId(id));
+            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacksDateUp());
             return modelAndView;
         }
 
@@ -880,15 +908,14 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/feedbacks/byProductId", method = RequestMethod.POST)
-    public ModelAndView adminFeedbacksByProduct (@RequestParam(value="id") int id,
-                                                HttpServletRequest request) {
+    @RequestMapping(value = "/feedback/sort/dateDown", method = RequestMethod.GET)
+    public ModelAndView sortFeedBackDateDown(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
             modelAndView.setViewName("adminFeedbacks");
-            modelAndView.addObject("feedbacks", feedBackDAO.getFeedBacksByProductId(id));
+            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacksDateDown());
             return modelAndView;
         }
 
@@ -896,9 +923,41 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/feedbacks/edit", method = RequestMethod.GET)
-    public ModelAndView feedbackEdit (@RequestParam(value="id") int id,
-                                    HttpServletRequest request) {
+    @RequestMapping(value = "/feedback/sort/rateDown", method = RequestMethod.GET)
+    public ModelAndView sortFeedBackRateDown(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminFeedbacks");
+            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacksRateDown());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/feedback/sort/rateUp", method = RequestMethod.GET)
+    public ModelAndView sortFeedBackRateUp(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminFeedbacks");
+            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacksRateUp());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+
+
+    @RequestMapping(value = "/feedback/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView feedbackEdit (@PathVariable int id,
+                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
@@ -912,29 +971,22 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/feedbacks/save", method = RequestMethod.POST)
-    public ModelAndView feedbackSave (  @RequestParam(value="id") int id,
-                                        @RequestParam(value="product") int productId,
-                                        @RequestParam(value="data") Date data,
-                                        @RequestParam(value = "client") int clientId,
-                                        @RequestParam(value="evaluation") int evaluation,
-                                        @RequestParam(value="feedback") String feedback,
-                                        HttpServletRequest request) {
+    @RequestMapping(value = "/feedback/save/{id}", method = RequestMethod.POST)
+    public ModelAndView feedbackSave (@PathVariable int id,
+                                      @RequestParam String date,
+                                      @RequestParam int evaluation,
+                                      @RequestParam String feedback,
+                                      ModelMap model,
+                                      HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            Client client = clientDAO.getClient(clientId);
-            Product product = productDAO.getProductById(productId);
-            FeedBack feedBack = new FeedBack(product, data, client, evaluation, feedback);
-            feedBackDAO.saveFeedBack(feedBack, id);
-            modelAndView.setViewName("adminFeedbacks");
-            modelAndView.addObject("feedbacks", feedBackDAO.getAllFeedBacks());
-            return modelAndView;
+
+            feedBackDAO.saveFeedBack(id, new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(date), evaluation, feedback);
+            return new ModelAndView("redirect:/admin/feedback", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+        return new ModelAndView("adminLogin");
     }
 
     @RequestMapping(value = "/feedback/add/{id}", method = RequestMethod.POST)
@@ -956,6 +1008,20 @@ public class AdminController {
             feedBackDAO.saveFeedBack(feedBack);
             productDAO.updateProduct(productById);
             return new ModelAndView("redirect:/admin/client/{id}", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
+    @RequestMapping(value = "/feedback/remove/{id}", method = RequestMethod.GET)
+    public ModelAndView removeNewFeedBack (@PathVariable int id,
+                                           ModelMap model,
+                                           HttpServletRequest request) throws ParseException {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            feedBackDAO.remove(feedBackDAO.getFeedBackById(id));
+            return new ModelAndView("redirect:/admin/feedback", model);
         }
 
         return new ModelAndView("adminLogin", model);

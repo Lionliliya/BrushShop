@@ -92,16 +92,13 @@ _________________________________________________________ -->
                     <a href="/admin/client">Клиенты</a>
                 </li>
                 <li class="yamm-fw">
-                    <a href="/admin/feedbacks">Отзывы</a>
+                    <a href="/admin/feedback">Отзывы</a>
                 </li>
                 <li class="yamm-fw">
-                    <a href="/admin/articles">Статьи и новости</a>
+                    <a href="/admin/article">Статьи и новости</a>
                 </li>
                 <li class="yamm-fw">
-                    <a href="/admin/parameters">Настройки</a>
-                </li>
-                <li class="yamm-fw">
-                    <a href="/">Перейти в интернет-магазин</a>
+                    <a href="/admin/parameter">Настройки</a>
                 </li>
                 <li class="yamm-fw">
                     <a href="/admin/logout">Выйти</a>

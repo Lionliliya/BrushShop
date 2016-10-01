@@ -90,7 +90,7 @@ public class OrderController {
         for (ProductInCart aProductsCart1 : productsInCart) {
             amount += aProductsCart1.getPrice()*aProductsCart1.getQuantity();
         }
-        Order order = new Order(new Date(), delivery, comments, client, productsInCart, amount);
+        Order order = new Order(new Date(), delivery, comments, client, amount);
         for (ProductInCart product : productsInCart) {
             product.setOrder(order);
         }

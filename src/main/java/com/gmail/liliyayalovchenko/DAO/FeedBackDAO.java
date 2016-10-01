@@ -3,6 +3,7 @@ package com.gmail.liliyayalovchenko.DAO;
 
 import com.gmail.liliyayalovchenko.Domains.FeedBack;
 
+import java.util.Date;
 import java.util.List;
 
 public interface FeedBackDAO {
@@ -17,9 +18,17 @@ public interface FeedBackDAO {
 
     FeedBack getFeedBackById(int id);
 
-    void saveFeedBack(FeedBack feedBack, int id);
-
-//    void delete(int id, FeedBack feedBack);
-
     void delete(FeedBack feedBack);
+
+    void saveFeedBack(int id, Date data, int evaluation, String feedback);
+
+    List<FeedBack> getAllFeedBacksDateUp();
+
+    List<FeedBack> getAllFeedBacksDateDown();
+
+    List<FeedBack> getAllFeedBacksRateDown();
+
+    List<FeedBack> getAllFeedBacksRateUp();
+
+    void remove(FeedBack feedBackById);
 }

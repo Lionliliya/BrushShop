@@ -19,9 +19,9 @@ public interface OrderDAO {
 
     List<Order> getOrders();
 
-    void deleteProduct(ProductInCart product, int id);
+//    void deleteProduct(ProductInCart product, int id);
 
-    void updateOrderAmount(int id, int price);
+    void updateOrderAmount(int id, ProductInCart productInCart, boolean b);
 
     List<Order> getSortedByDateUp();
 
@@ -30,4 +30,6 @@ public interface OrderDAO {
     List<Order> getSortedByAmountDown();
 
     List<Order> getAllOrdersByClient(int id);
+
+//    void addProduct(ProductInCart productInCart, int id);
 }
