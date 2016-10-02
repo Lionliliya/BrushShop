@@ -341,49 +341,6 @@ public class AdminController {
         return modelAndView;
     }
 
-
-    @RequestMapping(value = "/category/{name}")
-    public ModelAndView categoryCatalog(@PathVariable("name") String name,
-                                        HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("categoryAdmin");
-            modelAndView.addObject("category", categoryDAO.getCategoryByName(name).getName());
-            modelAndView.addObject("products", productDAO.getProductsByCategory(name));
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/category/save")
-    public ModelAndView categorySave(@RequestParam(value="id") int id,
-                                     @RequestParam(value="name") String name,
-                                     @RequestParam(value="info") String info,
-                                     @RequestParam(value="metaDescription") String metaDescription,
-                                     @RequestParam(value="metaKeyWords") String metaKeyWords,
-                                     @RequestParam(value="metaTitle") String metaTitle,
-                                     HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            categoryDAO.saveCategory(id, name, info, metaDescription, metaKeyWords, metaTitle);
-            modelAndView.setViewName("adminCatalog");
-            modelAndView.addObject("products", productDAO.getAllProducts());
-            modelAndView.addObject("categories", categoryDAO.getAllCategories());
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-
-
     @RequestMapping(value = "/product/edit",  method = RequestMethod.GET)
     public ModelAndView productEdit(@RequestParam(value="id") int id,
                                     HttpServletRequest request) {
@@ -436,7 +393,7 @@ public class AdminController {
         return  modelAndView;
     }
 
-    @RequestMapping("/catalog") /**добавление категорий и товаров, удаление**/
+    @RequestMapping("/catalog")
     public ModelAndView addPage(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
@@ -451,7 +408,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/catalog/{name}")
-    public ModelAndView categoryEdit(@PathVariable("name") String name,
+    public ModelAndView categoryView(@PathVariable("name") String name,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
@@ -466,6 +423,43 @@ public class AdminController {
         modelAndView.setViewName("adminLogin");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/catalog/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView categoryEdit(@PathVariable int id,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminCategoryEdit");
+            modelAndView.addObject("category", categoryDAO.getCategoryById(id));
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/catalog/save/{id}")
+    public ModelAndView categorySave(@PathVariable int id,
+                                     @RequestParam(value="name") String name,
+                                     @RequestParam(value="info") String info,
+                                     @RequestParam(value="metaDescription") String metaDescription,
+                                     @RequestParam(value="metaKeyWords") String metaKeyWords,
+                                     @RequestParam(value="metaTitle") String metaTitle,
+                                     ModelMap model,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            categoryDAO.saveCategory(id, name, info, metaDescription, metaKeyWords, metaTitle);
+            return new ModelAndView("redirect:/admin/catalog", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
 
     @RequestMapping(value="/catalog/addProduct", method = RequestMethod.POST) /**Сохранение товра**/
     public ModelAndView addProduct(@RequestParam(value="name") String name,

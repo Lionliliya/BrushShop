@@ -2,7 +2,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page pageEncoding="UTF-8"%>
 <html lang="ru">
 
 <head>
@@ -36,13 +35,6 @@
   <script src="/resources/js/respond.min.js"></script>
 
   <link rel="shortcut icon" href="/resources/favicon.png">
-  <script type="text/javascript">
-    function AlertIt(name) {
-      var answer = confirm("Вы собираетесь удалить категорию и все товары в ней по  № " + id + ". Нажмите OK что бы продолжить.")
-      if (answer)
-        window.location = "http://localhost:8080/admin/catalog/remove/" + name + "";
-    }
-  </script>
 
 </head>
 
@@ -83,7 +75,7 @@ _________________________________________________________ -->
     <div class="navbar-collapse collapse" id="navigation">
 
       <ul class="nav navbar-nav navbar-left">
-        <li lass="yamm-fw">
+        <li class="yamm-fw">
           <a href="/admin/">Главная</a>
         </li>
         <li class="active">
@@ -120,59 +112,57 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-xs-12" id="customer-orders">
+      <div class="col-md-8 col-md-offset-2" id="customer-orders">
         <div class="row">
-          <div class="box">
-            <c:set var="categories" value="${categories}"/>
-            <c:if test="${fn:length(categories) eq 0}">
-              <div class="col-md-12"><article class="art-head"><h2>У вас нет категорий товаров</h2></article></div>
-            </c:if>
-            <c:if test="${fn:length(categories) gt 0}">
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                  <tr>
-                    <th>№</th>
-                    <th>Имя</th>
-                    <th>Описание</th>
-                    <th>Meta key words</th>
-                    <th>Meta description</th>
-                    <th>Meta title</th>
-                    <th>Действие</th>
-                  </tr>
-                  </thead>
-                  <tbody>
+          <div class="box" style="background-color:  #4b2b46; color: #ffffff;">
+            <c:set value="${category}" var="category"/>
 
-                  <c:forEach items="${categories}" var="category">
-                    <tr>
-                      <td>${category.id}</td>
-                      <td>${category.name}</td>
-                      <td>${category.info}</td>
-                      <td>${category.metaKeyWords}</td>
-                      <td>${category.metaDescription}</td>
-                      <td>${category.metaTitle}</td>
-                      <td>
-                        <a href="/admin/catalog/edit/${category.id}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
-                        <a href="javascript:AlertIt(${category.name});" class="btn btn-primary btn-sm">Удалить</a><br><br>
-                        <a href="/admin/catalog/${category.name}" class="btn btn-primary btn-sm">Просмотреть</a>
-                      </td>
-                    </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
+            <form role="form" action="/admin/catalog/save/${category.id}" method="post">
+              <div class="form-group">
+                <label for="categoryId">№ Категории</label>
+                <input type="text" id="categoryId" class="form-control" name="id" value="${category.id}"
+                       readonly>
               </div>
-            </c:if>
+
+              <div class="form-group">
+                <label for="categoryName">Имя категории</label>
+                <input type="text" id="categoryName" class="form-control" name="name" value="${category.name}">
+              </div>
+
+              <div class="form-group">
+                <label for="categoryDesc">Описание категории</label>
+                <input type="text" id="categoryDesc" class="form-control" name="info" value="${category.info}">
+              </div>
+
+              <div class="form-group">
+                <label for="meta1">MetaKeyWords</label>
+                <input type="text" id="meta1" class="form-control" name="metaKeyWords"
+                       value="${category.metaKeyWords}">
+              </div>
+
+              <div class="form-group">
+                <label for="meta2">MetaDescription</label>
+                <input id="meta2" class="form-control" name="metaDescription" value="${category.metaDescription}">
+              </div>
+
+              <div class="form-group">
+                <label for="meta3">MetaTitle</label>
+                <input type="text" id="meta3" class="form-control" name="metaTitle" value="${category.metaTitle}">
+              </div>
+
+              <button type="submit" class="btn btn-success">Сохранить</button>
+
+            </form>
+          </div>
+          </div>
 
           </div>
-        </div>
-      </div>
+
     </div>
-
+    <!-- /.container -->
   </div>
-  <!-- /.container -->
-</div>
 
-<!-- /#content -->
+  <!-- /#content -->
 
 </div>
 <!-- /#all -->
