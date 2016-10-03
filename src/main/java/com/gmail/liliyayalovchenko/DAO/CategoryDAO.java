@@ -17,4 +17,6 @@ public interface CategoryDAO {
 
     void saveCategory(int id, String name, String info, String metaDescription, String metaKeyWords,
                       String metaTitle);
+
+    void remove(int id);
 }

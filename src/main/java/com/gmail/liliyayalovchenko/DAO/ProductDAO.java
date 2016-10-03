@@ -38,4 +38,6 @@ public interface ProductDAO {
     void removeFeedBack(FeedBack feedBack);
 
     void updateProduct(Product productById);
+
+    void removeFromCategory(int id);
 }

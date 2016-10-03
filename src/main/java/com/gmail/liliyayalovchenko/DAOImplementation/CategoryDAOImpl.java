@@ -64,4 +64,20 @@ public class CategoryDAOImpl implements CategoryDAO {
         Query query = entityManager.createQuery("SELECT a FROM Category a", Category.class);
         return (List<Category>)query.getResultList();
     }
+
+    @Override
+    public void remove(int id) {
+        Query query = entityManager.createQuery("SELECT a FROM Category a where a.id = :var", Category.class);
+        query.setParameter("var", id);
+        Category resultCategory = (Category) query.getResultList().get(0);
+        try{
+            entityManager.getTransaction().begin();
+            entityManager.remove(resultCategory);
+            entityManager.getTransaction().commit();
+        }
+        catch(Exception e){
+            entityManager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+    }
 }

@@ -38,7 +38,7 @@
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(name) {
-      var answer = confirm("Вы собираетесь удалить категорию и все товары в ней по  № " + id + ". Нажмите OK что бы продолжить.")
+      var answer = confirm("Вы собираетесь удалить категорию и ВСЕ ТОВАРЫ В НЕЙ по  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
         window.location = "http://localhost:8080/admin/catalog/remove/" + name + "";
     }
@@ -121,6 +121,13 @@ _________________________________________________________ -->
     <div class="container">
 
       <div class="col-xs-12" id="customer-orders">
+        <div class="row" id="productMain">
+          <div class="box">
+            <a href="#details"><i class="fa fa-plus"></i> Добавить товар</a>
+            <a href="/admin/category/add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Добавить категорию</a>
+          </div>
+        </div>
+
         <div class="row">
           <div class="box">
             <c:set var="categories" value="${categories}"/>
@@ -152,7 +159,7 @@ _________________________________________________________ -->
                       <td>${category.metaDescription}</td>
                       <td>${category.metaTitle}</td>
                       <td>
-                        <a href="/admin/catalog/edit/${category.id}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
+                        <a href="/admin/catalog/edit/${category.name}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
                         <a href="javascript:AlertIt(${category.name});" class="btn btn-primary btn-sm">Удалить</a><br><br>
                         <a href="/admin/catalog/${category.name}" class="btn btn-primary btn-sm">Просмотреть</a>
                       </td>
@@ -163,6 +170,118 @@ _________________________________________________________ -->
               </div>
             </c:if>
 
+          </div>
+        </div>
+
+        <div class="row" id="details">
+          <div class="box">
+            <h3>Добавить товар</h3>
+            <form role = "form" action="/admin/catalog/product/add" method="post">
+
+              <div class="form-group">
+                <label for="category">Категория товара</label>
+                <select  class="form-control" id="category" name="productCategory" required>
+                  <c:forEach items="${categories}" var="category">
+                    <option value="${category.id}">${category.name}</option>
+                  </c:forEach>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Имя товара</label>
+                <input type="text" id="name" class="form-control" name="name" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="price">Цена товара</label>
+                <input type="number" id="price" class="form-control" name="price" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="currency">Валюта</label>
+                <input type="text" id="currency" class="form-control" name="currency" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="amount">Кол-во в упаковке</label>
+                <input type="number" id="amount" class="form-control" name="amount" required/>
+              </div>
+
+              <div class="form-group">
+                <label>В наличии</label>
+                <div class="row">
+                  <div class="col-sm-2 col-sm-offset-4">
+                    <input type="radio" name="inStock" value="yes" required/> Да
+                  </div>
+                  <div class="col-sm-2">
+                    <input type="radio" name="inStock" value="no" required/> Нет
+                  </div>
+                  </div>
+                </div>
+
+
+              <div class="form-group">
+                <label for="description">Полное описание</label>
+                <input type="text" id="description" class="form-control" name="description" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="shortDesc">Короткое описание</label>
+                <input type="text" id="shortDesc" class="form-control" name="dshortDesc" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="smallimage">Путь к изображению мини-1</label>
+                <input type="text" id="smallimage" class="form-control" name="smallimage" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="smallimage1">Путь к изображению мини-2</label>
+                <input type="text" id="smallimage1" class="form-control" name="smallimage1" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="image1">Фото 1 </label>
+                <input type="text" id="image1" class="form-control" name="image1" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="image2">Фото 2 </label>
+                <input type="text" id="image2" class="form-control" name="image2" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="image3">Фото 3 </label>
+                <input type="text" id="image3" class="form-control" name="image3" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="image4">Фото 4 </label>
+                <input type="text" id="image4" class="form-control" name="image4" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="metaKeyWords">Meta Key Words через запятую</label>
+                <input type="text" id="metaKeyWords" class="form-control" name="metaKeyWords" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="metaDescription">MetaDescription</label>
+                <input type="text" id="metaDescription" class="form-control" name="metaDescription" required/>
+              </div>
+
+              <div class="form-group">
+                <label for="metaTitle">MetaTitle</label>
+                <input type="text" id="metaTitle" class="form-control" name="metaTitle" required/>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-primary"> Отправить отзыв</button>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>

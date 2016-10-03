@@ -424,15 +424,15 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/catalog/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView categoryEdit(@PathVariable int id,
+    @RequestMapping(value = "/catalog/edit/{name}")
+    public ModelAndView categoryEdit(@PathVariable("name") String name,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
             modelAndView.setViewName("adminCategoryEdit");
-            modelAndView.addObject("category", categoryDAO.getCategoryById(id));
+            modelAndView.addObject("category", categoryDAO.getCategoryByName(name));
             return modelAndView;
         }
 
@@ -460,6 +460,20 @@ public class AdminController {
         return new ModelAndView("adminLogin", model);
     }
 
+    @RequestMapping(value = "/catalog/remove/{id}")
+    public ModelAndView categoryDelete(@PathVariable int id,
+                                     ModelMap model,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            productDAO.removeFromCategory(id);
+            categoryDAO.remove(id);
+            return new ModelAndView("redirect:/admin/catalog", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
 
     @RequestMapping(value="/catalog/addProduct", method = RequestMethod.POST) /**Сохранение товра**/
     public ModelAndView addProduct(@RequestParam(value="name") String name,

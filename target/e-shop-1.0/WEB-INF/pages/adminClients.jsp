@@ -82,13 +82,13 @@ _________________________________________________________ -->
     <div class="navbar-collapse collapse" id="navigation">
 
       <ul class="nav navbar-nav navbar-left">
-        <li class="active">
+        <li class="yamm-fw">
           <a href="/admin/">Главная</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/catalog">Каталог продукции</a>
         </li>
-        <li class="yamm-fw">
+        <li class="active">
           <a href="/admin/client">Клиенты</a>
         </li>
         <li class="yamm-fw">

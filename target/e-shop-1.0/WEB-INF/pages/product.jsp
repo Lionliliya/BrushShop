@@ -132,13 +132,13 @@
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active">
+                    <li class="yamm-fw">
                         <a href="/">Главная</a>
                     </li>
                     <li class="yamm-fw">
                         <a href="/news">Советы и новости</a>
                     </li>
-                    <li class="dropdown yamm-fw">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Каталог<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>

@@ -131,8 +131,9 @@ public class ProductController {
         try {
             client = clientDAO.findClientByEmail(email);
             FeedBack feedBack = new FeedBack(product, new Date(), client, evaluation, feedback);
+            product.addFeedBack(feedBack);
             feedBackDAO.saveFeedBack(feedBack);
-            productDAO.addFeedbackToProduct(feedBack, id);
+            productDAO.updateProduct(product);
         } catch (IndexOutOfBoundsException ex) {
             modelAndView.addObject("message", "Ой-ой...Отзывы могуть оставлять только клиенты. " +
                     "К сожалению, Вы не сделали ни одного заказа у нас.");

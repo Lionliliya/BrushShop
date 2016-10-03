@@ -184,4 +184,20 @@ public class ProductDAOImpl implements ProductDAO {
             ex.printStackTrace();
         }
     }
+
+    @Override
+    public void removeFromCategory(int id) {
+        Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.productCategory.id = :var", Product.class);
+        query.setParameter("var", id);
+        List<Product> productList = query.getResultList();
+        try {
+
+            entityManager.getTransaction().begin();
+            productList.forEach(entityManager::remove);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
 }
