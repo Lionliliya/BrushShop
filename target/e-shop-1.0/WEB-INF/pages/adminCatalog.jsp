@@ -123,8 +123,8 @@ _________________________________________________________ -->
       <div class="col-xs-12" id="customer-orders">
         <div class="row" id="productMain">
           <div class="box">
-            <a href="#details"><i class="fa fa-plus"></i> Добавить товар</a>
-            <a href="/admin/category/add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Добавить категорию</a>
+            <a href="#details1" class="popover-title"><i class="fa fa-plus"></i> Добавить товар</a>
+            <a href="#details2" class="popover-title"><i class="fa fa-plus"></i> Добавить категорию</a>
           </div>
         </div>
 
@@ -173,42 +173,54 @@ _________________________________________________________ -->
           </div>
         </div>
 
-        <div class="row" id="details">
+        <div class="row">
+        <div class="col-xs-6" id="details1">
           <div class="box">
             <h3>Добавить товар</h3>
             <form role = "form" action="/admin/catalog/product/add" method="post">
 
               <div class="form-group">
-                <label for="category">Категория товара</label>
+                <blockquote>
+                <label for="category"><strong>Категория товара</strong></label>
                 <select  class="form-control" id="category" name="productCategory" required>
                   <c:forEach items="${categories}" var="category">
                     <option value="${category.id}">${category.name}</option>
                   </c:forEach>
                 </select>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="name">Имя товара</label>
+                <blockquote>
+                <label for="name"><strong>Имя товара</strong></label>
                 <input type="text" id="name" class="form-control" name="name" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="price">Цена товара</label>
+                <blockquote>
+                <label for="price"><strong>Цена товара</strong></label>
                 <input type="number" id="price" class="form-control" name="price" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="currency">Валюта</label>
+                <blockquote>
+                <label for="currency"><strong>Валюта</strong></label>
                 <input type="text" id="currency" class="form-control" name="currency" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="amount">Кол-во в упаковке</label>
+                <blockquote>
+                <label for="amount"><strong>Кол-во в упаковке</strong></label>
                 <input type="number" id="amount" class="form-control" name="amount" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label>В наличии</label>
+                <blockquote>
+                <label><strong>В наличии</strong></label>
                 <div class="row">
                   <div class="col-sm-2 col-sm-offset-4">
                     <input type="radio" name="inStock" value="yes" required/> Да
@@ -217,73 +229,148 @@ _________________________________________________________ -->
                     <input type="radio" name="inStock" value="no" required/> Нет
                   </div>
                   </div>
+                </blockquote>
                 </div>
 
 
               <div class="form-group">
-                <label for="description">Полное описание</label>
+                <blockquote>
+                <label for="description"><strong>Полное описание</strong></label>
                 <input type="text" id="description" class="form-control" name="description" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="shortDesc">Короткое описание</label>
+                <blockquote>
+                <label for="shortDesc"><strong>Короткое описание</strong></label>
                 <input type="text" id="shortDesc" class="form-control" name="dshortDesc" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="smallimage">Путь к изображению мини-1</label>
+                <blockquote>
+                <label for="smallimage"><strong>Путь к изображению мини-1</strong></label>
                 <input type="text" id="smallimage" class="form-control" name="smallimage" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="smallimage1">Путь к изображению мини-2</label>
+                <blockquote>
+                <label for="smallimage1"><strong>Путь к изображению мини-2</strong></label>
                 <input type="text" id="smallimage1" class="form-control" name="smallimage1" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="image1">Фото 1 </label>
+                <blockquote>
+                <label for="image1"><strong>Фото 1 </strong></label>
                 <input type="text" id="image1" class="form-control" name="image1" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="image2">Фото 2 </label>
+                <blockquote>
+                <label for="image2"><strong>Фото 2</strong> </label>
                 <input type="text" id="image2" class="form-control" name="image2" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="image3">Фото 3 </label>
+                <blockquote>
+                <label for="image3"><strong>Фото 3 </strong></label>
                 <input type="text" id="image3" class="form-control" name="image3" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="image4">Фото 4 </label>
+                <blockquote>
+                <label for="image4"><strong>Фото 4</strong> </label>
                 <input type="text" id="image4" class="form-control" name="image4" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="metaKeyWords">Meta Key Words через запятую</label>
+                <blockquote>
+                <label for="metaKeyWords"><strong>Meta Key Words через запятую</strong></label>
                 <input type="text" id="metaKeyWords" class="form-control" name="metaKeyWords" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="metaDescription">MetaDescription</label>
+                <blockquote>
+                <label for="metaDescription"><strong>MetaDescription</strong></label>
                 <input type="text" id="metaDescription" class="form-control" name="metaDescription" required/>
+                </blockquote>
               </div>
 
               <div class="form-group">
-                <label for="metaTitle">MetaTitle</label>
+                <blockquote>
+                <label for="metaTitle"><strong>MetaTitle</strong></label>
                 <input type="text" id="metaTitle" class="form-control" name="metaTitle" required/>
+                </blockquote>
               </div>
 
               <div class="row">
                 <div class="col-sm-12 text-center">
-                  <button type="submit" class="btn btn-primary"> Отправить отзыв</button>
+                  <button type="submit" class="btn btn-primary">Создать</button>
                 </div>
               </div>
 
             </form>
           </div>
         </div>
+
+        <div class="col-xs-6" id="details2">
+          <div class="box">
+            <h3>Создать категорию</h3>
+            <form role = "form" action="/admin/catalog/add" method="post">
+
+              <div class="form-group">
+                <blockquote>
+                  <label for="nameCategory"><strong>Имя категории</strong></label>
+                  <input type="text" id="nameCategory" class="form-control" name="name" required/>
+                </blockquote>
+              </div>
+
+              <div class="form-group">
+                <blockquote>
+                  <label for="info"><strong>Описание категории</strong></label>
+                  <input type="text" id="info" class="form-control" name="info" required/>
+                </blockquote>
+              </div>
+
+              <div class="form-group">
+                <blockquote>
+                  <label for="metaKeyWordsCat"><strong>Meta Key Words через запятую</strong></label>
+                  <input type="text" id="metaKeyWordsCat" class="form-control" name="metaKeyWords" required/>
+                </blockquote>
+              </div>
+
+              <div class="form-group">
+                <blockquote>
+                  <label for="metaDescriptionCat"><strong>MetaDescription</strong></label>
+                  <input type="text" id="metaDescriptionCat" class="form-control" name="metaDescription" required/>
+                </blockquote>
+              </div>
+
+              <div class="form-group">
+                <blockquote>
+                  <label for="metaTitleCat"><strong>MetaTitle</strong></label>
+                  <input type="text" id="metaTitleCat" class="form-control" name="metaTitle" required/>
+                </blockquote>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-primary"> Создать</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        </div>
+
       </div>
     </div>
 
