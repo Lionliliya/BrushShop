@@ -95,7 +95,7 @@ _________________________________________________________ -->
           <a href="/admin/feedback">Отзывы</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/article">Статьи и новости</a>
+          <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/parameter">Настройки</a>
@@ -126,7 +126,6 @@ _________________________________________________________ -->
 
             <div class="col-sm-12">
               <div class="products-sort-by">
-
                 <div class="row">
                   <div class="col-xs-3">
                     <a href="/admin/client/sort/name"><i class="fa fa-arrow-up"></i>По имени</a>
@@ -134,12 +133,15 @@ _________________________________________________________ -->
                   <div class="col-xs-3">
                     <a href="/admin/client/sort/email"><i class="fa fa-arrow-down"></i> По эл.адресу</a>
                   </div>
+                  <div class="col-xs-6">
+                    <a href="#add"><p class="text-right"><i class="fa fa-plus-circle"></i> Создать нового клиента</p></a>
+                  </div>
                 </div>
               </div>
             </div>
 
           </div>
-          <hr>
+
           <c:set var="clients" value="${clients}"/>
           <c:if test="${fn:length(clients) eq 0}">
             <div class="col-md-12"><article class="art-head"><h2>У вас нет клиентов</h2></article></div>
@@ -180,7 +182,7 @@ _________________________________________________________ -->
         <hr>
 
 
-          <div class="box">
+          <div class="box" id="add">
             <h3>Добавить клиента</h3>
             <form role = "form" action="/admin/client/add" method="post">
 

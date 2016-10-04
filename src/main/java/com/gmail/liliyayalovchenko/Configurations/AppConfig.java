@@ -52,8 +52,8 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         }
 
         @Bean
-        public InformationDAO informationDAO() {
-            return new InformationDAOImpl();
+        public PostDAO informationDAO() {
+            return new PostDAOImpl();
         }
 
         @Bean

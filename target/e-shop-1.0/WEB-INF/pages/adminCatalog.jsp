@@ -96,7 +96,7 @@ _________________________________________________________ -->
           <a href="/admin/feedback">Отзывы</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/article">Статьи и новости</a>
+          <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/parameter">Настройки</a>
@@ -125,6 +125,7 @@ _________________________________________________________ -->
           <div class="box">
             <a href="#details1" class="popover-title"><i class="fa fa-plus"></i> Добавить товар</a>
             <a href="#details2" class="popover-title"><i class="fa fa-plus"></i> Добавить категорию</a>
+            <a href="/admin/catalog/product" class="popover-title"><i class="fa fa-plus"></i> Все товары</a>
           </div>
         </div>
 

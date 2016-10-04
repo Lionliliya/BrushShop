@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="Info")
-public class Information implements Serializable {
+public class Post implements Serializable {
 
     @Id
     @GeneratedValue
@@ -29,8 +29,8 @@ public class Information implements Serializable {
     @Column(name = "MetaDesc")
     private String metaDescription;
 
-    public Information(String title, String imagePath, String shortDescription, Date dateOfPublication,
-                       String buttonText, String content, String metaDescription, String metaKeyWords, String metaTitle) {
+    public Post(String title, String imagePath, String shortDescription, Date dateOfPublication,
+                String buttonText, String content, String metaDescription, String metaKeyWords, String metaTitle) {
         this.title = title;
         this.imagePath = imagePath;
         this.shortDescription = shortDescription;
@@ -42,7 +42,7 @@ public class Information implements Serializable {
         this.metaTitle = metaTitle;
     }
 
-    public Information() {}
+    public Post() {}
 
     public int getId() {
         return id;

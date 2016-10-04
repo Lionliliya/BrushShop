@@ -88,13 +88,13 @@ _________________________________________________________ -->
         <li class="yamm-fw">
           <a href="/admin/catalog">Каталог продукции</a>
         </li>
-        <li class="active">
+        <li class="yamm-fw">
           <a href="/admin/client">Клиенты</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/feedback">Отзывы</a>
         </li>
-        <li class="yamm-fw">
+        <li class="active">
           <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
@@ -121,20 +121,24 @@ _________________________________________________________ -->
 
       <div class="col-md-10 col-md-offset-1" id="customer-orders">
         <div class="box">
-          <h1>Все клиенты</h1>
+          <h1>Все посты</h1>
           <div class="row">
 
             <div class="col-sm-12">
               <div class="products-sort-by">
                 <div class="row">
                   <div class="col-xs-3">
-                    <a href="/admin/client/sort/name"><i class="fa fa-arrow-up"></i>По имени</a>
+                    <a href="/admin/post/sort/nameUp"><i class="fa fa-arrow-up"></i></a>
+                    <a href="/admin/post/sort/nameDown"><i class="fa fa-arrow-down"></i></a>
+                    По имени
                   </div>
                   <div class="col-xs-3">
-                    <a href="/admin/client/sort/email"><i class="fa fa-arrow-down"></i> По эл.адресу</a>
+                    <a href="/admin/post/sort/dateUp"><i class="fa fa-arrow-up"></i></a>
+                    <a href="/admin/post/sort/dateDown"><i class="fa fa-arrow-down"></i></a>
+                    По дате
                   </div>
                   <div class="col-xs-6">
-                    <a href="#add"><p class="text-right"><i class="fa fa-plus-circle"></i> Создать нового клиента</p></a>
+                    <a href="#add"><p class="text-right"><i class="fa fa-plus-circle"></i> Добавить новый пост</p></a>
                   </div>
                 </div>
               </div>
@@ -142,34 +146,39 @@ _________________________________________________________ -->
 
           </div>
 
-          <c:set var="clients" value="${clients}"/>
-          <c:if test="${fn:length(clients) eq 0}">
-            <div class="col-md-12"><article class="art-head"><h2>У вас нет клиентов</h2></article></div>
+          <c:set var="posts" value="${posts}"/>
+          <c:if test="${fn:length(posts) eq 0}">
+            <div class="col-md-12"><article class="art-head"><h2>У вас нет постов</h2></article></div>
           </c:if>
-          <c:if test="${fn:length(clients) gt 0}">
+          <c:if test="${fn:length(posts) gt 0}">
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                 <tr>
                   <th>№</th>
-                  <th>Имя</th>
-                  <th>Номер телефона</th>
-                  <th>Эл. адресс</th>
+                  <th>Заголовок</th>
+                  <th>Фото</th>
+                  <th>Короткое описание</th>
+                  <th>Дата</th>
                   <th>Действие</th>
                 </tr>
                 </thead>
                 <tbody>
-
-                <c:forEach items="${clients}" var="client">
+                <c:forEach items="${posts}" var="post">
                   <tr>
-                    <td>${client.id}</td>
-                    <td>${client.firstName}</td>
-                    <td>${client.phoneNumber}</td>
-                    <td>${client.email}</td>
+                    <td>${post.id}</td>
+                    <td><a href="/admin/post/${post.id}">${post.title}</a></td>
                     <td>
-                      <a href="/admin/client/edit/${client.id}" class="btn btn-primary btn-sm">Редактировать</a>
-                      <a href="javascript:AlertIt(${client.id});" class="btn btn-primary btn-sm">Удалить</a>
-                      <a href="/admin/client/${client.id}" class="btn btn-primary btn-sm">Просмотреть</a>
+                      <a href="/admin/post/${post.id}">
+                        <img src="/resources/${post.imagePath}" width="80">
+                      </a>
+                    </td>
+                    <td>${post.shortDescription}</td>
+                    <td>${post.dateOfPublication}</td>
+                    <td>
+                      <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm">Редактировать</a></p>
+                      <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm">Удалить</a></p>
+                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm">Просмотреть</a></p>
                     </td>
                   </tr>
                 </c:forEach>
@@ -182,41 +191,66 @@ _________________________________________________________ -->
         <hr>
 
 
-          <div class="box" id="add">
-            <h3>Добавить клиента</h3>
-            <form role = "form" action="/admin/client/add" method="post">
+        <div class="box" id="add">
+          <h3>Создать статью</h3>
+          <form role = "form" action="/admin/post/add" method="post">
 
-                  <div class="form-group">
-                    <label for="clientName">Имя клиента</label>
-                    <input type="text" id="clientName" class="form-control" name="firstName" required pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+"/>
-                  </div>
+            <div class="form-group">
+              <label for="title">Заголовок</label>
+              <input type="text" id="title" maxlength="250" class="form-control" name="title" required/>
+            </div>
 
-                  <div class="form-group">
-                    <label for="clientEmail">Ваша электронная почта</label>
-                    <input class="form-control" id="clientEmail" name="email" type="text"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                  </div>
+            <div class="form-group">
+              <label for="photo">Ссылка на фото</label>
+              <input class="form-control" id="photo" maxlength="200" name="imagePath" type="text" required>
+            </div>
 
-                  <div class="form-group">
-                    <label for="phoneNumber">Телефон в формате 38-0xx-xxx-xx-xx</label>
-                    <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" pattern="38-0[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
-                  </div>
+            <div class="form-group">
+              <label for="date">Дата в формате 26.09.2016</label>
+              <input type="text" id="date" class="form-control" name="dateOfPublication" required>
+            </div>
 
-                  <div class="row">
-                    <div class="col-sm-12 text-center">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Добавить клиента</button>
-                    </div>
-                  </div>
+            <div class="form-group">
+              <label for="button">Надпись на кнопке перехода к детальному чтению поста</label>
+              <input type="text" id="button" maxlength="100" class="form-control" name="buttonText" required>
+            </div>
 
-            </form>
-          </div>
+            <div class="form-group">
+              <label for="contentPost">Контент</label>
+              <textarea type="text" id="contentPost" class="form-control" name="content" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="metaTitle">MetaTitle</label>
+              <input type="text" id="metaTitle" maxlength="70" class="form-control" name="metaTitle" required>
+            </div>
+
+            <div class="form-group">
+              <label for="metaKeyWords">MetaKeyWords</label>
+              <input type="text" id="metaKeyWords" maxlength="120" class="form-control" name="metaKeyWords" required>
+            </div>
+
+            <div class="form-group">
+              <label for="metaDescription">MetaDescription</label>
+              <input type="text" id="metaDescription" maxlength="160" class="form-control" name="phoneNumber" required>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Добавить пост</button>
+              </div>
+            </div>
+
+          </form>
         </div>
       </div>
-
     </div>
-    <!-- /.container -->
-  </div>
 
-  <!-- /#content -->
+  </div>
+  <!-- /.container -->
+</div>
+
+<!-- /#content -->
 
 </div>
 <!-- /#all -->

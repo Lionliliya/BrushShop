@@ -95,7 +95,7 @@ _________________________________________________________ -->
           <a href="/admin/feedback">Отзывы</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/article">Статьи и новости</a>
+          <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/parameter">Настройки</a>
@@ -122,14 +122,22 @@ _________________________________________________________ -->
       <div class="col-md-8 col-md-offset-2" id="customer-orders">
         <div class="row">
           <div class="box">
-            <h3 class="text-center"> Категория: ${category.name}</h3>
-            <div class="box" style="background-color: #ddb3d7;">
+            <div class="row">
+              <div class="col-xs-6">
+                <h3 class="text-left"> Категория: ${category.name}</h3>
+              </div>
+              <div class="col-xs-6">
+                <a href="/admin/catalog/edit/${category.name}"><h3 class="text-right">Редактировать</h3></a>
+              </div>
+            </div>
+
+            <div class="box">
               <h5><i class="fa fa-info-circle"></i> Описание</h5>
               <hr>
               <p>${category.info}</p>
             </div>
 
-            <div class="box" style="background-color: #ddb3d7;">
+            <div class="box">
               <h5><i class="fa fa-tags"></i> Meta tags блок</h5>
               <hr>
               <p>Meta key words - ${category.metaKeyWords}</p>
@@ -143,6 +151,10 @@ _________________________________________________________ -->
           <div class="box">
             <h5><i class="fa fa-shopping-cart"></i> Товары в этой категории</h5>
             <hr>
+            <c:if test="${fn:length(products) eq 0}">
+              <p><em>В данной категории нет еще товаров</em></p>
+            </c:if>
+            <c:if test="${fn:length(products) gt 0}">
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -178,6 +190,7 @@ _________________________________________________________ -->
                 </tbody>
               </table>
             </div>
+            </c:if>
           </div>
         </div>
 

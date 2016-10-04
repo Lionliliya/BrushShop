@@ -96,7 +96,7 @@ _________________________________________________________ -->
                     <a href="/admin/feedback">Отзывы</a>
                 </li>
                 <li class="yamm-fw">
-                    <a href="/admin/article">Статьи и новости</a>
+                    <a href="/admin/post">Статьи и новости</a>
                 </li>
                 <li class="yamm-fw">
                     <a href="/admin/parameter">Настройки</a>
@@ -140,6 +140,14 @@ _________________________________________________________ -->
                                         <a href="/admin/feedback/sort/rateDown"><i class="fa fa-arrow-down"></i></a>
                                         <a href="/admin/feedback/sort/rateUp"><i class="fa fa-arrow-up"></i></a>
                                         По рейтингу
+                                    </div>
+                                    <div class="col-xs-6">
+                                       <p class="text-right" style="color: purple;">
+                                           <em>
+                                            Чтобы добавить новый отзыв, перейдите на страницу клиентов,
+                                            выбирите нужного клиента и создайте отзыв на его странице
+                                           </em>
+                                       </p>
                                     </div>
                                 </div>
                             </div>

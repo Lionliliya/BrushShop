@@ -95,7 +95,7 @@ _________________________________________________________ -->
                     <a href="/admin/feedback">Отзывы</a>
                 </li>
                 <li class="yamm-fw">
-                    <a href="/admin/article">Статьи и новости</a>
+                    <a href="/admin/post">Статьи и новости</a>
                 </li>
                 <li class="yamm-fw">
                     <a href="/admin/parameter">Настройки</a>
@@ -141,6 +141,9 @@ _________________________________________________________ -->
                                         <div class="col-xs-3">
                                             <a href="/admin/order/sort/amount"><i class="fa fa-arrow-down"></i> Сумма
                                                 заказа</a>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <a href="#add"><i class="fa fa-plus-circle"></i> Создать новый заказ</a>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +201,7 @@ _________________________________________________________ -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="box">
+                    <div class="box" id="add">
                     <h3>Создать заказ</h3>
 
                     <form role="form" action="/admin/order/add" method="post">
@@ -255,7 +258,7 @@ _________________________________________________________ -->
 
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
                                     Создать заказ
                                 </button>
                             </div>

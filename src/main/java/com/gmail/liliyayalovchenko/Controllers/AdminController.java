@@ -37,7 +37,7 @@ public class AdminController {
     private CategoryDAO categoryDAO;
 
     @Autowired
-    private InformationDAO informationDAO;
+    private PostDAO postDAO;
 
     @Autowired
     private ClientDAO clientDAO;
@@ -188,32 +188,14 @@ public class AdminController {
         return modelAndView;
     }
 
-
-
-//    @RequestMapping("/catalog") /**добавление категорий и товаров, удаление**/
-//    public ModelAndView ProductCatalog(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        if (checkStatus(session)) {
-//            modelAndView.setViewName("adminCatalog");
-//            modelAndView.addObject("products", productDAO.getAllProducts());
-//            modelAndView.addObject("categories", categoryDAO.getAllCategories());
-//            return  modelAndView;
-//        }
-//
-//        modelAndView.setViewName("adminLogin");
-//        return modelAndView;
-//    }
-
-    @RequestMapping("/articles") /**добавление статтей и новостей, удаление и редактирование**/
-    public ModelAndView adminArticles(HttpServletRequest request) {
+    @RequestMapping(value = "/post", method = RequestMethod.GET)
+    public ModelAndView allPosts(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("adminArticles");
-            modelAndView.addObject("articles", informationDAO.getAllArticles());
+            modelAndView.setViewName("adminPosts");
+            modelAndView.addObject("posts", postDAO.getAllPosts());
             return modelAndView;
         }
 
@@ -221,18 +203,15 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/articles/edit", method = RequestMethod.GET)
-    public ModelAndView adminArticlesEdit(@RequestParam(value="id") int id,
+    @RequestMapping(value="/post/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView adminPostEdit(@PathVariable int id,
                                           HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("articleEdit");
-            modelAndView.addObject("article", informationDAO.getAllArticles(id));
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            String date = sdf.format(informationDAO.getAllArticles(id).getDateOfPublication());
-            modelAndView.addObject("date", date);
+            modelAndView.setViewName("adminPostEdit");
+            modelAndView.addObject("post", postDAO.get(id));
             return  modelAndView;
         }
 
@@ -240,105 +219,68 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/articles/save", method = RequestMethod.POST)
-    public  ModelAndView saveArticle(@RequestParam(value="id") int id,
-                                     @RequestParam(value="title") String title,
-                                     @RequestParam(value="imagePath") String imagePath,
-                                     @RequestParam(value="shortDescription") String shortDescription,
-                                     @RequestParam(value="dateOfPublication") String dateOfPublication,
-                                     @RequestParam(value="buttonText") String buttonText,
-                                     @RequestParam(value="content") String content,
-                                     @RequestParam(value="metaDescription") String metaDescription,
-                                     @RequestParam(value="metaKeyWords") String metaKeyWords,
-                                     @RequestParam(value="metaTitle") String metaTitle,
-                                     HttpServletRequest request) {
+    @RequestMapping(value = "/post/save/{id}", method = RequestMethod.POST)
+    public  ModelAndView savePost(@PathVariable int id,
+                                  @RequestParam String title,
+                                  @RequestParam String imagePath,
+                                  @RequestParam String shortDescription,
+                                  @RequestParam String dateOfPublication,
+                                  @RequestParam String buttonText,
+                                  @RequestParam String content,
+                                  @RequestParam String metaDescription,
+                                  @RequestParam String metaKeyWords,
+                                  @RequestParam String metaTitle,
+                                  ModelMap model,
+                                  HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-        if (checkStatus(session)) {
-            SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
 
-            Date date = null;
-            try {
-                date = parser.parse(dateOfPublication);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                System.out.println("Ошибка в преобразованнии даты при сохранении статьи!");
-            }
-            informationDAO.changeArticle(id, title, imagePath, shortDescription, date, buttonText, content, metaDescription, metaKeyWords, metaTitle);
-            modelAndView.setViewName("adminArticles");
-            modelAndView.addObject("articles", informationDAO.getAllArticles());
-            return  modelAndView;
+        if (checkStatus(session)) {
+            postDAO.save(id, title, imagePath, shortDescription,
+                    new SimpleDateFormat("dd-MM-yyyy").parse(dateOfPublication),
+                    buttonText, content, metaDescription, metaKeyWords, metaTitle);
+            return new ModelAndView("redirect:/admin/post/{id}", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return  modelAndView;
+        return new ModelAndView("adminLogin", model);
     }
 
-    @RequestMapping(value = "/articles/delete", method = RequestMethod.GET)
-    public ModelAndView deleteArticle(@RequestParam(value = "id") int id,
+    @RequestMapping(value = "/post/remove/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteArticle(@PathVariable int id,
+                                      ModelMap model,
                                       HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            informationDAO.deleteArticle(id);
-            modelAndView.addObject("articles", informationDAO.getAllArticles());
-            modelAndView.setViewName("adminArticles");
-            return modelAndView;
+            postDAO.remove(id);
+            return new ModelAndView("redirect:/admin/post", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+        return new ModelAndView("adminLogin", model);
     }
 
-    @RequestMapping(value = "/articles/add")
-    public ModelAndView addArticle (HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("addArticle");
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-    @RequestMapping(value="/articles/save-new-article", method = RequestMethod.POST) /**Сохранение статьи**/
+    @RequestMapping(value="/post/add", method = RequestMethod.POST)
     public ModelAndView saveNewArticle(@RequestParam(value="title") String title,
-                                   @RequestParam(value="imagePath") String imagePath,
-                                   @RequestParam(value="shortDescription") String shortDescription,
-                                   @RequestParam(value="dateOfPublication") String dateOfPublication,
-                                   @RequestParam(value="buttonText") String buttonText,
-                                   @RequestParam(value="content") String content,
-                                   @RequestParam(value="metaDescription") String metaDescription,
-                                   @RequestParam(value="metaKeyWords") String metaKeyWords,
-                                   @RequestParam(value="metaTitle") String metaTitle,
-                                   HttpServletRequest request) {
+                                       @RequestParam(value="imagePath") String imagePath,
+                                       @RequestParam(value="shortDescription") String shortDescription,
+                                       @RequestParam(value="dateOfPublication") String dateOfPublication,
+                                       @RequestParam(value="buttonText") String buttonText,
+                                       @RequestParam(value="content") String content,
+                                       @RequestParam(value="metaDescription") String metaDescription,
+                                       @RequestParam(value="metaKeyWords") String metaKeyWords,
+                                       @RequestParam(value="metaTitle") String metaTitle,
+                                       ModelMap model,
+                                       HttpServletRequest request) throws ParseException {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            SimpleDateFormat parser = new SimpleDateFormat("dd-MM-yyyy");
-            Date date = null;
-
-            try {
-                date = parser.parse(dateOfPublication);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                System.out.println("Ошибка в преобразованнии даты при сохранении статьи!");
-            }
-
-            Information infoToAdd = new Information(title, imagePath, shortDescription, date, buttonText, content, metaDescription, metaKeyWords, metaTitle);
-            informationDAO.addArticle(infoToAdd);
-            modelAndView.setViewName("adminArticles");
-            modelAndView.addObject("articles", informationDAO.getAllArticles());
-            return modelAndView;
+            Post infoToAdd = new Post(title, imagePath, shortDescription,
+                    new SimpleDateFormat("dd-MM-yyyy").parse(dateOfPublication),
+                    buttonText, content, metaDescription, metaKeyWords, metaTitle);
+            postDAO.save(infoToAdd);
+            return new ModelAndView("redirect:/admin/post", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+        return new ModelAndView("adminLogin", model);
     }
 
     @RequestMapping(value = "/catalog/product/edit/{id}",  method = RequestMethod.GET)
@@ -400,6 +342,21 @@ public class AdminController {
         if (checkStatus(session)) {
             modelAndView.setViewName("adminProduct");
             modelAndView.addObject("product", productDAO.getProductById(id));
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/catalog/product")
+    public ModelAndView productAll(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminProducts");
+            modelAndView.addObject("products", productDAO.getAllProducts());
             return modelAndView;
         }
 

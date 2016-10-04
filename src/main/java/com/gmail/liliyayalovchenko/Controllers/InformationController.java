@@ -1,7 +1,7 @@
 package com.gmail.liliyayalovchenko.Controllers;
 
 import com.gmail.liliyayalovchenko.DAO.CategoryDAO;
-import com.gmail.liliyayalovchenko.DAO.InformationDAO;
+import com.gmail.liliyayalovchenko.DAO.PostDAO;
 import com.gmail.liliyayalovchenko.Domains.ProductInCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class InformationController {
 
     @Autowired
-    private InformationDAO informationDAO;
+    private PostDAO postDAO;
 
     @Autowired
     private CategoryDAO categoryDAO;
@@ -30,7 +30,7 @@ public class InformationController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("articles", informationDAO.getAllArticlesOrdered());
+        modelAndView.addObject("articles", postDAO.getAllPostAsc());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("news");
         return modelAndView;
@@ -42,7 +42,7 @@ public class InformationController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("articles", informationDAO.getAllArticlesDesc());
+        modelAndView.addObject("articles", postDAO.getAllPostsDesc());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("news");
         return modelAndView;
@@ -55,9 +55,9 @@ public class InformationController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("article", informationDAO.getAllArticles(id));
+        modelAndView.addObject("article", postDAO.get(id));
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String date = sdf.format(informationDAO.getAllArticles(id).getDateOfPublication());
+        String date = sdf.format(postDAO.get(id).getDateOfPublication());
         modelAndView.addObject("date", date);
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("article");

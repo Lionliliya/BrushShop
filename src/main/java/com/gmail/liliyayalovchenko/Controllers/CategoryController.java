@@ -1,7 +1,7 @@
 package com.gmail.liliyayalovchenko.Controllers;
 
 import com.gmail.liliyayalovchenko.DAO.CategoryDAO;
-import com.gmail.liliyayalovchenko.DAO.InformationDAO;
+import com.gmail.liliyayalovchenko.DAO.PostDAO;
 import com.gmail.liliyayalovchenko.DAO.ProductDAO;
 import com.gmail.liliyayalovchenko.Domains.Category;
 import com.gmail.liliyayalovchenko.Domains.Product;
@@ -29,7 +29,7 @@ public class CategoryController {
     private ProductDAO productDAO;
 
     @Autowired
-    private InformationDAO informationDAO;
+    private PostDAO postDAO;
 
     @RequestMapping("/")
     public ModelAndView main(HttpServletRequest request) {
@@ -38,7 +38,7 @@ public class CategoryController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-        modelAndView.addObject("articles", informationDAO.getTwoLatest());
+        modelAndView.addObject("articles", postDAO.getTwoLatest());
         modelAndView.setViewName("home");
         return modelAndView;
     }

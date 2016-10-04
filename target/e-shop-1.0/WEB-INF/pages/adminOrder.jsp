@@ -96,7 +96,7 @@ _________________________________________________________ -->
           <a href="/admin/feedback">Отзывы</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/article">Статьи и новости</a>
+          <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/parameter">Настройки</a>

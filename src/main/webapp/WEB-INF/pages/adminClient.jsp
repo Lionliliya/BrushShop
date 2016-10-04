@@ -96,7 +96,7 @@ _________________________________________________________ -->
           <a href="/admin/feedback">Отзывы</a>
         </li>
         <li class="yamm-fw">
-          <a href="/admin/article">Статьи и новости</a>
+          <a href="/admin/post">Статьи и новости</a>
         </li>
         <li class="yamm-fw">
           <a href="/admin/parameter">Настройки</a>
@@ -126,6 +126,7 @@ _________________________________________________________ -->
           <h2>Клиент #${client.id}</h2>
           <a href="/admin/client/edit/${client.id}" class="btn btn-primary btn-sm">Редактировать</a>
           <a href="javascript:AlertIt(${client.id});" class="btn btn-primary btn-sm">Удалить</a>
+          <a href="#add" class="btn btn-primary btn-sm">Добавить отзыв</a>
           <h3>Имя клиента - ${client.firstName}</h3>
           <h4>Контактный телефон -${client.phoneNumber} </h4>
           <h4>Эл. почта - ${client.email} </h4>
@@ -211,10 +212,10 @@ _________________________________________________________ -->
           </div>
 
           <!-- /.table-responsive -->
+        <div class="row">
+        <div class="box" id="add">
         <h3>Добавить отзыв</h3>
         <form role = "form" action="/admin/feedback/add/${client.id}" method="post">
-          <div class="row">
-            <div class="box">
 
           <div class="form-group">
             <label for="productId">Товар</label>
