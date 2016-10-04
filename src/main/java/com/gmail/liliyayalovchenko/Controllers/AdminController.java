@@ -341,14 +341,14 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/product/edit",  method = RequestMethod.GET)
-    public ModelAndView productEdit(@RequestParam(value="id") int id,
+    @RequestMapping(value = "/catalog/product/edit/{id}",  method = RequestMethod.GET)
+    public ModelAndView productEdit(@PathVariable int id,
                                     HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("productEdit");
+            modelAndView.setViewName("adminProductEdit");
             modelAndView.addObject("product", productDAO.getProductById(id));
             modelAndView.addObject("categories", categoryDAO.getAllCategories());
             return modelAndView;
@@ -358,12 +358,12 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/product/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/catalog/product/save", method = RequestMethod.POST)
     public  ModelAndView saveProduct(@RequestParam(value="id") int id,
                                      @RequestParam(value="name") String name,
                                      @RequestParam(value="price") int price,
                                      @RequestParam(value="currency") String currency,
-                                     @RequestParam(value="productCategory") String productcategory,
+                                     @RequestParam(value="productCategory") int productCategory,
                                      @RequestParam(value="amount") int amount,
                                      @RequestParam(value="inStock") String inStock,
                                      @RequestParam(value="description") String description,
@@ -377,21 +377,52 @@ public class AdminController {
                                      @RequestParam(value="image2") String image2,
                                      @RequestParam(value="image3") String image3,
                                      @RequestParam(value="image4") String image4,
+                                     ModelMap model,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
+
         if (checkStatus(session)) {
-            Category category = categoryDAO.getCategoryByName(productcategory);
+            Category category = categoryDAO.getCategoryById(productCategory);
             productDAO.saveProduct(id, name, price, currency, category, amount, inStock, description, shortDesc, metaDescription, metaKeyWords, metaTitle,
                     smallimage, smallimage1, image1, image2, image3, image4);
-            modelAndView.setViewName("adminCatalog");
-            modelAndView.addObject("categories", categoryDAO.getAllCategories());
+            return new ModelAndView("redirect:/admin/catalog", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
+    @RequestMapping(value = "/catalog/product/{id}")
+    public ModelAndView productView(@PathVariable int id,
+                                    HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminProduct");
+            modelAndView.addObject("product", productDAO.getProductById(id));
             return modelAndView;
         }
 
         modelAndView.setViewName("adminLogin");
-        return  modelAndView;
+        return modelAndView;
     }
+
+    @RequestMapping(value = "/catalog/product/remove/{id}")
+    public ModelAndView productRemove(@PathVariable int id,
+                                      ModelMap model,
+                                      HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            productDAO.remove(id);
+            return new ModelAndView("redirect:/admin/catalog", model);
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
+
+
 
     @RequestMapping("/catalog")
     public ModelAndView addPage(HttpServletRequest request) {
@@ -475,11 +506,11 @@ public class AdminController {
         return new ModelAndView("adminLogin", model);
     }
 
-    @RequestMapping(value="/catalog/addProduct", method = RequestMethod.POST) /**Сохранение товра**/
+    @RequestMapping(value="/catalog/product/add", method = RequestMethod.POST)
     public ModelAndView addProduct(@RequestParam(value="name") String name,
                                    @RequestParam(value="price") int price,
                                    @RequestParam(value="currency") String currency,
-                                   @RequestParam(value="productCategory") String productcategory,
+                                   @RequestParam(value="productCategory") int id,
                                    @RequestParam(value="amount") int amount,
                                    @RequestParam(value="inStock") String inStock,
                                    @RequestParam(value="description") String description,
@@ -493,44 +524,39 @@ public class AdminController {
                                    @RequestParam(value="image2") String image2,
                                    @RequestParam(value="image3") String image3,
                                    @RequestParam(value="image4") String image4,
+                                   ModelMap model,
                                    HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            Category productCategory = categoryDAO.getCategoryByName(productcategory);
-            Product product = new Product(name, price, currency, productCategory, amount, inStock, description,  shortDesc, metaDescription, metaKeyWords, metaTitle,
+            Category category = categoryDAO.getCategoryById(id);
+            Product product = new Product(name, price, currency, category, amount, inStock, description,  shortDesc, metaDescription, metaKeyWords, metaTitle,
                     smallimage, smallimage1, image1, image2, image3, image4);
             productDAO.saveProduct(product);
-            modelAndView.setViewName("addPage");
-            modelAndView.addObject("categories", categoryDAO.getAllCategories());
-            return modelAndView;
+           return new ModelAndView("redirect:/admin/catalog", model);
 
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+        return new ModelAndView("adminLogin", model);
     }
 
-    @RequestMapping(value="/catalog/addCategory", method = RequestMethod.POST) /**Сохранение ктегории**/
+    @RequestMapping(value="/catalog/add", method = RequestMethod.POST)
     public ModelAndView addCategory (@RequestParam(value="name") String name,
                                      @RequestParam(value="info") String info,
                                      @RequestParam(value="metaDescription") String metaDescription,
                                      @RequestParam(value="metaKeyWords") String metaKeyWords,
                                      @RequestParam(value="metaTitle") String metaTitle,
+                                     ModelMap model,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
             Category category = new Category(name, info, metaDescription, metaKeyWords, metaTitle);
             categoryDAO.saveCategory(category);
-            modelAndView.setViewName("addPage");
-            return modelAndView;
+            return new ModelAndView("redirect:/admin/catalog", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+        return new ModelAndView("adminLogin");
     }
 
 

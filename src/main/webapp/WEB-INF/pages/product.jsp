@@ -314,11 +314,11 @@
 
                     <!-- *** MENUS AND FILTERS END *** -->
 
-                    <div class="banner">
-                        <a href="#">
-                            <img src="/resources/img/banner-2.png" alt="Распродажа Киев" class="img-responsive">
-                        </a>
-                    </div>
+                    <%--<div class="banner">--%>
+                        <%--<a href="#">--%>
+                            <%--<img src="/resources/img/banner-2.png" alt="Распродажа Киев" class="img-responsive">--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
                 </div>
 
                 <div class="col-md-9">

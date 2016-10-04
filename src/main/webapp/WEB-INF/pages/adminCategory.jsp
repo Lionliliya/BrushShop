@@ -37,9 +37,9 @@
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(id) {
-      var answer = confirm("Вы собираетесь удалить клиента  № " + id + ". Нажмите OK что бы продолжить.")
+      var answer = confirm("Вы собираетесь удалить товар  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8080/admin/client/remove/" + id + "";
+        window.location = "http://localhost:8080/admin/catalog/product/remove/" + id + "";
     }
   </script>
 
@@ -152,6 +152,7 @@ _________________________________________________________ -->
                   <th>Цена</th>
                   <th>Количество в уп.</th>
                   <th>В наличии</th>
+                  <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -167,6 +168,11 @@ _________________________________________________________ -->
                     <td>₴${product.price}</td>
                     <td>${product.amount}</td>
                     <td>${product.inStock}</td>
+                    <td>
+                      <a href="/admin/catalog/product/edit/${product.id}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
+                      <a href="javascript:AlertIt(${product.id});" class="btn btn-primary btn-sm">Удалить</a><br><br>
+                      <a href="/admin/catalog/product/${product.id}" class="btn btn-primary btn-sm">Просмотреть</a>
+                    </td>
                   </tr>
                 </c:forEach>
                 </tbody>

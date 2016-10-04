@@ -191,9 +191,23 @@ public class ProductDAOImpl implements ProductDAO {
         query.setParameter("var", id);
         List<Product> productList = query.getResultList();
         try {
-
             entityManager.getTransaction().begin();
             productList.forEach(entityManager::remove);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            entityManager.getTransaction().rollback();
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void remove(int id) {
+        Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.id = :var", Product.class);
+        query.setParameter("var", id);
+        Product product = (Product) query.getResultList().get(0);
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.remove(product);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             entityManager.getTransaction().rollback();

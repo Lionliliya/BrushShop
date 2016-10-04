@@ -121,7 +121,7 @@ _________________________________________________________ -->
     <div class="container">
 
       <div class="col-xs-12" id="customer-orders">
-        <div class="row" id="productMain">
+        <div class="row">
           <div class="box">
             <a href="#details1" class="popover-title"><i class="fa fa-plus"></i> Добавить товар</a>
             <a href="#details2" class="popover-title"><i class="fa fa-plus"></i> Добавить категорию</a>
@@ -243,7 +243,7 @@ _________________________________________________________ -->
               <div class="form-group">
                 <blockquote>
                 <label for="shortDesc"><strong>Короткое описание</strong></label>
-                <input type="text" id="shortDesc" class="form-control" name="dshortDesc" required/>
+                <input type="text" id="shortDesc" class="form-control" name="shortDesc" required/>
                 </blockquote>
               </div>
 

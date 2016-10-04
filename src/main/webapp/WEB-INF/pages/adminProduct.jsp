@@ -122,72 +122,94 @@ _________________________________________________________ -->
       <div class="col-md-8 col-md-offset-2" id="customer-orders">
         <div class="row">
           <div class="box">
-            <h3 class="text-center"> Категория: ${category.name}</h3>
-            <div class="box" style="background-color: #ddb3d7;">
-              <h5><i class="fa fa-info-circle"></i> Описание</h5>
-              <hr>
-              <p>${category.info}</p>
+            <div class="row">
+              <div class="col-sm-6">
+                <div id="mainImage">
+                  <img src="/resources/${product.image1}" alt="${product.name}" class="img-responsive">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <h3>Товар #${product.id}</h3>
+                <p><em>${product.name}</em></p>
+                <div class="row">
+                  <div class="col-xs-5">
+                    <a href="/admin/catalog/product/edit/${product.id}" class="popover-title">Редактировать</a>
+                  </div>
+                  <div class="col-xs-5">
+                    <a href="javascript:AlertIt(${product.id});" class="popover-title">Удалить</a>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="row" id="thumbs">
+                  <div class="col-xs-4">
+                    <a href="/resources/${product.image2}" class="thumb">
+                      <img src="/resources/${product.image2}" alt="${product.name}" class="img-responsive">
+                    </a>
+                  </div>
+                  <div class="col-xs-4">
+                    <a href="/resources/${product.image3}" class="thumb">
+                      <img src="/resources/${product.image3}" alt="${product.name}" class="img-responsive">
+                    </a>
+                  </div>
+                  <div class="col-xs-4">
+                    <a href="/resources/${product.image4}" class="thumb">
+                      <img src="/resources/${product.image4}" alt="${product.name}" class="img-responsive">
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="box" style="background-color: #ddb3d7;">
-              <h5><i class="fa fa-tags"></i> Meta tags блок</h5>
-              <hr>
-              <p>Meta key words - ${category.metaKeyWords}</p>
-              <p>Meta description - ${category.metaDescription}</p>
-              <p>Meta title - ${category.metaTitle}</p>
-            </div>
-
-
-          </div>
-
-          <div class="box">
-            <h5><i class="fa fa-shopping-cart"></i> Товары в этой категории</h5>
             <hr>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>№</th>
-                  <th colspan="2">Товар</th>
-                  <th>Цена</th>
-                  <th>Количество в уп.</th>
-                  <th>В наличии</th>
-                  <th>Действия</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${products}" var="product">
-                  <tr>
-                    <td>${product.id}</td>
-                    <td>
-                      <a href="/product/${product.id}">
-                        <img src="/resources/${product.smallimage}" alt="${product.name}" width="50">
-                      </a>
-                    </td>
-                    <td><a href="/product/${product.id}">${product.name}</a>
-                    <td>₴${product.price}</td>
-                    <td>${product.amount}</td>
-                    <td>${product.inStock}</td>
-                    <td>
-                      <a href="/admin/catalog/product/edit/${product.id}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
-                      <a href="javascript:AlertIt(${product.id});" class="btn btn-primary btn-sm">Удалить</a><br><br>
-                      <a href="/admin/catalog/product/${product.id}" class="btn btn-primary btn-sm">Просмотреть</a>
-                    </td>
-                  </tr>
-                </c:forEach>
-                </tbody>
-              </table>
-            </div>
+
+            <blockquote>
+              <p><strong>Категория товара</strong></p>
+              <p>${product.productCategory.name}</p>
+              <hr>
+              <p><strong>Кол-во в упаковке</strong></p>
+              <p>${product.amount}</p>
+              <hr>
+              <p><strong>В наличии</strong></p>
+              <p>${product.inStock}</p>
+            </blockquote>
+
+            <blockquote>
+              <p><strong>Цена товара</strong></p>
+              <p>${product.price}</p>
+              <hr>
+              <p><strong>Валюта</strong></p>
+              <p>${product.currency}</p>
+            </blockquote>
+
+            <blockquote>
+              <p><strong>Полное описание</strong></p>
+              <p>${product.description}</p>
+              <hr>
+              <p><strong>Короткое описание</strong></p>
+              <p>${product.shortDesc}</p>
+            </blockquote>
+
+            <blockquote>
+              <p><strong>Meta Key Words через запятую</strong></p>
+              <p>${product.metaKeyWords}</p>
+              <hr>
+              <p><strong>MetaDescription</strong></p>
+              <p>${product.metaDescription}</p>
+              <hr>
+              <p><strong>MetaTitle</strong></p>
+              <p>${product.metaTitle}</p>
+            </blockquote>
+
           </div>
         </div>
 
+      </div>
+
     </div>
-
+    <!-- /.container -->
   </div>
-  <!-- /.container -->
-</div>
 
-<!-- /#content -->
+  <!-- /#content -->
 
 </div>
 <!-- /#all -->

@@ -40,4 +40,6 @@ public interface ProductDAO {
     void updateProduct(Product productById);
 
     void removeFromCategory(int id);
+
+    void remove(int id);
 }
