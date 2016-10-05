@@ -121,125 +121,70 @@ _________________________________________________________ -->
 
       <div class="col-md-10 col-md-offset-1" id="customer-orders">
         <div class="box">
-          <h1>Все посты</h1>
-          <div class="row">
+          <c:set value="${post}" var="post"/>
 
-            <div class="col-sm-12">
-              <div class="products-sort-by">
-                <div class="row">
-                  <div class="col-xs-3">
-                    <a href="/admin/post/sort/nameUp"><i class="fa fa-arrow-up"></i></a>
-                    <a href="/admin/post/sort/nameDown"><i class="fa fa-arrow-down"></i></a>
-                    По имени
-                  </div>
-                  <div class="col-xs-3">
-                    <a href="/admin/post/sort/dateUp"><i class="fa fa-arrow-up"></i></a>
-                    <a href="/admin/post/sort/dateDown"><i class="fa fa-arrow-down"></i></a>
-                    По дате
-                  </div>
-                  <div class="col-xs-6">
-                    <a href="#add"><p class="text-right"><i class="fa fa-plus-circle"></i> Добавить новый пост</p></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <c:set var="posts" value="${posts}"/>
-          <c:if test="${fn:length(posts) eq 0}">
-            <div class="col-md-12"><article class="art-head"><h2>У вас нет постов</h2></article></div>
-          </c:if>
-          <c:if test="${fn:length(posts) gt 0}">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>№</th>
-                  <th>Заголовок</th>
-                  <th>Фото</th>
-                  <th>Короткое описание</th>
-                  <th>Дата</th>
-                  <th>Действие</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${posts}" var="post">
-                  <tr>
-                    <td>${post.id}</td>
-                    <td><a href="/admin/post/${post.id}">${post.title}</a></td>
-                    <td>
-                      <a href="/admin/post/${post.id}">
-                        <img src="/resources/${post.imagePath}" width="80">
-                      </a>
-                    </td>
-                    <td>${post.shortDescription}</td>
-                    <td><fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${post.dateOfPublication}" /></td>
-                    <td>
-                      <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm">Редактировать</a></p>
-                      <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm">Удалить</a></p>
-                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm">Просмотреть</a></p>
-                    </td>
-                  </tr>
-                </c:forEach>
-                </tbody>
-              </table>
-            </div>
-          </c:if>
-        </div>
-        <hr>
-        <div class="box" id="add">
-          <h1>Создать статью</h1>
-          <form role = "form" action="/admin/post/add" method="post">
+          <form role = "form" action="/admin/post/save/${post.id}" method="post">
 
             <div class="form-group">
-              <label for="title">Заголовок</label>
-              <input type="text" id="title" maxlength="250" class="form-control" name="title" required/>
+              <blockquote>
+                <label for="id"><strong>Номер поста</strong></label>
+                <input type="text" id="id" class="form-control" value="${post.id}" name="id" readonly/>
+              </blockquote>
             </div>
 
             <div class="form-group">
-              <label for="photo">Ссылка на фото</label>
-              <input class="form-control" id="photo" maxlength="200" name="imagePath" type="text" required>
+              <blockquote>
+                <label for="title"><strong>Заголовок</strong></label>
+                <input type="text" id="title" class="form-control" maxlength="250" name="title" value="${post.title}" required/>
+              </blockquote>
             </div>
 
             <div class="form-group">
-              <label for="date">Дата в формате 26.09.2016</label>
-              <input type="text" id="date" class="form-control" name="dateOfPublication" required>
+              <blockquote>
+                <label for="imagePath"><strong>Ссылка на фото</strong></label>
+                <input type="text" id="imagePath" maxlength="200" class="form-control" name="imagePath" value="${post.imagePath}" required/>
+              </blockquote>
+            </div>
+
+            <div class="form-group">
+              <label for="date">Дата в формате 26.06.2016</label>
+              <input type="text" id="date" class="form-control" name="dateOfPublication" value="<fmt:formatDate type="date"
+                      dateStyle="short" timeStyle="short" value="${post.dateOfPublication}"/>" required>
             </div>
 
             <div class="form-group">
               <label for="button">Надпись на кнопке перехода к детальному чтению поста</label>
-              <input type="text" id="button" maxlength="100" class="form-control" name="buttonText" required>
+              <input type="text" id="button" maxlength="100" class="form-control" value="${post.buttonText}" name="buttonText" required>
             </div>
 
             <div class="form-group">
               <label for="shortDescription">Короткое описание</label>
-              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription" required></textarea>
+              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription" required>${post.shortDescription}</textarea>
             </div>
 
             <div class="form-group">
               <label for="contentPost">Контент</label>
-              <textarea type="text" id="contentPost" class="form-control" name="content" required></textarea>
+              <textarea type="text" id="contentPost" class="form-control" name="content" required>${post.content}</textarea>
             </div>
 
             <div class="form-group">
               <label for="metaTitle">MetaTitle</label>
-              <input type="text" id="metaTitle" maxlength="70" class="form-control" name="metaTitle" required>
+              <input type="text" id="metaTitle" maxlength="70" class="form-control" value="${post.metaTitle}" name="metaTitle" required>
             </div>
 
             <div class="form-group">
               <label for="metaKeyWords">MetaKeyWords</label>
-              <input type="text" id="metaKeyWords" maxlength="120" class="form-control" name="metaKeyWords" required>
+              <input type="text" id="metaKeyWords" maxlength="120" class="form-control" value="${post.metaKeyWords}" name="metaKeyWords" required>
             </div>
 
             <div class="form-group">
               <label for="metaDescription">MetaDescription</label>
-              <input type="text" id="metaDescription" maxlength="160" class="form-control" name="metaDescription" required>
+              <input type="text" id="metaDescription" maxlength="160" class="form-control" value="${post.metaDescription}" name="metaDescription" required>
             </div>
 
             <div class="row">
               <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Добавить пост</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Сохранить изменения</button>
               </div>
             </div>
 

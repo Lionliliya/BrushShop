@@ -203,6 +203,22 @@ public class AdminController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
+    public ModelAndView allPosts(@PathVariable int id,
+                                 HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminPost");
+            modelAndView.addObject("post", postDAO.get(id));
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
     @RequestMapping(value="/post/edit/{id}", method = RequestMethod.GET)
     public ModelAndView adminPostEdit(@PathVariable int id,
                                           HttpServletRequest request) {
@@ -236,7 +252,7 @@ public class AdminController {
 
         if (checkStatus(session)) {
             postDAO.save(id, title, imagePath, shortDescription,
-                    new SimpleDateFormat("dd-MM-yyyy").parse(dateOfPublication),
+                    new SimpleDateFormat("dd.MM.yyyy").parse(dateOfPublication),
                     buttonText, content, metaDescription, metaKeyWords, metaTitle);
             return new ModelAndView("redirect:/admin/post/{id}", model);
         }
