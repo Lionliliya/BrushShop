@@ -6,14 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-/**
- * Created by lionliliya on 23.01.16.
- */
 @Entity
 @Table(name="Admins")
 public class Administrator implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue
@@ -104,7 +99,45 @@ public class Administrator implements Serializable {
         this.phoneNumber2 = phoneNumber2;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Administrator)) return false;
+
+        Administrator that = (Administrator) o;
+
+        if (emailAddress != null ? !emailAddress.equals(that.emailAddress) : that.emailAddress != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (phoneNumber1 != null ? !phoneNumber1.equals(that.phoneNumber1) : that.phoneNumber1 != null) return false;
+        if (phoneNumber2 != null ? !phoneNumber2.equals(that.phoneNumber2) : that.phoneNumber2 != null) return false;
+        if (role != null ? !role.equals(that.role) : that.role != null) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = role != null ? role.hashCode() : 0;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (emailAddress != null ? emailAddress.hashCode() : 0);
+        result = 31 * result + (phoneNumber1 != null ? phoneNumber1.hashCode() : 0);
+        result = 31 * result + (phoneNumber2 != null ? phoneNumber2.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Administrator{" +
+                "id=" + id +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", domainName='" + domainName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", phoneNumber1='" + phoneNumber1 + '\'' +
+                ", phoneNumber2='" + phoneNumber2 + '\'' +
+                '}';
     }
 }

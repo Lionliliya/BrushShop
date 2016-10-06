@@ -119,29 +119,17 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-12 " id="customer-orders">
-        <div class="row">
+      <div class="col-md-10 col-md-offset-1" id="customer-orders">
         <div class="box">
-          <div class="row">
-            <div class="col-xs-9">
-              <h3>Настройки пользователей системы</h3>
-            </div>
-
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
-          <c:set var="users" value="${users}"/>
-          <c:if test="${fn:length(users) eq 0}">
-            <div class="col-md-12"><article class="art-head"><h2>У вас нет постов</h2></article></div>
-          </c:if>
-          <c:if test="${fn:length(users) gt 0}">
-            <div class="table-responsive ">
+          <c:set var="user" value="${user}"/>
+            <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                 <tr>
                   <th>№</th>
                   <th>Username</th>
                   <th>Role</th>
+                  <th>Пароль</th>
                   <th>Номер телефона</th>
                   <th>Эмеил</th>
                   <th>Домен</th>
@@ -149,11 +137,11 @@ _________________________________________________________ -->
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${users}" var="user">
                   <tr>
                     <td>${user.id}</td>
-                    <td><a href="/admin/user/${user.id}">${user.username}</a></td>
+                    <td>${user.username}</td>
                     <td>${user.role}</td>
+                    <td>${user.password}</td>
                     <td>
                       <p>${user.phoneNumber1}</p>
                       <p>${user.phoneNumber2}</p>
@@ -163,81 +151,15 @@ _________________________________________________________ -->
                     <td>
                       <p><a href="/admin/user/edit/${user.id}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
                       <p><a href="javascript:AlertIt(${user.id});" class="btn btn-primary btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
-                      <p><a href="/admin/user/${user.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Просмотреть</a></p>
                     </td>
                   </tr>
-                </c:forEach>
                 </tbody>
               </table>
             </div>
-          </c:if>
-          </div>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-          <div class="box" id="add">
-            <h3>Создать новго пользователя</h3>
-            <form role = "form" action="/admin/user/add" method="post">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <tbody>
-                <tr>
-                  <th>Username</th>
-                  <th>
-                    <input type="text" class="form-control" maxlength="100" name="username" required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Role</th>
-                  <th>
-                    <input type="text" class="form-control" maxlength="100" name="role" required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Пароль</th>
-                  <th>
-                    <input type="text" maxlength="60" class="form-control" name="password" required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Номер телефона 1</th>
-                  <th>
-                    <input type="text" class="form-control" maxlength="60" name="phoneNumber1" required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Номер телефона 2</th>
-                  <th>
-                    <input type="text" class="form-control" maxlength="60" name="phoneNumber2" required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Эл. адрес</th>
-                  <th>
-                    <input type="text" maxlength="150" class="form-control" name="emailAddress" required>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Домен</th>
-                  <th>
-                    <input type="text" maxlength="150" class="form-control" name="domainName" required>
-                  </th>
-                </tr>
-                <tr>
-                  <th>Сохранить</th>
-                  <th>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Сохранить изменения</button>
-                  </th>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
+
   </div>
   <!-- /.container -->
 </div>

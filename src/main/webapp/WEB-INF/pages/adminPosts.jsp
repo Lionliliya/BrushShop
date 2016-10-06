@@ -176,9 +176,9 @@ _________________________________________________________ -->
                     <td>${post.shortDescription}</td>
                     <td><fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${post.dateOfPublication}" /></td>
                     <td>
-                      <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm">Редактировать</a></p>
-                      <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm">Удалить</a></p>
-                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm">Просмотреть</a></p>
+                      <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
+                      <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
+                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Просмотреть</a></p>
                     </td>
                   </tr>
                 </c:forEach>

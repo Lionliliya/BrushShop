@@ -119,66 +119,51 @@ _________________________________________________________ -->
   <div id="content">
     <div class="container">
 
-      <div class="col-md-10 col-md-offset-1" id="customer-orders">
+      <div class="col-md-12 " id="customer-orders">
+        <div class="row">
         <div class="box">
-          <h1>Все посты</h1>
           <div class="row">
-
-            <div class="col-sm-12">
-              <div class="products-sort-by">
-                <div class="row">
-                  <div class="col-xs-3">
-                    <a href="/admin/post/sort/nameUp"><i class="fa fa-arrow-up"></i></a>
-                    <a href="/admin/post/sort/nameDown"><i class="fa fa-arrow-down"></i></a>
-                    По имени
-                  </div>
-                  <div class="col-xs-3">
-                    <a href="/admin/post/sort/dateUp"><i class="fa fa-arrow-up"></i></a>
-                    <a href="/admin/post/sort/dateDown"><i class="fa fa-arrow-down"></i></a>
-                    По дате
-                  </div>
-                  <div class="col-xs-6">
-                    <a href="#add"><p class="text-right"><i class="fa fa-plus-circle"></i> Добавить новый пост</p></a>
-                  </div>
-                </div>
-              </div>
+            <div class="col-xs-9">
+              <h3>Настройки пользователей системы</h3>
             </div>
-
+            
           </div>
-
-          <c:set var="posts" value="${posts}"/>
-          <c:if test="${fn:length(posts) eq 0}">
+          <div class="row">
+            <div class="col-xs-12">
+          <c:set var="users" value="${users}"/>
+          <c:if test="${fn:length(users) eq 0}">
             <div class="col-md-12"><article class="art-head"><h2>У вас нет постов</h2></article></div>
           </c:if>
-          <c:if test="${fn:length(posts) gt 0}">
-            <div class="table-responsive">
+          <c:if test="${fn:length(users) gt 0}">
+            <div class="table-responsive ">
               <table class="table table-hover">
                 <thead>
                 <tr>
                   <th>№</th>
-                  <th>Заголовок</th>
-                  <th>Фото</th>
-                  <th>Короткое описание</th>
-                  <th>Дата</th>
-                  <th>Действие</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Номер телефона</th>
+                  <th>Эмеил</th>
+                  <th>Домен</th>
+                  <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${posts}" var="post">
+                <c:forEach items="${users}" var="user">
                   <tr>
-                    <td>${post.id}</td>
-                    <td><a href="/admin/post/${post.id}">${post.title}</a></td>
+                    <td>${user.id}</td>
+                    <td><a href="/admin/user/${user.id}">${user.username}</a></td>
+                    <td>${user.role}</td>
                     <td>
-                      <a href="/admin/post/${post.id}">
-                        <img src="/resources/${post.imagePath}" width="80">
-                      </a>
+                      <p>${user.phoneNumber1}</p>
+                      <p>${user.phoneNumber2}</p>
                     </td>
-                    <td>${post.shortDescription}</td>
-                    <td><fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${post.dateOfPublication}" /></td>
+                    <td>${user.emailAddress}</td>
+                    <td>${user.domainName}</td>
                     <td>
-                      <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
-                      <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
-                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Просмотреть</a></p>
+                      <p><a href="/admin/user/edit/${user.id}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
+                      <p><a href="javascript:AlertIt(${user.id});" class="btn btn-primary btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
+                      <p><a href="/admin/user/${user.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Просмотреть</a></p>
                     </td>
                   </tr>
                 </c:forEach>
@@ -186,68 +171,73 @@ _________________________________________________________ -->
               </table>
             </div>
           </c:if>
+          </div>
+            </div>
         </div>
-        <hr>
-        <div class="box" id="add">
-          <h1>Создать статью</h1>
-          <form role = "form" action="/admin/post/add" method="post">
-
-            <div class="form-group">
-              <label for="title">Заголовок</label>
-              <input type="text" id="title" maxlength="250" class="form-control" name="title" required/>
+        </div>
+        <div class="row">
+          <div class="box" id="add">
+            <h3>Создать новго пользователя</h3>
+            <form role = "form" action="/admin/user/add" method="post">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <tbody>
+                <tr>
+                  <th>Username</th>
+                  <th>
+                    <input type="text" class="form-control" maxlength="100" name="username" required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Role</th>
+                  <th>
+                    <input type="text" class="form-control" maxlength="100" name="role" required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Пароль</th>
+                  <th>
+                    <input type="text" maxlength="60" class="form-control" name="password" required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Номер телефона 1</th>
+                  <th>
+                    <input type="text" class="form-control" maxlength="60" name="phoneNumber1" required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Номер телефона 2</th>
+                  <th>
+                    <input type="text" class="form-control" maxlength="60" name="phoneNumber2" required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Эл. адрес</th>
+                  <th>
+                    <input type="text" maxlength="150" class="form-control" name="emailAddress" required>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Домен</th>
+                  <th>
+                    <input type="text" maxlength="150" class="form-control" name="domainName" required>
+                  </th>
+                </tr>
+                <tr>
+                  <th>Сохранить</th>
+                  <th>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Сохранить изменения</button>
+                  </th>
+                </tr>
+                </tbody>
+              </table>
             </div>
-
-            <div class="form-group">
-              <label for="photo">Ссылка на фото</label>
-              <input class="form-control" id="photo" maxlength="200" name="imagePath" type="text" required>
-            </div>
-
-            <div class="form-group">
-              <label for="date">Дата в формате 26.09.2016</label>
-              <input type="text" id="date" class="form-control" name="dateOfPublication" required>
-            </div>
-
-            <div class="form-group">
-              <label for="button">Надпись на кнопке перехода к детальному чтению поста</label>
-              <input type="text" id="button" maxlength="100" class="form-control" name="buttonText" required>
-            </div>
-
-            <div class="form-group">
-              <label for="shortDescription">Короткое описание</label>
-              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription" required></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="contentPost">Контент</label>
-              <textarea type="text" id="contentPost" class="form-control" name="content" required></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="metaTitle">MetaTitle</label>
-              <input type="text" id="metaTitle" maxlength="70" class="form-control" name="metaTitle" required>
-            </div>
-
-            <div class="form-group">
-              <label for="metaKeyWords">MetaKeyWords</label>
-              <input type="text" id="metaKeyWords" maxlength="120" class="form-control" name="metaKeyWords" required>
-            </div>
-
-            <div class="form-group">
-              <label for="metaDescription">MetaDescription</label>
-              <input type="text" id="metaDescription" maxlength="160" class="form-control" name="metaDescription" required>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Добавить пост</button>
-              </div>
-            </div>
-
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
   <!-- /.container -->
 </div>

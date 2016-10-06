@@ -194,10 +194,10 @@ _________________________________________________________ -->
                                         <td>${feedback.feedback}</td>
                                         <td>
                                             <p><a href="/admin/feedback/edit/${feedback.id}"
-                                                  class="btn btn-primary btn-sm">Редактировать</a></p>
+                                                  class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
 
                                             <p><a href="javascript:AlertIt(${feedback.id});"
-                                                  class="btn btn-danger  btn-sm">Удалить</a></p>
+                                                  class="btn btn-danger  btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
                                         </td>
                                     </tr>
                                 </c:forEach>

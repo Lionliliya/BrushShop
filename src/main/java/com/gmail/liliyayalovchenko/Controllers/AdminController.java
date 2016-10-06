@@ -110,29 +110,15 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping("/parameters/add")
-    public ModelAndView addAdmin(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("addAdmin");
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-    @RequestMapping(value="/edit/{role}")
-    public ModelAndView editAdmin(@PathVariable("role") String role,
+    @RequestMapping(value="/user/{id}")
+    public ModelAndView userAdmin(@PathVariable int id,
                                   HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("editAdmin");
-            modelAndView.addObject("admin", administratorDAO.getAdminByRole(role));
+            modelAndView.setViewName("adminUser");
+            modelAndView.addObject("user", administratorDAO.getAdminById(id));
             return modelAndView;
         }
 
@@ -140,7 +126,44 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/parameters/save-new-user",  method = RequestMethod.POST)
+    @RequestMapping(value="/user/edit/{id}")
+    public ModelAndView editAdmin(@PathVariable int id,
+                                  HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminUserEdit");
+            modelAndView.addObject("user", administratorDAO.getAdminById(id));
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/user/save/{id}",  method = RequestMethod.POST)
+    public ModelAndView saveEditedAdmin  (@PathVariable int id,
+                                          @RequestParam String role,
+                                          @RequestParam String username,
+                                          @RequestParam String domainName,
+                                          @RequestParam String password,
+                                          @RequestParam String emailAddress,
+                                          @RequestParam String phoneNumber1,
+                                          @RequestParam String phoneNumber2,
+                                          ModelMap model,
+                                          HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        if (checkStatus(session)) {
+            administratorDAO.saveAdmin(id, role, password, username, domainName, emailAddress, phoneNumber1, phoneNumber2);
+            return new ModelAndView("redirect:/admin/user/{id}");
+        }
+
+        return new ModelAndView("adminLogin", model);
+    }
+
+    @RequestMapping(value="/user/add",  method = RequestMethod.POST)
     public ModelAndView saveAdmin(@RequestParam(value="role") String role,
                                   @RequestParam(value="username") String username,
                                   @RequestParam(value = "domainName") String domainName,
@@ -148,43 +171,17 @@ public class AdminController {
                                   @RequestParam(value = "emailAddress") String emailAddress,
                                   @RequestParam(value = "phoneNumber1") String phoneNumber1,
                                   @RequestParam(value = "phoneNumber2") String phoneNumber2,
+                                  ModelMap model,
                                   HttpServletRequest request) {
         HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("adminParameters");
             Administrator administrator = new Administrator(role, password, username, domainName, emailAddress, phoneNumber1, phoneNumber2);
             administratorDAO.saveAdmin(administrator);
-            return modelAndView;
+            return new ModelAndView("redirect:/admin/parameter", model);
         }
 
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-    @RequestMapping(value="/parameters",  method = RequestMethod.POST)
-    public ModelAndView saveEditedAdmin  (@RequestParam(value="id") int id,
-                                          @RequestParam(value="role") String role,
-                                          @RequestParam(value="username") String username,
-                                          @RequestParam(value = "domainName") String domainName,
-                                          @RequestParam(value = "password") String password,
-                                          @RequestParam(value = "emailAddress") String emailAddress,
-                                          @RequestParam(value = "phoneNumber1") String phoneNumber1,
-                                          @RequestParam(value = "phoneNumber2") String phoneNumber2,
-                                          HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)) {
-            modelAndView.setViewName("adminParameters");
-            modelAndView.addObject("admins", administratorDAO.getAllUsers());
-            administratorDAO.saveAdmin(id, role, password, username, domainName, emailAddress, phoneNumber1, phoneNumber2);
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("adminLogin");
-        return modelAndView;
+       return new ModelAndView("adminLogin", model);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.GET)
