@@ -49,6 +49,20 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
+    public List<Post> getAllPostsNameUp() {
+        Query query = entityManager.createQuery("SELECT a FROM Post a ORDER BY a.title",
+                Post.class);
+        return (List<Post>)query.getResultList();
+    }
+
+    @Override
+    public List<Post> getAllPostsNameDown() {
+        Query query = entityManager.createQuery("SELECT a FROM Post a ORDER BY a.title DESC ",
+                Post.class);
+        return (List<Post>)query.getResultList();
+    }
+
+    @Override
     public void save(Post article) {
         try {
             entityManager.getTransaction().begin();

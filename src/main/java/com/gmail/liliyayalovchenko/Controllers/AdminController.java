@@ -61,15 +61,48 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping("/parameters")
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public ModelAndView adminAccess (@RequestParam(value = "username") String username,
+                                     @RequestParam(value = "password") String password,
+                                     ModelMap model,
+                                     HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+        if((username.equals(administratorDAO.getAdminUsername("admin")))&&(password.equals(administratorDAO.getAdminPassword("admin")))) {
+            session.setAttribute("status", "admin");
+            return new ModelAndView("redirect:/admin/", model);
+        } else {
+            modelAndView.setViewName("adminLogin");
+            modelAndView.addObject("notification", "Неверный логин или пароль");
+            return modelAndView;
+        }
+    }
+
+    @RequestMapping("/logout")
+    public ModelAndView logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)){
+            session.removeAttribute("status");
+            modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+            modelAndView.setViewName("index");
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+
+    @RequestMapping("/parameter")
     public ModelAndView parameters(HttpServletRequest request) {
         HttpSession session = request.getSession();
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("adminParameters");
-            modelAndView.addObject("admins", administratorDAO.getAllAdmins());
-            modelAndView.addObject("adminsSize", administratorDAO.getAllAdmins().size());
+            modelAndView.setViewName("adminSettings");
+            modelAndView.addObject("users", administratorDAO.getAllUsers());
             return modelAndView;
         }
 
@@ -145,46 +178,12 @@ public class AdminController {
 
         if (checkStatus(session)) {
             modelAndView.setViewName("adminParameters");
-            modelAndView.addObject("admins", administratorDAO.getAllAdmins());
+            modelAndView.addObject("admins", administratorDAO.getAllUsers());
             administratorDAO.saveAdmin(id, role, password, username, domainName, emailAddress, phoneNumber1, phoneNumber2);
             return modelAndView;
         }
 
         modelAndView.setViewName("adminLogin");
-        return modelAndView;
-    }
-
-
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView adminAccess (@RequestParam(value = "username") String username,
-                                     @RequestParam(value = "password") String password,
-                                     ModelMap model,
-                                     HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-        if((username.equals(administratorDAO.getAdminUsername("admin")))&&(password.equals(administratorDAO.getAdminPassword("admin")))) {
-            session.setAttribute("status", "admin");
-            return new ModelAndView("redirect:/admin/", model);
-        } else {
-            modelAndView.setViewName("adminLogin");
-            modelAndView.addObject("notification", "Неверный логин или пароль");
-            return modelAndView;
-        }
-    }
-
-    @RequestMapping("/logout")
-    public ModelAndView logout(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (checkStatus(session)){
-            session.removeAttribute("status");
-            modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-            modelAndView.setViewName("index");
-            return modelAndView;
-        }
-
-        modelAndView.setViewName("index");
         return modelAndView;
     }
 
@@ -196,6 +195,66 @@ public class AdminController {
         if (checkStatus(session)) {
             modelAndView.setViewName("adminPosts");
             modelAndView.addObject("posts", postDAO.getAllPosts());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/post/sort/dateUp", method = RequestMethod.GET)
+    public ModelAndView allPostsDateUp(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminPosts");
+            modelAndView.addObject("posts", postDAO.getAllPostAsc());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/post/sort/dateDown", method = RequestMethod.GET)
+    public ModelAndView allPostsDateDown(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminPosts");
+            modelAndView.addObject("posts", postDAO.getAllPostsDesc());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/post/sort/nameUp", method = RequestMethod.GET)
+    public ModelAndView allPostsNameUp(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminPosts");
+            modelAndView.addObject("posts", postDAO.getAllPostsNameUp());
+            return modelAndView;
+        }
+
+        modelAndView.setViewName("adminLogin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/post/sort/nameDown", method = RequestMethod.GET)
+    public ModelAndView allPostsNameDown(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (checkStatus(session)) {
+            modelAndView.setViewName("adminPosts");
+            modelAndView.addObject("posts", postDAO.getAllPostsNameDown());
             return modelAndView;
         }
 
@@ -290,7 +349,7 @@ public class AdminController {
 
         if (checkStatus(session)) {
             Post infoToAdd = new Post(title, imagePath, shortDescription,
-                    new SimpleDateFormat("dd-MM-yyyy").parse(dateOfPublication),
+                    new SimpleDateFormat("dd.MM.yyyy").parse(dateOfPublication),
                     buttonText, content, metaDescription, metaKeyWords, metaTitle);
             postDAO.save(infoToAdd);
             return new ModelAndView("redirect:/admin/post", model);

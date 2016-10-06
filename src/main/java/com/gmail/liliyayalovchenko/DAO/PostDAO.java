@@ -26,4 +26,8 @@ public interface PostDAO {
 
     void save(int id, String title, String imagePath, String shortDescription, Date dateOfPublication,
               String buttonText, String content, String metaDescription, String metaKeyWords, String metaTitle);
+
+    List<Post> getAllPostsNameUp();
+
+    List<Post> getAllPostsNameDown();
 }

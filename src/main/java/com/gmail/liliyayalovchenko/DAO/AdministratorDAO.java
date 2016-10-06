@@ -15,7 +15,7 @@ public interface AdministratorDAO {
 
     Administrator getAdminById(int id);
 
-    List<Administrator> getAllAdmins();
+    List<Administrator> getAllUsers();
 
     void saveAdmin(Administrator administrator);
 

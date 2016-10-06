@@ -268,14 +268,21 @@
                                 </a>
                                 <%--<a href="post.html"><i class="fa fa-comment-o"></i> 8 Comments</a>--%>
                             </p>
-                            <div class="image">
-                                <a href="/news/${article.id}">
-                                    <img src="${article.imagePath}" class="img-responsive" alt="${article.title}">
-                                </a>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <div class="image">
+                                        <a href="/news/${article.id}">
+                                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="${article.title}">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9">
+                                    <p class="intro">${article.shortDescription}</p>
+                                    <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">${article.buttonText}</a>
+                                    </p>
+                                </div>
                             </div>
-                            <p class="intro">${article.shortDescription}</p>
-                            <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">${article.buttonText}</a>
-                            </p>
+
                         </div>
                     </c:forEach>
 

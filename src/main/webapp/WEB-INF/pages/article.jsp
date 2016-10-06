@@ -250,7 +250,7 @@
                         <p class="lead">${article.shortDescription}</p>
 
                         <div id="post-content">
-                            <img src="${article.imagePath}" class="img-responsive" alt="${article.title}">
+                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="${article.title}">
 
                             ${article.content}
                         </div>

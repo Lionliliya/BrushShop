@@ -349,7 +349,7 @@
                                     <h4><a href="/news/${article.id}">${article.title}</a></h4>
                                     <hr>
                                     <p class="intro">${article.shortDescription}</p>
-                                    <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">Continue reading</a>
+                                    <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">${article.buttonText}</a>
                                     </p>
                                 </div>
                             </div>

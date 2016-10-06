@@ -46,7 +46,7 @@ public class AdministratorDAOImpl implements AdministratorDAO {
     }
 
     @Override
-    public List<Administrator> getAllAdmins() {
+    public List<Administrator> getAllUsers() {
         Query query = entityManager.createQuery("SELECT a FROM Administrator a", Administrator.class);
         return (List<Administrator>)query.getResultList();
     }
