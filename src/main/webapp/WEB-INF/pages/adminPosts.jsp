@@ -33,7 +33,24 @@
   <link href="/resources/css/custom.css" rel="stylesheet">
 
   <script src="/resources/js/respond.min.js"></script>
-
+  <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script type="text/javascript">
+    tinymce.init({
+      selector: 'textarea',
+      theme: 'modern',
+      plugins: [
+        'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'save table contextmenu directionality emoticons template paste textcolor'
+      ],
+      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+      content_css: '/resources/css/bootstrap.css',
+      a_plugin_option: true,
+      a_configuration_option: 400,
+      browser_spellcheck: true,
+      automatic_uploads: true
+    });
+  </script>
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
     function AlertIt(id) {
@@ -178,7 +195,7 @@ _________________________________________________________ -->
                     <td>
                       <p><a href="/admin/post/edit/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square"></i> Редактировать</a></p>
                       <p><a href="javascript:AlertIt(${post.id});" class="btn btn-primary btn-sm"><i class="fa fa-scissors"></i> Удалить</a></p>
-                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Просмотреть</a></p>
+                      <p><a href="/admin/post/${post.id}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i>Просмотреть</a></p>
                     </td>
                   </tr>
                 </c:forEach>
@@ -190,7 +207,7 @@ _________________________________________________________ -->
         <hr>
         <div class="box" id="add">
           <h1>Создать статью</h1>
-          <form role = "form" action="/admin/post/add" method="post">
+          <form role = "form" name="addPost" action="/admin/post/add" method="post">
 
             <div class="form-group">
               <label for="title">Заголовок</label>
@@ -214,12 +231,12 @@ _________________________________________________________ -->
 
             <div class="form-group">
               <label for="shortDescription">Короткое описание</label>
-              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription" required></textarea>
+              <textarea id="shortDescription" maxlength="800" class="form-control" name="shortDescription"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="contentPost">Контент</label>
-              <textarea type="text" id="contentPost" class="form-control" name="content" required></textarea>
+              <label>Контент</label>
+              <textarea class="form-control" name="content"></textarea>
             </div>
 
             <div class="form-group">

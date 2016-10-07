@@ -247,11 +247,13 @@
                         <p class="author-date">
                             <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
                         </p>
-                        <p class="lead">${article.shortDescription}</p>
-
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="lead">${article.shortDescription}</p>
+                            </div>
+                        </div>
+                        <hr>
                         <div id="post-content">
-                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="${article.title}">
-
                             ${article.content}
                         </div>
                         <!-- /#post-content -->
