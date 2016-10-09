@@ -311,23 +311,16 @@ _________________________________________________________ -->
 
             <div class="col-sm-12 col-md-8  products-number-sort">
               <div class="row">
-
                 <div class="col-sm-12">
                   <div class="products-sort-by">
                     <div class="row">
-                      <div class="col-xs-4"><strong>Сортировать по</strong></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-3">
-                        <a href="/catalog/priceUp"><i class="fa fa-arrow-up"></i> Цена вверх</a>
-                      </div>
-                      <div class="col-xs-3">
-                        <a href="/catalog/priceDown"><i class="fa fa-arrow-down"></i> Цена вниз</a>
+                      <div class="col-xs-5">
+                        <a href="/catalog/priceUp"><i class="fa fa-arrow-up"></i></a>
+                        <a href="/catalog/priceDown"><i class="fa fa-arrow-down"></i>Цена</a>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>

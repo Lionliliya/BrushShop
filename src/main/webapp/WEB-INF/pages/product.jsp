@@ -326,14 +326,14 @@
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
                             <div id="mainImage">
-                                <img src="/resources/${product.image1}" alt="${product.name}" class="img-responsive">
+                                <img src="/resources/${product.smallimage1}" alt="${product.name}" class="img-responsive">
                             </div>
 
 
                         </div>
                         <div class="col-sm-6">
                             <div class="box">
-                                <h1 class="text-center">${product.name}</h1>
+                                <h1 class="text-center" style="font-size: 30px;">${product.name}</h1>
                                 <c:set value="${product.getRating()}" var="rate"/>
                                 <p class="text-center">${product.getStarRate(rate)}</p>
                                 <p class="goToDescription"><a href="#details" class="scroll-to">
@@ -360,6 +360,7 @@
 
                             <div class="row" id="thumbs">
                                 <div class="col-xs-4">
+                                    /**ссылка на больший размер этого же фото**/
                                     <a href="/resources/${product.image2}" class="thumb">
                                         <img src="/resources/${product.image2}" alt="${product.name}" class="img-responsive">
                                     </a>
