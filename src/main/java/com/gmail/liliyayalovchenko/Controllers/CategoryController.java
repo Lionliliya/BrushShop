@@ -157,18 +157,18 @@ public class CategoryController {
         return modelAndView;
     }
 
-    @RequestMapping("/cart")
-    public ModelAndView cart(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        checkSession(session);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
-        modelAndView.addObject("totalAmount", totalAmount(session));
-        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-        modelAndView.setViewName("cart");
-        return modelAndView;
-    }
+//    @RequestMapping("/cart")
+//    public ModelAndView cart(HttpServletRequest request) {
+//        HttpSession session = request.getSession();
+//        checkSession(session);
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+//        modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
+//        modelAndView.addObject("totalAmount", totalAmount(session));
+//        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+//        modelAndView.setViewName("cart");
+//        return modelAndView;
+//    }
 
     @RequestMapping("/cartClearing")
     public ModelAndView cartClearing(HttpServletRequest request) {

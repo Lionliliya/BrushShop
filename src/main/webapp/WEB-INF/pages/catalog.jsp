@@ -52,51 +52,14 @@ _________________________________________________________ -->
     </div>
     <div class="col-md-6" data-animate="fadeInDown">
       <ul class="menu">
-        <li><a href="#" data-toggle="modal" data-target="#login-modal">Войти</a>
-        </li>
-        <li><a href="#">Регистрация</a>
-        </li>
-        <li><a href="/contacts">Контакты</a>
+        <li>
+          <a href="/contacts">Контакты</a>
         </li>
 
       </ul>
     </div>
   </div>
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="Login">Вход пользователя</h4>
-        </div>
-        <div class="modal-body">
-          <form action="#" method="post">
-            <div class="form-group">
-              <input type="text" class="form-control" id="email-modal" placeholder="Эл. адресс">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" id="password-modal" placeholder="Пароль">
-            </div>
-
-            <p class="text-center">
-              <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Войти</button>
-            </p>
-
-          </form>
-
-          <p class="text-center text-muted">Контакты</p>
-          <p class="text-center text-muted"><a href="#"><strong>Зарегистрируйся сейчас!</strong></a>
-            Легко и  за 1&nbsp;минуту ты получишь доступ к дополнительным скидкам и особым условиям!
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
-
 
 <!-- *** TOP BAR END *** -->
 
@@ -342,7 +305,7 @@ _________________________________________________________ -->
                         <div class="flipper">
                           <div class="front">
                             <a href="/product/${product.id}">
-                              <img src="/resources/${product.smallimage}" alt="${product.name} Киев" class="img-responsive">
+                              <img src="/resources/${product.image1}" alt="${product.name} Киев" class="img-responsive">
                             </a>
                           </div>
                           <div class="back">
@@ -353,7 +316,7 @@ _________________________________________________________ -->
                         </div>
                       </div>
                       <a href="/product/${product.id}" class="invisible">
-                        <img src="/resources/${product.smallimage}" alt="${product.name} Киев" class="img-responsive">
+                        <img src="/resources/${product.image1}" alt="${product.name} Киев" class="img-responsive">
                       </a>
                       <div class="text">
                         <h3><a href="/product/${product.id}">${product.name}</a></h3>
@@ -400,19 +363,6 @@ _________________________________________________________ -->
             <li><a href="/contacts">Связь с нами</a>
             </li>
           </ul>
-
-          <hr>
-
-          <h4>Для пользователя</h4>
-
-          <ul>
-            <li><a href="#" data-toggle="modal" data-target="#login-modal">Войти</a>
-            </li>
-            <li><a href="#">Регистрация</a>
-            </li>
-          </ul>
-
-          <hr class="hidden-md hidden-lg hidden-sm">
 
         </div>
         <!-- /.col-md-3 -->

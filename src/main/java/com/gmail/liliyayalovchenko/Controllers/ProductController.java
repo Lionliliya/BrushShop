@@ -93,6 +93,21 @@ public class ProductController {
         productsInCart.add(productInCart);
         session.setAttribute("ProductsInCart", productsInCart);
         session.setAttribute("cartSize", productsInCart.size());
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
+        modelAndView.addObject("totalValue", totalAmount(session));
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("cart");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/cart")
+    //на странице товара при нажатии кнопки добавить в корзину
+    public ModelAndView cartGet(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
