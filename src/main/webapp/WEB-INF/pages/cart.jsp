@@ -104,7 +104,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -228,10 +232,13 @@
                                             <tr>
                                                 <td>
                                                     <a href="/product/${product.product_id.id}">
-                                                        <img src="/resources/${product.smallimage}" alt="${product.name}">
+                                                        <img src="/resources/${product.smallimage}" alt="<c:out value="${product.name}"/>">
                                                     </a>
                                                 </td>
-                                                <td><a href="/product/${product.product_id.id}">${product.name}</a>
+                                                <td>
+                                                    <a href="/product/${product.product_id.id}">
+                                                        <c:out value="${product.name}"/>
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <input type="number" name="quantity" value="${product.quantity}" class="form-control">

@@ -112,7 +112,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -212,7 +216,11 @@
                     <%--</div>--%>
                     <c:forEach items="${articles}" var="article">
                         <div class="post">
-                            <h2><a href="/news/${article.id}">${article.title}</a></h2>
+                            <h2>
+                                <a href="/news/${article.id}">
+                                    <c:out value="${article.title}"/>
+                                </a>
+                            </h2>
 
                             <hr>
                             <p class="date-comments">
@@ -226,13 +234,18 @@
                                 <div class="col-xs-2">
                                     <div class="image">
                                         <a href="/news/${article.id}">
-                                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="${article.title}">
+                                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="<c:out value="${article.title}"/>">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-xs-9">
-                                    <p class="intro">${article.shortDescription}</p>
-                                    <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">${article.buttonText}</a>
+                                    <p class="intro">
+                                        ${article.shortDescription}
+                                    </p>
+                                    <p class="read-more">
+                                        <a href="/news/${article.id}" class="btn btn-primary">
+                                            <c:out value="${article.buttonText}"/>
+                                        </a>
                                     </p>
                                 </div>
                             </div>
@@ -327,7 +340,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

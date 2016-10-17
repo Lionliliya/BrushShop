@@ -108,7 +108,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -296,7 +300,7 @@
                     <div class="col-md-12">
                         <h3 class="text-uppercase">Из нашего блога</h3>
 
-                        <p class="lead">Идеи для макяжа, хитрости и советы! <a href="blog.html">Загляните в наш блог!</a>
+                        <p class="lead">Идеи для макяжа, хитрости и советы! <a href="/news">Загляните в наш блог!</a>
                         </p>
                     </div>
                 </div>
@@ -310,10 +314,19 @@
                         <c:forEach items="${articles}" var="article">
                             <div class="col-sm-6">
                                 <div class="post">
-                                    <h4><a href="/news/${article.id}">${article.title}</a></h4>
+                                    <h4>
+                                        <a href="/news/${article.id}">
+                                            <c:out value="${article.title}"/>
+                                        </a>
+                                    </h4>
                                     <hr>
-                                    <p class="intro">${article.shortDescription}</p>
-                                    <p class="read-more"><a href="/news/${article.id}" class="btn btn-primary">${article.buttonText}</a>
+                                    <p class="intro">
+                                        ${article.shortDescription}
+                                    </p>
+                                    <p class="read-more">
+                                        <a href="/news/${article.id}" class="btn btn-primary">
+                                            <c:out value="${article.buttonText}"/>
+                                        </a>
                                     </p>
                                 </div>
                             </div>
@@ -355,7 +368,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

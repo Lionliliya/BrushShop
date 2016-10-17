@@ -184,7 +184,10 @@ _________________________________________________________ -->
                 <c:forEach items="${posts}" var="post">
                   <tr>
                     <td>${post.id}</td>
-                    <td><a href="/admin/post/${post.id}">${post.title}</a></td>
+                    <td>
+                      <a href="/admin/post/${post.id}">
+                        <c:out value="${post.title}"/>
+                      </a></td>
                     <td>
                       <a href="/admin/post/${post.id}">
                         <img src="/resources/${post.imagePath}" width="80">

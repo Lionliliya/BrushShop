@@ -206,7 +206,9 @@
 
                     <div class="box">
 
-                        <h1>${article.title}</h1>
+                        <h1>
+                            <c:out value="${article.title}"/>
+                        </h1>
 
                         <p class="author-date">
                             <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
@@ -295,7 +297,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

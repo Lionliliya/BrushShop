@@ -106,7 +106,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -222,7 +226,7 @@
                     <div class="box">
                         <h1>Заказ #${order.id}</h1>
 
-                        <p class="lead">${client.firstName}, твой заказ #10${order.id} оформлен <strong>${date}</strong> и сейчас <strong>обрабатывается.</strong>.</p>
+                        <p class="lead"><c:out value="${client.firstName}"/>, твой заказ #10${order.id} оформлен <strong>${date}</strong> и сейчас <strong>обрабатывается.</strong>.</p>
                         <p class="text-muted">Если у тебя есть любые вопросы, <a href="/contact">свяжись с нами</a>, мы будем рады тебе помочь.</p>
 
                         <hr>
@@ -243,10 +247,10 @@
                                     <tr>
                                         <td>
                                             <a href="/product/${product.product_id.id}">
-                                                <img src="/resources/${product.product_id.image1}" alt="${product.name}">
+                                                <img src="/resources/${product.product_id.image1}" alt="<c:out value="${product.name}"/>">
                                             </a>
                                         </td>
-                                        <td><a href="/product/${product.product_id.id}">${product.name}</a>
+                                        <td><a href="/product/${product.product_id.id}"><c:out value="${product.name}"/></a>
                                         <td>${product.quantity}</td>
                                         <td>₴${product.price}</td>
                                         <td>₴0.00</td>
@@ -263,11 +267,11 @@
                                     </tr>
                                     <tr>
                                         <th colspan="5" class="text-right">Доставка</th>
-                                        <th>${order.delivery}</th>
+                                        <th><c:out value="${order.delivery}"/></th>
                                     </tr>
                                     <tr>
                                         <th colspan="5" class="text-right">Ваш коментарий</th>
-                                        <th>${order.comments}</th>
+                                        <th><c:out value="${order.comments}"/></th>
                                     </tr>
 
                                 </tfoot>
@@ -310,7 +314,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

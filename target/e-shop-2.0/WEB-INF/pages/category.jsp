@@ -10,12 +10,12 @@
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="${currentCategory.metaDescription}">
+    <meta name="description" content="<c:out value="${currentCategory.metaDescription}"/>">
     <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
-    <meta name="keywords" content="${currentCategory.metaKeyWords}">
+    <meta name="keywords" content="<c:out value="${currentCategory.metaKeyWords}"/>">
 
     <title>
-        ${currentCategory.metaTitle}
+        <c:out value="${currentCategory.metaTitle}"/>
     </title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
@@ -109,7 +109,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -193,7 +197,9 @@
                     <ul class="breadcrumb">
                         <li><a href="/">Главная</a>
                         </li>
-                        <li>${currentCategory.name}</li>
+                        <li>
+                            <c:out value="${currentCategory.name}"/>
+                        </li>
                     </ul>
                 </div>
 
@@ -213,12 +219,16 @@
                                     <c:choose>
                                         <c:when test="${category.name eq curCategory.name}">
                                             <li class="active">
-                                                <a href="/catalog/${category.id}">${category.name}</a>
+                                                <a href="/catalog/${category.id}">
+                                                    <c:out value="${category.name}"/>
+                                                </a>
                                             </li>
                                         </c:when>
                                         <c:otherwise>
                                             <li>
-                                                <a href="/catalog/${category.id}">${category.name}</a>
+                                                <a href="/catalog/${category.id}">
+                                                    <c:out value="${category.name}"/>
+                                                </a>
                                             </li>
                                         </c:otherwise>
                                     </c:choose>
@@ -328,30 +338,34 @@
                                             <form action="/cart" method="post">
 
                                                 <input type=hidden name="id" value="${product.id}">
-                                                <input type=hidden name="productCategory" value="${product.productCategory.name}">
+                                                <input type=hidden name="productCategory" value="<c:out value="${product.productCategory.name}"/>">
                                                 <input type=hidden name="smallimage" value="${product.image1}">
-                                                <input type=hidden name="name" value="${product.name}">
+                                                <input type=hidden name="name" value="<c:out value="${product.name}"/>">
                                                 <input type=hidden name="price" value="${product.price}">
-                                                <input type=hidden name="currency" value="${product.currency}">
+                                                <input type=hidden name="currency" value="<c:out value="${product.currency}"/>">
                                             <div class="flip-container">
                                                 <div class="flipper">
                                                     <div class="front">
                                                         <a href="/product/${product.id}">
-                                                            <img src="/resources/${product.image2}"  height="203" alt="${product.name} Киев" class="img-responsive">
+                                                            <img src="/resources/${product.image2}"  height="203" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
                                                         </a>
                                                     </div>
                                                     <div class="back">
                                                         <a href="/product/${product.id}">
-                                                            <img src="/resources/${product.image1}" height="203" alt="${product.name} Киев" class="img-responsive">
+                                                            <img src="/resources/${product.image1}" height="203" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <a href="/product/${product.id}" class="invisible">
-                                                <img src="/resources/${product.image1}" alt="${product.name} Киев" class="img-responsive">
+                                                <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
                                             </a>
                                             <div class="text">
-                                                <h3><a href="/product/${product.id}">${product.name}</a></h3>
+                                                <h3>
+                                                    <a href="/product/${product.id}">
+                                                        <c:out value="${product.name}"/>
+                                                    </a>
+                                                </h3>
                                                 <c:set value="${product.getRating()}" var="rate"/>
                                                 <p class="text-center">${product.getStarRate(rate)}</p>
                                                 <p class="price">${product.price} грн</p>
@@ -419,7 +433,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

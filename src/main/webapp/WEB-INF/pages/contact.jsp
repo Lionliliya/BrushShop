@@ -106,7 +106,11 @@
                                             <h5>Китсти</h5>
                                             <ul>
                                                 <c:forEach items="${categories}" var="category">
-                                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                                    <li>
+                                                        <a href="/catalog/${category.id}">
+                                                            <c:out value="${category.name}"/>
+                                                        </a>
+                                                    </li>
                                                 </c:forEach>
 
                                             </ul>
@@ -208,7 +212,11 @@
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked">
                                 <c:forEach items="${categories}" var="category">
-                                    <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                    <li>
+                                        <a href="/catalog/${category.id}">
+                                            <c:out value="${category.name}"/>
+                                        </a>
+                                    </li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -281,31 +289,31 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="firstname">Имя</label>
-                                        <input type="text" class="form-control" id="firstname">
+                                        <input type="text" class="form-control" name="firstName" id="firstname" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="lastname">Фамилия</label>
-                                        <input type="text" class="form-control" id="lastname">
+                                        <input type="text" class="form-control" name="secondName" id="lastname" pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email">
+                                        <input type="text" class="form-control" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="subject">Тема письма</label>
-                                        <input type="text" class="form-control" id="subject">
+                                        <input type="text" class="form-control" name="subject" id="subject">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="message">Сообщение</label>
-                                        <textarea id="message" class="form-control"></textarea>
+                                        <textarea id="message" name="massage" class="form-control"></textarea>
                                     </div>
                                 </div>
 
@@ -354,7 +362,11 @@
 
                         <ul>
                             <c:forEach items="${categories}" var="category">
-                                <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                                <li>
+                                    <a href="/catalog/${category.id}">
+                                        <c:out value="${category.name}"/>
+                                    </a>
+                                </li>
                             </c:forEach>
                         </ul>
 

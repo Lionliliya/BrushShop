@@ -10,10 +10,10 @@
 
 <h3>Debug Information:</h3>
 
-Requested URL= ${url}<br><br>
+Requested URL= <c:out value="${url}"/><br><br>
 
 <c:forEach items="${error}" var="trace">
-    <p>${trace}</p>
+    <p><c:out value="${trace}"/></p>
 </c:forEach>
 
 </body>

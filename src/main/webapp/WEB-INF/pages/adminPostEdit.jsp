@@ -182,12 +182,16 @@ _________________________________________________________ -->
 
             <div class="form-group">
               <label for="shortDescription">Короткое описание</label>
-              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription">${post.shortDescription}</textarea>
+              <textarea type="text" id="shortDescription" maxlength="800" class="form-control" name="shortDescription">
+                <c:out value="${post.shortDescription}"/>
+              </textarea>
             </div>
 
             <div class="form-group">
               <label for="contentPost">Контент</label>
-              <textarea type="text" id="contentPost" class="form-control" name="content">${post.content}</textarea>
+              <textarea type="text" id="contentPost" class="form-control" name="content">
+                <c:out value="${post.content}"/>
+              </textarea>
             </div>
 
             <div class="form-group">
