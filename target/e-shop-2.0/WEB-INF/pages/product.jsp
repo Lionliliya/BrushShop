@@ -198,9 +198,14 @@
                         <li><a href="/">Главная</a>
                         </li>
 
-                        <li><a href="/catalog/${product.productCategory.id}">${product.productCategory.name}</a>
+                        <li>
+                            <a href="/catalog/${product.productCategory.id}">
+                                <c:out value="${product.productCategory.name}"/>
+                            </a>
                         </li>
-                        <li>${product.name}</li>
+                        <li>
+                            <c:out value="${product.name}"/>
+                        </li>
                     </ul>
 
                 </div>
@@ -225,12 +230,14 @@
                                     <c:choose>
                                         <c:when test="${category.name eq curCategory.name}">
                                             <li class="active">
-                                                <a href="/catalog/${category.id}">${category.name}</a>
+                                                <a href="/catalog/${category.id}">
+                                                    <c:out value="${category.name}"/>
+                                                </a>
                                             </li>
                                         </c:when>
                                         <c:otherwise>
                                             <li>
-                                                <a href="/catalog/${category.id}">${category.name}</a>
+                                                <a href="/catalog/${category.id}"><c:out value="${category.name}"/></a>
                                             </li>
                                         </c:otherwise>
                                     </c:choose>
@@ -291,7 +298,7 @@
                     <div class="row" id="productMain">
                         <div class="col-sm-6">
                             <div id="mainImage" style="background-color: #ffffff">
-                                <img src="/resources/${product.image1}" alt="${product.name}" style="float: none; margin: 0 auto;" class="img-responsive">
+                                <img src="/resources/${product.image1}" alt="<c:out value="${product.name}" />" style="float: none; margin: 0 auto;" class="img-responsive">
                             </div>
                             <c:if test="${product.discount gt 0}">
                                 <div class="ribbon sale">
@@ -308,7 +315,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="box">
-                                <h1 class="text-center" style="font-size: 25px;">${product.name}</h1>
+                                <h1 class="text-center" style="font-size: 25px;"><c:out value="${product.name}" /></h1>
                                 <c:set value="${product.getRating()}" var="rate"/>
                                 <p class="text-center">${product.getStarRate(rate)}</p>
                                 <p class="goToDescription"><a href="#details" class="scroll-to">
@@ -326,11 +333,11 @@
                                 <p class="price" style="margin-top: 5px;">${product.price} грн</p>
                                 <form action="/cart" method="post">
                                     <input type=hidden name="id" value="${product.id}">
-                                    <input type=hidden name="productCategory" value="${product.productCategory.name}">
+                                    <input type=hidden name="productCategory" value="<c:out value="${product.productCategory.name}" />">
                                     <input type=hidden name="smallimage" value="${product.image1}">
-                                    <input type=hidden name="name" value="${product.name}">
+                                    <input type=hidden name="name" value="<c:out value="${product.name}" />">
                                     <input type=hidden name="price" value="${product.price}">
-                                    <input type=hidden name="currency" value="${product.currency}">
+                                    <input type=hidden name="currency" value="<c:out value="${product.currency}"/>">
                                 <p class="text-center buttons">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Добавить в корзину</button>
                                 </p>
@@ -342,17 +349,17 @@
                             <div class="row" id="thumbs">
                                 <div class="col-xs-4">
                                     <a href="/resources/${product.image2}" class="thumb">
-                                        <img src="/resources/${product.image2}" alt="${product.name}" class="img-responsive">
+                                        <img src="/resources/${product.image2}" alt="<c:out value="${product.name}" />" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <a href="/resources/${product.image3}" class="thumb">
-                                        <img src="/resources/${product.image3}" alt="${product.name}" class="img-responsive">
+                                        <img src="/resources/${product.image3}" alt="<c:out value="${product.name}" />" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
                                     <a href="/resources/${product.image4}" class="thumb">
-                                        <img src="/resources/${product.image4}" alt="${product.name}" class="img-responsive">
+                                        <img src="/resources/${product.image4}" alt="<c:out value="${product.name}" />" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
@@ -364,7 +371,10 @@
                     <div class="box" id="details">
                         <p>
                             <h4>Полное описание</h4>
-                            <p>${product.description}</p>
+                            <p>
+                                <c:out value="${product.description}"/>
+
+                            </p>
 
 
                             <hr>
@@ -385,7 +395,9 @@
                             <c:forEach items="${product.feedBackList}" var="feedBack">
                                 <div class="box">
                                 <div class="social">
-                                    <h4>${feedBack.client.firstName}</h4>
+                                    <h4>
+                                        <c:out value="${feedBack.client.firstName}"/>
+                                    </h4>
                                     <p class="date-comments">
                                         <c:set var="date" value="${feedBack.date}" />
                                         <a href="#"><i class="fa fa-calendar-o"></i>
@@ -394,7 +406,9 @@
                                         </a>
                                     </p>
                                     <p>${feedBack.getStarRate()}</p>
-                                    <p>${feedBack.feedback}</p>
+                                    <p>
+                                        <c:out value="${feedBack.feedback}"/>
+                                    </p>
                                 </div>
                                 </div>
                             </c:forEach>
@@ -491,7 +505,11 @@
 
                     <ul>
                         <c:forEach items="${categories}" var="category">
-                            <li><a href="/catalog/${category.id}">${category.name}</a></li>
+                            <li>
+                                <a href="/catalog/${category.id}">
+                                    <c:out value="${category.name}"/>
+                                </a>
+                            </li>
                         </c:forEach>
                     </ul>
 
