@@ -35,10 +35,6 @@ public class Product implements Serializable {
 
     private String shortDesc;
 
-    private String smallimage;
-
-    private String smallimage1;
-
     private String image1;
 
     private String image2;
@@ -46,6 +42,12 @@ public class Product implements Serializable {
     private String image3;
 
     private String image4;
+
+    @Column(name = "isNew")
+    private boolean isNew;
+
+    @Column(name = "discount")
+    private int discount;
 
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<FeedBack> feedBackList;
@@ -58,31 +60,27 @@ public class Product implements Serializable {
 
     private String metaTitle;
 
-    /*нужно ли писать метод addFeedback, для добавления его в feedBackList и одновременно приписуя продукт к ентити Отзыв */
     public Product() {}
 
-    public Product (String name, int price, String currency, Category productCategory, int amount, String inStock,
-        String description, String shortDesc, String metaDescription, String metaKeyWords, String metaTitle,
-        String smallimage, String smallimage1, String image1, String image2, String image3, String image4) {
+    public Product(String name, int price, String currency, Category category, int amount, String inStock, String description, String shortDesc, String metaDescription, String metaKeyWords, String metaTitle, String image1, String image2, String image3, String image4, boolean isNew, int discount) {
         this.name = name;
         this.price = price;
         this.currency = currency;
-        this.productCategory = productCategory;
+        this.productCategory = category;
         this.amount = amount;
         this.inStock = inStock;
         this.description = description;
         this.shortDesc = shortDesc;
-        this.metaDescription = metaDescription;
-        this.metaKeyWords = metaKeyWords;
-        this.metaTitle = metaTitle;
-        this.smallimage = smallimage;
-        this.smallimage1 = smallimage1;
         this.image1 = image1;
         this.image2 = image2;
         this.image3 = image3;
         this.image4 = image4;
+        this.isNew = isNew;
+        this.discount = discount;
+        this.metaKeyWords = metaKeyWords;
+        this.metaDescription = metaDescription;
+        this.metaTitle = metaTitle;
     }
-
 
     public double getRating() {
         if (feedBackList.size() == 0) {
@@ -220,22 +218,6 @@ public class Product implements Serializable {
         this.inStock = inStock;
     }
 
-    public String getSmallimage() {
-        return smallimage;
-    }
-
-    public void setSmallimage(String smallimage) {
-        this.smallimage = smallimage;
-    }
-
-    public String getSmallimage1() {
-        return smallimage1;
-    }
-
-    public void setSmallimage1(String smallimage1) {
-        this.smallimage1 = smallimage1;
-    }
-
     public String getImage1() {
         return image1;
     }
@@ -298,6 +280,22 @@ public class Product implements Serializable {
 
     public void setMetaTitle(String metaTitle) {
         this.metaTitle = metaTitle;
+    }
+
+    public boolean getIsNew() {
+        return isNew;
+    }
+
+    public void setIsNew(boolean isNew) {
+        this.isNew = isNew;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 
     public void addFeedBack(FeedBack feedBack) {

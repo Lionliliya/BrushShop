@@ -190,6 +190,22 @@ _________________________________________________________ -->
             </blockquote>
 
             <blockquote>
+              <p><strong>Новый товар</strong></p>
+              <c:choose>
+                <c:when test="${product.isNew eq true}">
+                  <p>Да</p>
+                </c:when>
+
+                <c:otherwise>
+                  <p>Нет</p>
+                </c:otherwise>
+              </c:choose>
+              <hr>
+              <p><strong>Скидка</strong></p>
+              <p>${product.discount}</p>
+            </blockquote>
+
+            <blockquote>
               <p><strong>Meta Key Words через запятую</strong></p>
               <p>${product.metaKeyWords}</p>
               <hr>

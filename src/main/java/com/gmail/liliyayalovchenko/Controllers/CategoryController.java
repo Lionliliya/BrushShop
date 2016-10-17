@@ -43,19 +43,6 @@ public class CategoryController {
         return modelAndView;
     }
 
-//    @RequestMapping("/home")
-//    public ModelAndView main1(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        checkSession(session);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("categories", categoryDAO.getAllCategories());
-//        modelAndView.addObject("articles", informationDAO.getTwoLatest());
-//        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-//        modelAndView.setViewName("home");
-//        return modelAndView;
-//    }
-
-
     @RequestMapping("/catalog/{id}")
     public ModelAndView category(@PathVariable("id") int id,
                                  HttpServletRequest request) {
@@ -154,36 +141,6 @@ public class CategoryController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("contact");
-        return modelAndView;
-    }
-
-//    @RequestMapping("/cart")
-//    public ModelAndView cart(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        checkSession(session);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("categories", categoryDAO.getAllCategories());
-//        modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
-//        modelAndView.addObject("totalAmount", totalAmount(session));
-//        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-//        modelAndView.setViewName("cart");
-//        return modelAndView;
-//    }
-
-    @RequestMapping("/cartClearing")
-    public ModelAndView cartClearing(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        checkSession(session);
-        session.removeAttribute("ProductsInCart");
-        session.removeAttribute("cartSize");
-        ArrayList<ProductInCart> ProductsInCart = new ArrayList<>();
-        session.setAttribute("ProductsInCart", ProductsInCart);
-        session.setAttribute("cartSize", ProductsInCart.size());
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
-        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
-        modelAndView.setViewName("cart");
         return modelAndView;
     }
 

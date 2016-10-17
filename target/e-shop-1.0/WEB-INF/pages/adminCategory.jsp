@@ -173,7 +173,7 @@ _________________________________________________________ -->
                     <td>${product.id}</td>
                     <td>
                       <a href="/product/${product.id}">
-                        <img src="/resources/${product.smallimage}" alt="${product.name}" width="50">
+                        <img src="/resources/${product.image1}" alt="${product.name}" width="50">
                       </a>
                     </td>
                     <td><a href="/product/${product.id}">${product.name}</a>

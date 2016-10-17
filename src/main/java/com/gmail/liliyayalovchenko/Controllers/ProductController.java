@@ -76,7 +76,6 @@ public class ProductController {
 
 
     @RequestMapping(value = "/cart", method = RequestMethod.POST)
-    //на странице товара при нажатии кнопки добавить в корзину
     public ModelAndView cart(@RequestParam(value = "id") int id,
                              @RequestParam(value = "productCategory") String category,
                              @RequestParam(value = "smallimage") String smallimage,
@@ -104,7 +103,6 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/cart")
-    //на странице товара при нажатии кнопки добавить в корзину
     public ModelAndView cartGet(HttpServletRequest request) {
         HttpSession session = request.getSession();
         checkSession(session);

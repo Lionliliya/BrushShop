@@ -197,7 +197,7 @@ _________________________________________________________ -->
                         </td>
                         <td>
                           <a href="/admin/product/${feedback.product.id}">
-                            <img src="/resources/${feedback.product.smallimage}" alt="${feedback.product.name}">
+                            <img src="/resources/${feedback.product.image1}" alt="${feedback.product.name}">
                           </a>
                         </td>
                         <td>${feedback.evaluation}</td>

@@ -125,7 +125,7 @@ _________________________________________________________ -->
           <div class="box">
             <a href="#details1" class="popover-title"><i class="fa fa-plus"></i> Добавить товар</a>
             <a href="#details2" class="popover-title"><i class="fa fa-plus"></i> Добавить категорию</a>
-            <a href="/admin/catalog/product" class="popover-title"><i class="fa fa-plus"></i> Все товары</a>
+            <a href="/admin/catalog/product" class="popover-title"> Все товары</a>
           </div>
         </div>
 
@@ -250,15 +250,18 @@ _________________________________________________________ -->
 
               <div class="form-group">
                 <blockquote>
-                <label for="smallimage"><strong>Путь к изображению мини-1</strong></label>
-                <input type="text" id="smallimage" class="form-control" name="smallimage" required/>
+                  <label><strong>Новый товар</strong></label>
+                  <input type="radio" class="form-control" name="isNew"
+                             value="${true}" required/> Да
+                  <input type="radio" class="form-control active" name="isNew"
+                             value="${false}" required/> Нет
                 </blockquote>
               </div>
-
               <div class="form-group">
                 <blockquote>
-                <label for="smallimage1"><strong>Путь к изображению мини-2</strong></label>
-                <input type="text" id="smallimage1" class="form-control" name="smallimage1" required/>
+                  <label for="discount"><strong>Скидка, %</strong></label>
+                  <input type="number" id="discount" class="form-control" name="discount"
+                         required/>
                 </blockquote>
               </div>
 

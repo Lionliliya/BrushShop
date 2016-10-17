@@ -199,7 +199,17 @@
                         <form method="post" action="/updateCart">
 
                             <h1>Корзина</h1>
-                            <p class="text-muted">Сейчас у вас ${cartSize} товара в корзине.</p>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <p class="text-muted text-left">Сейчас у вас ${cartSize} товара в корзине.</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="text-right">
+                                        <a href="/cart-clear" class="btn"><i class="fa fa-trash-o"></i> Очистить корзну</a>
+                                    </p>
+                                </div>
+                            </div>
+
                             <div class="table-responsive">
                                 <table class="table">
 

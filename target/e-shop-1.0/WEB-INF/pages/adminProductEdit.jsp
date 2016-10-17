@@ -218,17 +218,32 @@ _________________________________________________________ -->
 
                             <div class="form-group">
                                 <blockquote>
-                                    <label for="smallimage"><strong>Путь к изображению мини-1</strong></label>
-                                    <input type="text" id="smallimage" class="form-control" name="smallimage"
-                                           value="${product.smallimage}" required/>
+                                    <label for="isNew"><strong>Новый товар</strong></label>
+                                    <c:choose>
+
+                                        <c:when test="${product.isNew eq true}">
+                                            <input type="radio" id="isNew"  name="isNew"
+                                                   value="yes" checked/> Да
+                                            <input type="radio" id="isNew" name="isNew"
+                                                   value="no"/> Нет
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <input type="radio" id="isNew" name="isNew"
+                                                   value="yes" /> Да
+                                            <input type="radio" id="isNew" name="isNew"
+                                                   value="no" checked /> Нет
+                                        </c:otherwise>
+
+                                    </c:choose>
                                 </blockquote>
                             </div>
 
                             <div class="form-group">
                                 <blockquote>
-                                    <label for="smallimage1"><strong>Путь к изображению мини-2</strong></label>
-                                    <input type="text" id="smallimage1" class="form-control" name="smallimage1"
-                                           value="${product.smallimage1}" required/>
+                                    <label for="discount"><strong>Скидка</strong></label>
+                                    <input type="number" id="discount" class="form-control" name="discount"
+                                           value="${product.discount}" required/>
                                 </blockquote>
                             </div>
 

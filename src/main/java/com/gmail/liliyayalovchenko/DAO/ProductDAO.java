@@ -20,8 +20,8 @@ public interface ProductDAO {
 
     void saveProduct(int id, String name, int price, String currency, Category productCategory, int amount,
                      String inStock, String description, String shortDesc, String metaDescription,
-                     String metaKeyWords, String metaTitle, String smallimage, String smallimage1, String image1,
-                     String image2, String image3, String image4);
+                     String metaKeyWords, String metaTitle, String image1,
+                     String image2, String image3, String image4, boolean isNew, int discount);
 
     void addFeedbackToProduct(FeedBack feedBack, int productId);
 

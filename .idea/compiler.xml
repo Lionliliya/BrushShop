@@ -25,5 +25,8 @@
         <module name="BrushShop" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BrushShop" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

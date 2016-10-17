@@ -293,8 +293,18 @@
                             <div id="mainImage" style="background-color: #ffffff">
                                 <img src="/resources/${product.image1}" alt="${product.name}" style="float: none; margin: 0 auto;" class="img-responsive">
                             </div>
-
-
+                            <c:if test="${product.discount gt 0}">
+                                <div class="ribbon sale">
+                                    <div class="theribbon">SALE   ${product.discount}%</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                            </c:if>
+                            <c:if test="${product.isNew eq true}">
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                            </c:if>
                         </div>
                         <div class="col-sm-6">
                             <div class="box">
@@ -307,11 +317,17 @@
                                 <p class="goToDescription"><a href="#reviews" class="scroll-to">
                                     Перейти к отзывам</a>
                                 </p>
-                                <p class="price">${product.price} грн</p>
+                                <c:if test="${product.discount gt 0}">
+                                    <p class="price" style="text-decoration: line-through; margin-top: 15px; margin-bottom: 5px">
+                                        <fmt:formatNumber value="${product.price/((100 - product.discount)/100)}" type="number" pattern="#"/>
+                                     грн
+                                    </p>
+                                </c:if>
+                                <p class="price" style="margin-top: 5px;">${product.price} грн</p>
                                 <form action="/cart" method="post">
                                     <input type=hidden name="id" value="${product.id}">
                                     <input type=hidden name="productCategory" value="${product.productCategory.name}">
-                                    <input type=hidden name="smallimage" value="${product.smallimage}">
+                                    <input type=hidden name="smallimage" value="${product.image1}">
                                     <input type=hidden name="name" value="${product.name}">
                                     <input type=hidden name="price" value="${product.price}">
                                     <input type=hidden name="currency" value="${product.currency}">

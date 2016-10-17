@@ -329,7 +329,7 @@
 
                                                 <input type=hidden name="id" value="${product.id}">
                                                 <input type=hidden name="productCategory" value="${product.productCategory.name}">
-                                                <input type=hidden name="smallimage" value="${product.smallimage}">
+                                                <input type=hidden name="smallimage" value="${product.image1}">
                                                 <input type=hidden name="name" value="${product.name}">
                                                 <input type=hidden name="price" value="${product.price}">
                                                 <input type=hidden name="currency" value="${product.currency}">
@@ -361,6 +361,18 @@
                                                 </p>
                                             </div>
                                             <!-- /.text -->
+                                                <c:if test="${product.discount gt 0}">
+                                                    <div class="ribbon sale">
+                                                        <div class="theribbon">SALE   ${product.discount}%</div>
+                                                        <div class="ribbon-background"></div>
+                                                    </div>
+                                                </c:if>
+                                                <c:if test="${product.isNew eq true}">
+                                                    <div class="ribbon new">
+                                                        <div class="theribbon">NEW</div>
+                                                        <div class="ribbon-background"></div>
+                                                    </div>
+                                                </c:if>
                                             </form>
                                         </div>
                                         <!-- /.product -->

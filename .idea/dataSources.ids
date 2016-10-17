@@ -93,8 +93,6 @@
       <column name="inStock" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
       <column name="description" sqlType="VARCHAR" precision="600" scale="0" nullable="false" jdbcType="12"/>
       <column name="shortDesc" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="smallimage" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
-      <column name="smallimage1" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
       <column name="image1" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
       <column name="image2" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
       <column name="image3" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
@@ -103,6 +101,8 @@
       <column name="MetaDesc" sqlType="VARCHAR" precision="160" scale="0" nullable="true" jdbcType="12"/>
       <column name="metaTitle" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
       <column name="FeedBack_mark" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="isNew" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <column name="discount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK7mwlviymhj4bl4mvr24ixj8dh" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="Products_ibfk_1" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>

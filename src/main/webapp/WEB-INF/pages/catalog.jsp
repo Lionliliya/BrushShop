@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -297,7 +298,7 @@ _________________________________________________________ -->
 
                       <input type=hidden name="id" value="${product.id}">
                       <input type=hidden name="productCategory" value="${product.productCategory.name}">
-                      <input type=hidden name="smallimage" value="${product.smallimage}">
+                      <input type=hidden name="smallimage" value="${product.image1}">
                       <input type=hidden name="name" value="${product.name}">
                       <input type=hidden name="price" value="${product.price}">
                       <input type=hidden name="currency" value="${product.currency}">
@@ -322,13 +323,25 @@ _________________________________________________________ -->
                         <h3><a href="/product/${product.id}">${product.name}</a></h3>
                         <c:set value="${product.getRating()}" var="rate"/>
                         <p class="text-center">${product.getStarRate(rate)}</p>
-                        <p class="price">${product.price} грн</p>
+                        <p class="price" style="margin-top: 15px;">${product.price} грн</p>
                         <p class="buttons">
                           <a href="/product/${product.id}" class="btn btn-default">Подробнее</a>
                           <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Добавить в корзину</button>
                         </p>
                       </div>
                       <!-- /.text -->
+                      <c:if test="${product.discount gt 0}">
+                        <div class="ribbon sale">
+                          <div class="theribbon">SALE   ${product.discount}%</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                      </c:if>
+                      <c:if test="${product.isNew eq true}">
+                        <div class="ribbon new">
+                          <div class="theribbon">NEW</div>
+                          <div class="ribbon-background"></div>
+                        </div>
+                      </c:if>
                     </form>
                   </div>
                   <!-- /.product -->

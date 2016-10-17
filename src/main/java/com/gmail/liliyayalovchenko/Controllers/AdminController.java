@@ -373,24 +373,24 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/catalog/product/save", method = RequestMethod.POST)
-    public  ModelAndView saveProduct(@RequestParam(value="id") int id,
-                                     @RequestParam(value="name") String name,
-                                     @RequestParam(value="price") int price,
-                                     @RequestParam(value="currency") String currency,
-                                     @RequestParam(value="productCategory") int productCategory,
-                                     @RequestParam(value="amount") int amount,
-                                     @RequestParam(value="inStock") String inStock,
-                                     @RequestParam(value="description") String description,
-                                     @RequestParam(value="shortDesc") String shortDesc,
-                                     @RequestParam(value="metaDescription") String metaDescription,
-                                     @RequestParam(value="metaKeyWords") String metaKeyWords,
-                                     @RequestParam(value="metaTitle") String metaTitle,
-                                     @RequestParam(value="smallimage") String smallimage,
-                                     @RequestParam(value="smallimage1") String smallimage1,
-                                     @RequestParam(value="image1") String image1,
-                                     @RequestParam(value="image2") String image2,
-                                     @RequestParam(value="image3") String image3,
-                                     @RequestParam(value="image4") String image4,
+    public  ModelAndView saveProduct(@RequestParam int id,
+                                     @RequestParam String name,
+                                     @RequestParam int price,
+                                     @RequestParam String currency,
+                                     @RequestParam int productCategory,
+                                     @RequestParam int amount,
+                                     @RequestParam String inStock,
+                                     @RequestParam String description,
+                                     @RequestParam String shortDesc,
+                                     @RequestParam String metaDescription,
+                                     @RequestParam String metaKeyWords,
+                                     @RequestParam String metaTitle,
+                                     @RequestParam String image1,
+                                     @RequestParam String image2,
+                                     @RequestParam String image3,
+                                     @RequestParam String image4,
+                                     @RequestParam String isNew,
+                                     @RequestParam int discount,
                                      ModelMap model,
                                      HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -398,7 +398,7 @@ public class AdminController {
         if (checkStatus(session)) {
             Category category = categoryDAO.getCategoryById(productCategory);
             productDAO.saveProduct(id, name, price, currency, category, amount, inStock, description, shortDesc, metaDescription, metaKeyWords, metaTitle,
-                    smallimage, smallimage1, image1, image2, image3, image4);
+                    image1, image2, image3, image4, "yes".equals(isNew), discount );
             return new ModelAndView("redirect:/admin/catalog", model);
         }
 
@@ -536,23 +536,23 @@ public class AdminController {
     }
 
     @RequestMapping(value="/catalog/product/add", method = RequestMethod.POST)
-    public ModelAndView addProduct(@RequestParam(value="name") String name,
-                                   @RequestParam(value="price") int price,
-                                   @RequestParam(value="currency") String currency,
-                                   @RequestParam(value="productCategory") int id,
-                                   @RequestParam(value="amount") int amount,
-                                   @RequestParam(value="inStock") String inStock,
-                                   @RequestParam(value="description") String description,
-                                   @RequestParam(value="shortDesc") String shortDesc,
-                                   @RequestParam(value="metaDescription") String metaDescription,
-                                   @RequestParam(value="metaKeyWords") String metaKeyWords,
-                                   @RequestParam(value="metaTitle") String metaTitle,
-                                   @RequestParam(value="smallimage") String smallimage,
-                                   @RequestParam(value="smallimage1") String smallimage1,
-                                   @RequestParam(value="image1") String image1,
-                                   @RequestParam(value="image2") String image2,
-                                   @RequestParam(value="image3") String image3,
-                                   @RequestParam(value="image4") String image4,
+    public ModelAndView addProduct(@RequestParam String name,
+                                   @RequestParam int price,
+                                   @RequestParam String currency,
+                                   @RequestParam int id,
+                                   @RequestParam int amount,
+                                   @RequestParam String inStock,
+                                   @RequestParam String description,
+                                   @RequestParam String shortDesc,
+                                   @RequestParam String metaDescription,
+                                   @RequestParam String metaKeyWords,
+                                   @RequestParam String metaTitle,
+                                   @RequestParam String image1,
+                                   @RequestParam String image2,
+                                   @RequestParam String image3,
+                                   @RequestParam String image4,
+                                   @RequestParam String isNew,
+                                   @RequestParam int discount,
                                    ModelMap model,
                                    HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -560,7 +560,7 @@ public class AdminController {
         if (checkStatus(session)) {
             Category category = categoryDAO.getCategoryById(id);
             Product product = new Product(name, price, currency, category, amount, inStock, description,  shortDesc, metaDescription, metaKeyWords, metaTitle,
-                    smallimage, smallimage1, image1, image2, image3, image4);
+                     image1, image2, image3, image4, "yes".equals(isNew), discount);
             productDAO.saveProduct(product);
            return new ModelAndView("redirect:/admin/catalog", model);
 
@@ -609,7 +609,7 @@ public class AdminController {
             for (String s : productsId) {
                 Product product = productDAO.getProductById(Integer.valueOf(s));
                 ProductInCart productInCart = new ProductInCart(product, product.getProductCategory().getName(),
-                        product.getSmallimage(), product.getName(), product.getPrice(), currency, quantity);
+                        product.getImage1(), product.getName(), product.getPrice(), currency, quantity);
                 productInCarts.add(productInCart);
             }
 
@@ -724,7 +724,7 @@ public class AdminController {
             }
 
             ProductInCart productInCart = new ProductInCart(productById, productById.getProductCategory().getName(),
-                                    productById.getSmallimage(), productById.getName(), productById.getPrice(),
+                                    productById.getImage1(), productById.getName(), productById.getPrice(),
                                     productById.getCurrency(), quantity);
 
             productInCart.setOrder(orderDAO.getOrder(id));
@@ -1025,7 +1025,7 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (checkStatus(session)) {
-            modelAndView.setViewName("feedbackEdit");
+            modelAndView.setViewName("adminFeedbackEdit");
             modelAndView.addObject("feedback", feedBackDAO.getFeedBackById(id));
             return modelAndView;
         }

@@ -9,6 +9,7 @@ import com.gmail.liliyayalovchenko.Domains.Order;
 import com.gmail.liliyayalovchenko.Domains.ProductInCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +67,18 @@ public class OrderController {
 
         modelAndView.setViewName("cart");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/cart-clear", method = RequestMethod.GET)
+    public ModelAndView cartClearing(HttpServletRequest request,
+                                     ModelMap model) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        session.removeAttribute("ProductsInCart");
+        session.removeAttribute("cartSize");
+        session.setAttribute("ProductsInCart", new ArrayList<ProductInCart>());
+        session.setAttribute("cartSize", 0);
+        return new ModelAndView("redirect:/cart", model);
     }
 
     @RequestMapping(value = "/ordering", method = RequestMethod.POST)

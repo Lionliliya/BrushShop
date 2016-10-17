@@ -45,7 +45,6 @@ public class ProductDAOImpl implements ProductDAO {
             return lipBrushes;
         } else {
             Category categoryWithId = (Category) findId.getResultList().get(0);
-            //int id = categoryWithId.getId();
             Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.productCategory =:var", Product.class);
             query.setParameter("var", categoryWithId);
             return (List<Product>) query.getResultList();
@@ -95,8 +94,8 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public void saveProduct(int id, String name, int price, String currency, Category productCategory, int amount,
                             String inStock, String description, String shortDesc, String metaDescription, String metaKeyWords,
-                            String metaTitle, String smallimage, String smallimage1, String image1,
-                            String image2, String image3, String image4) {
+                            String metaTitle, String image1,
+                            String image2, String image3, String image4, boolean isNew, int discount) {
         Query query = entityManager.createQuery("SELECT a FROM Product a  WHERE a.id =:var", Product.class);
         query.setParameter("var", id);
         Product resultProduct = (Product) query.getResultList().get(0);
@@ -113,12 +112,12 @@ public class ProductDAOImpl implements ProductDAO {
             resultProduct.setMetaDescription(metaDescription);
             resultProduct.setMetaKeyWords(metaKeyWords);
             resultProduct.setMetaTitle(metaTitle);
-            resultProduct.setSmallimage(smallimage);
-            resultProduct.setSmallimage1(smallimage1);
             resultProduct.setImage1(image1);
             resultProduct.setImage2(image2);
             resultProduct.setImage3(image3);
             resultProduct.setImage4(image4);
+            resultProduct.setIsNew(isNew);
+            resultProduct.setDiscount(discount);
             entityManager.getTransaction().commit();
         }
         catch(Exception e){
