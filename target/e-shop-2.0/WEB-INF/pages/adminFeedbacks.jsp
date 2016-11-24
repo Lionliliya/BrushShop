@@ -39,7 +39,7 @@
         function AlertIt(id) {
             var answer = confirm("Вы собираетесь удалить отзыв № " + id + ". Нажмите OK что бы продолжить.")
             if (answer)
-                window.location = "http://localhost:8080/admin/feedback/remove/" + id + "";
+                window.location = "http://localhost:8081/admin/feedback/remove/" + id + "";
         }
     </script>
 

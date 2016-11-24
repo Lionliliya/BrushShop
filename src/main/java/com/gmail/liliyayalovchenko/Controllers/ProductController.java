@@ -26,6 +26,7 @@ import java.util.List;
 @RequestMapping("/")
 public class ProductController {
 
+
     @Autowired
     private ProductDAO productDAO;
 
@@ -42,6 +43,7 @@ public class ProductController {
     public ModelAndView catalog(HttpServletRequest request) {
         HttpSession session = request.getSession();
         checkSession(session);
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("products", productDAO.getAllProducts());

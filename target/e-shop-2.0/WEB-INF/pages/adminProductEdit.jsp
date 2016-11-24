@@ -39,7 +39,7 @@
         function AlertIt(id) {
             var answer = confirm("Вы собираетесь удалить товар  № " + id + ". Нажмите OK что бы продолжить.")
             if (answer)
-                window.location = "http://localhost:8080/admin/catalog/product/remove/" + id + "";
+                window.location = "http://localhost:8081/admin/catalog/product/remove/" + id + "";
         }
     </script>
 

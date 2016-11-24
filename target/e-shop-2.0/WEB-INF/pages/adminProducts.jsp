@@ -40,7 +40,7 @@
     function AlertIt(name) {
       var answer = confirm("Вы собираетесь удалить категорию и ВСЕ ТОВАРЫ В НЕЙ по  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8080/admin/catalog/remove/" + name + "";
+        window.location = "http://localhost:8081/admin/catalog/remove/" + name + "";
     }
   </script>
 

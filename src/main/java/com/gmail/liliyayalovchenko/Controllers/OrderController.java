@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/")
@@ -87,7 +89,7 @@ public class OrderController {
                                  @RequestParam(value = "email") String email,
                                  @RequestParam(value = "delivery") String delivery,
                                  @RequestParam(value = "comments") String comments,
-                                 HttpServletRequest request) {
+                                 HttpServletRequest request) throws MessagingException {
         HttpSession session = request.getSession();
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
@@ -110,6 +112,8 @@ public class OrderController {
         orderDAO.saveOrder(order);
         productInCartDAO.saveProductInCart(productsInCart);
 
+        sendClientMail(productsInCart, firstName, email, delivery, order.getId());
+
         modelAndView.addObject("client", client);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", productsInCart);
@@ -121,6 +125,28 @@ public class OrderController {
         session.setAttribute("cartSize", 0);
         modelAndView.setViewName("ordering");
         return modelAndView;
+    }
+
+    private void sendClientMail(List<ProductInCart> productsInCart, String clientName, String clientEmail, String delivery, int orderId) throws MessagingException {
+        Properties mailServerProperties = System.getProperties();
+
+        mailServerProperties.put("mail.smtp.port", "587");
+        mailServerProperties.put("mail.smtp.auth", "true");
+        mailServerProperties.put("mail.smtp.starttls.enable", "true");
+
+        Session getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+        MimeMessage generateMailMessage = new MimeMessage(getMailSession);
+        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(clientEmail));
+        generateMailMessage.setSubject("Заказ № " + orderId);
+        StringBuilder emailBody = new StringBuilder();
+        emailBody.append("Здравствуйте, " + clientName + "!");
+        emailBody.append("Ваш заказ подтвержден и передан для формирования на склад. \n" +
+                        "\n" +
+                        "Срок доставки составляет от 1 до 3 рабочих дней.\n");
+        emailBody.append("Номер заказа: " + orderId + "\n" +
+                         "Доставка: " +  delivery + "\n" +
+                         "Способ оплаты: Наличными при доставке.");
+
     }
 
     public void checkSession(HttpSession session) {
