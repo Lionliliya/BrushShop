@@ -139,48 +139,43 @@ public class OrderController {
         MimeMessage generateMailMessage = new MimeMessage(getMailSession);
         generateMailMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
         generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(clientEmail));
-        generateMailMessage.setSubject("Заказ № " + orderId);
+        generateMailMessage.setSubject("Заказ № " + orderId,  "utf-8");
         StringBuilder emailBody = new StringBuilder();
         emailBody.append("<div class=\"container\">");
         emailBody.append("<div class=\"col-md-9\" id=\"customer-order\">");
         emailBody.append("<div class=\"box\">");
+        emailBody.append("<img src=\"http://localhost:8081/resources/img/logo.png\">");
 
         emailBody.append("<h2>Здравствуйте, " + clientName + "!</h2>");
         emailBody.append("<p class=\"lead\">Ваш заказ подтвержден и передан для формирования на склад. </p>\n" +
                         "\n" +
                         "<p class=\"lead\">Срок доставки составляет от 1 до 3 рабочих дней.</p>\n");
         emailBody.append("<p class=\"text-muted\">" +
-                "Номер заказа: " + orderId + "\n" +
-                "Доставка: " +  delivery + "\n" +
-                "Способ оплаты: Наличными при доставке." +
+                "Номер заказа: " + orderId + "\n</p>" +
+                "<p>Доставка: " +  delivery + "\n</p>" +
+                "<p>Способ оплаты: Наличными при доставке." +
                 "</p>");
-        emailBody.append(" <hr>\n" +
+        emailBody.append(
                 "\n" +
-                "                        <div class=\"table-responsive\">\n" +
-                "                            <table class=\"table\">\n" +
+                "                        <div>\n" +
+                "                            <table style=\"border-collapse: collapse;\">\n" +
                 "                                <thead>\n" +
-                "                                    <tr>\n" +
-                "                                        <th colspan=\"2\">Товар</th>\n" +
-                "                                        <th>Количество</th>\n" +
-                "                                        <th>Цена</th>\n" +
-                "                                        <th>Скидка</th>\n" +
-                "                                        <th>Всего</th>\n" +
+                "                                    <tr style=\"background-color: #D9E5EE;\">\n" +
+                "                                        <th align=\"center\" style=\" padding: 3px; border: 1px solid black;\">Товар</th>\n" +
+                "                                        <th align=\"center\" style=\" padding: 3px; border: 1px solid black;\">Количество</th>\n" +
+                "                                        <th align=\"center\" style=\" padding: 3px; border: 1px solid black;\">Цена</th>\n" +
+                "                                        <th align=\"center\" style=\" padding: 3px; border: 1px solid black;\">Всего</th>\n" +
                 "                                    </tr>\n" +
                 "                                </thead>\n" +
                 "                                <tbody>");
         for (ProductInCart productInCart : productsInCart) {
             emailBody.append(
                     "<tr>\n" +
-                    "              <td>\n" +
-                    "              <a href=\"/product/" + productInCart.getProduct_id().getId() + "\">\n" +
-                    "                       <img src=\"/resources/" + productInCart.getProduct_id().getImage1() + "\" alt=\"" + productInCart.getProduct_id().getName() + "\"/>\">\n" +
-                    "               </a>\n" +
-                    "               </td>\n" +
-                    "               <td><a href=\"/product/ " +  productInCart.getProduct_id().getId() + "\"> " + productInCart.getName() + " </a>\n" +
-                    "               <td>" + productInCart.getQuantity() + "</td>\n" +
-                    "               <td>₴ " + productInCart.getPrice() + "</td>\n" +
-                    "               <td>₴0.00</td>\n" +
-                    "               <td>₴ " + productInCart.getPrice()*productInCart.getQuantity() + "</td>\n" +
+                    "               <td align=\"center\" style=\" padding: 3px; border: 1px solid black;\"><a href=\"http://localhost:8081/product/ " +  productInCart.getProduct_id().getId() + "\"> " + productInCart.getName() + " </a>\n" +
+                    "               <td align=\"center\" style=\" padding: 3px; border: 1px solid black;\">" + productInCart.getQuantity() + "</td>\n" +
+                    "               <td align=\"center\" style=\" padding: 3px; border: 1px solid black;\">₴ " + productInCart.getPrice() + "</td>\n" +
+
+                    "               <td align=\"center\" style=\" padding: 3px; border: 1px solid black;\">₴ " + productInCart.getPrice()*productInCart.getQuantity() + "</td>\n" +
                     "\n" +
                     "</tr>");
         }
@@ -188,15 +183,15 @@ public class OrderController {
         emailBody.append(" </tbody>\n" +
                 "                                <tfoot>\n" +
                 "                                    <tr>\n" +
-                "                                        <th colspan=\"5\" class=\"text-right\">Итог</th>\n" +
-                "                                        <th>₴" + amount + "</th>\n" +
+                "                                        <th align=\"center\" colspan=\"3\" style=\" padding: 3px; border: 1px solid black;\">Итог</th>\n" +
+                "                                        <th align=\"center\" style=\" padding: 3px; border: 1px solid black;\">₴" + amount + "</th>\n" +
                 "                                    </tr>");
         emailBody.append("</tfoot>\n" +
                 "                            </table>\n" +
                 "\n" +
                 "                        </div>");
         emailBody.append("</div> </div> </div>");
-        generateMailMessage.setContent(emailBody.toString(), "text/html");
+        generateMailMessage.setContent(emailBody.toString(), "text/html; charset=utf-8");
         Transport transport = getMailSession.getTransport("smtp");
         transport.connect("smtp.gmail.com", "service.beautytree", "Mne_24_let");
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
