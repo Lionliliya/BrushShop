@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -112,7 +113,7 @@ public class OrderController {
         orderDAO.saveOrder(order);
         productInCartDAO.saveProductInCart(productsInCart);
 
-        sendClientMail(productsInCart, firstName, email, delivery, order.getId());
+        sendClientMail(productsInCart, firstName, email, delivery, order.getId(), amount);
 
         modelAndView.addObject("client", client);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
@@ -127,7 +128,7 @@ public class OrderController {
         return modelAndView;
     }
 
-    private void sendClientMail(List<ProductInCart> productsInCart, String clientName, String clientEmail, String delivery, int orderId) throws MessagingException {
+    private void sendClientMail(List<ProductInCart> productsInCart, String clientName, String clientEmail, String delivery, int orderId, int amount) throws MessagingException {
         Properties mailServerProperties = System.getProperties();
 
         mailServerProperties.put("mail.smtp.port", "587");
@@ -136,17 +137,70 @@ public class OrderController {
 
         Session getMailSession = Session.getDefaultInstance(mailServerProperties, null);
         MimeMessage generateMailMessage = new MimeMessage(getMailSession);
+        generateMailMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
         generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(clientEmail));
         generateMailMessage.setSubject("Заказ № " + orderId);
         StringBuilder emailBody = new StringBuilder();
-        emailBody.append("Здравствуйте, " + clientName + "!");
-        emailBody.append("Ваш заказ подтвержден и передан для формирования на склад. \n" +
-                        "\n" +
-                        "Срок доставки составляет от 1 до 3 рабочих дней.\n");
-        emailBody.append("Номер заказа: " + orderId + "\n" +
-                         "Доставка: " +  delivery + "\n" +
-                         "Способ оплаты: Наличными при доставке.");
+        emailBody.append("<div class=\"container\">");
+        emailBody.append("<div class=\"col-md-9\" id=\"customer-order\">");
+        emailBody.append("<div class=\"box\">");
 
+        emailBody.append("<h2>Здравствуйте, " + clientName + "!</h2>");
+        emailBody.append("<p class=\"lead\">Ваш заказ подтвержден и передан для формирования на склад. </p>\n" +
+                        "\n" +
+                        "<p class=\"lead\">Срок доставки составляет от 1 до 3 рабочих дней.</p>\n");
+        emailBody.append("<p class=\"text-muted\">" +
+                "Номер заказа: " + orderId + "\n" +
+                "Доставка: " +  delivery + "\n" +
+                "Способ оплаты: Наличными при доставке." +
+                "</p>");
+        emailBody.append(" <hr>\n" +
+                "\n" +
+                "                        <div class=\"table-responsive\">\n" +
+                "                            <table class=\"table\">\n" +
+                "                                <thead>\n" +
+                "                                    <tr>\n" +
+                "                                        <th colspan=\"2\">Товар</th>\n" +
+                "                                        <th>Количество</th>\n" +
+                "                                        <th>Цена</th>\n" +
+                "                                        <th>Скидка</th>\n" +
+                "                                        <th>Всего</th>\n" +
+                "                                    </tr>\n" +
+                "                                </thead>\n" +
+                "                                <tbody>");
+        for (ProductInCart productInCart : productsInCart) {
+            emailBody.append(
+                    "<tr>\n" +
+                    "              <td>\n" +
+                    "              <a href=\"/product/" + productInCart.getProduct_id().getId() + "\">\n" +
+                    "                       <img src=\"/resources/" + productInCart.getProduct_id().getImage1() + "\" alt=\"" + productInCart.getProduct_id().getName() + "\"/>\">\n" +
+                    "               </a>\n" +
+                    "               </td>\n" +
+                    "               <td><a href=\"/product/ " +  productInCart.getProduct_id().getId() + "\"> " + productInCart.getName() + " </a>\n" +
+                    "               <td>" + productInCart.getQuantity() + "</td>\n" +
+                    "               <td>₴ " + productInCart.getPrice() + "</td>\n" +
+                    "               <td>₴0.00</td>\n" +
+                    "               <td>₴ " + productInCart.getPrice()*productInCart.getQuantity() + "</td>\n" +
+                    "\n" +
+                    "</tr>");
+        }
+
+        emailBody.append(" </tbody>\n" +
+                "                                <tfoot>\n" +
+                "                                    <tr>\n" +
+                "                                        <th colspan=\"5\" class=\"text-right\">Итог</th>\n" +
+                "                                        <th>₴" + amount + "</th>\n" +
+                "                                    </tr>");
+        emailBody.append("</tfoot>\n" +
+                "                            </table>\n" +
+                "\n" +
+                "                        </div>");
+        emailBody.append("</div> </div> </div>");
+        generateMailMessage.setContent(emailBody.toString(), "text/html");
+        Transport transport = getMailSession.getTransport("smtp");
+        transport.connect("smtp.gmail.com", "service.beautytree", "Mne_24_let");
+        transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+        transport.close();
     }
 
     public void checkSession(HttpSession session) {
