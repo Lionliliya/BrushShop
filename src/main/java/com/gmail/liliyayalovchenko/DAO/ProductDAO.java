@@ -16,12 +16,14 @@ public interface ProductDAO {
 
     List<Product> getProductsByCategoryId(int id);
 
+    List<Product> getProductsByBrand(String brand);
+
     void saveProduct(Product product);
 
     void saveProduct(int id, String name, int price, String currency, Category productCategory, int amount,
                      String inStock, String description, String shortDesc, String metaDescription,
                      String metaKeyWords, String metaTitle, String image1,
-                     String image2, String image3, String image4, boolean isNew, int discount);
+                     String image2, String image3, String image4, boolean isNew, int discount, String brand);
 
     void addFeedbackToProduct(FeedBack feedBack, int productId);
 

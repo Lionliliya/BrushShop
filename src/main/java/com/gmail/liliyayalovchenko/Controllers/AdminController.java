@@ -378,6 +378,7 @@ public class AdminController {
                                      @RequestParam int price,
                                      @RequestParam String currency,
                                      @RequestParam int productCategory,
+                                     @RequestParam String brand,
                                      @RequestParam int amount,
                                      @RequestParam String inStock,
                                      @RequestParam String description,
@@ -398,7 +399,7 @@ public class AdminController {
         if (checkStatus(session)) {
             Category category = categoryDAO.getCategoryById(productCategory);
             productDAO.saveProduct(id, name, price, currency, category, amount, inStock, description, shortDesc, metaDescription, metaKeyWords, metaTitle,
-                    image1, image2, image3, image4, "yes".equals(isNew), discount );
+                    image1, image2, image3, image4, "yes".equals(isNew), discount, brand );
             return new ModelAndView("redirect:/admin/catalog", model);
         }
 
@@ -540,6 +541,7 @@ public class AdminController {
                                    @RequestParam int price,
                                    @RequestParam String currency,
                                    @RequestParam int id,
+                                   @RequestParam String brand,
                                    @RequestParam int amount,
                                    @RequestParam String inStock,
                                    @RequestParam String description,
@@ -560,7 +562,7 @@ public class AdminController {
         if (checkStatus(session)) {
             Category category = categoryDAO.getCategoryById(id);
             Product product = new Product(name, price, currency, category, amount, inStock, description,  shortDesc, metaDescription, metaKeyWords, metaTitle,
-                     image1, image2, image3, image4, "yes".equals(isNew), discount);
+                     image1, image2, image3, image4, "yes".equals(isNew), discount, brand);
             productDAO.saveProduct(product);
            return new ModelAndView("redirect:/admin/catalog", model);
 

@@ -24,10 +24,13 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id", nullable = false)
     private Category productCategory;
 
+    @Column(nullable = false, length = 120)
+    private String brand;
+
     @Column(nullable = false)
     private int amount;
 
-    @Column(nullable = false, length = 225)
+    @Column(nullable = false, length = 120)
     private String inStock;
 
     @Column(nullable = false)
@@ -62,7 +65,7 @@ public class Product implements Serializable {
 
     public Product() {}
 
-    public Product(String name, int price, String currency, Category category, int amount, String inStock, String description, String shortDesc, String metaDescription, String metaKeyWords, String metaTitle, String image1, String image2, String image3, String image4, boolean isNew, int discount) {
+    public Product(String name, int price, String currency, Category category, int amount, String inStock, String description, String shortDesc, String metaDescription, String metaKeyWords, String metaTitle, String image1, String image2, String image3, String image4, boolean isNew, int discount, String brand) {
         this.name = name;
         this.price = price;
         this.currency = currency;
@@ -80,6 +83,7 @@ public class Product implements Serializable {
         this.metaKeyWords = metaKeyWords;
         this.metaDescription = metaDescription;
         this.metaTitle = metaTitle;
+        this.brand = brand;
     }
 
     public double getRating() {
@@ -296,6 +300,22 @@ public class Product implements Serializable {
 
     public void setDiscount(int discount) {
         this.discount = discount;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean isNew) {
+        this.isNew = isNew;
     }
 
     public void addFeedBack(FeedBack feedBack) {

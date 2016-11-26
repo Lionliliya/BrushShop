@@ -52,6 +52,13 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
+    public List<Product> getProductsByBrand(String brand) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.brand =:parameter", Product.class);
+        query.setParameter("parameter", brand);
+        return (List<Product>) query.getResultList();
+    }
+
+    @Override
     public Product getProductById(int id) {
         Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.id =:var", Product.class);
         query.setParameter("var", id);
@@ -95,7 +102,7 @@ public class ProductDAOImpl implements ProductDAO {
     public void saveProduct(int id, String name, int price, String currency, Category productCategory, int amount,
                             String inStock, String description, String shortDesc, String metaDescription, String metaKeyWords,
                             String metaTitle, String image1,
-                            String image2, String image3, String image4, boolean isNew, int discount) {
+                            String image2, String image3, String image4, boolean isNew, int discount, String brand) {
         Query query = entityManager.createQuery("SELECT a FROM Product a  WHERE a.id =:var", Product.class);
         query.setParameter("var", id);
         Product resultProduct = (Product) query.getResultList().get(0);
@@ -118,6 +125,7 @@ public class ProductDAOImpl implements ProductDAO {
             resultProduct.setImage4(image4);
             resultProduct.setIsNew(isNew);
             resultProduct.setDiscount(discount);
+            resultProduct.setBrand(brand);
             entityManager.getTransaction().commit();
         }
         catch(Exception e){
