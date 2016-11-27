@@ -10,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ProductDAOImpl implements ProductDAO {
 
@@ -56,6 +58,21 @@ public class ProductDAOImpl implements ProductDAO {
         Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.brand =:parameter", Product.class);
         query.setParameter("parameter", brand);
         return (List<Product>) query.getResultList();
+    }
+
+    @Override
+    public Set<String> getAllBrands() {
+        Query query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
+        List<Product> resultList = query.getResultList();
+        Set<String> brands = resultList.stream().map(Product::getBrand).collect(Collectors.toSet());
+
+        for (String brand : brands) {
+
+            System.out.println(brand);
+        }
+
+
+        return brands;
     }
 
     @Override

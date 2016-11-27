@@ -37,9 +37,25 @@ public class CategoryController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.addObject("articles", postDAO.getTwoLatest());
         modelAndView.setViewName("home");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/brand/{brand}")
+    public ModelAndView brand(@PathVariable("brand") String brand,
+                              HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.addObject("curBrand", brand);
+        modelAndView.addObject("productBrand", productDAO.getProductsByBrand(brand));
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("brand");
         return modelAndView;
     }
 

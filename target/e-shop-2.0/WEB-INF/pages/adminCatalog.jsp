@@ -200,6 +200,13 @@ _________________________________________________________ -->
 
               <div class="form-group">
                 <blockquote>
+                  <label for="brand"><strong>Бренд</strong></label>
+                  <input type="text" id="brand" class="form-control" maxlength="120" name="brand" required pattern="[A-Za-zА-Яа-яЁё-Іі-Її ]+"/>
+                </blockquote>
+              </div>
+
+              <div class="form-group">
+                <blockquote>
                 <label for="price"><strong>Цена товара</strong></label>
                 <input type="number" id="price" class="form-control" name="price" required/>
                 </blockquote>

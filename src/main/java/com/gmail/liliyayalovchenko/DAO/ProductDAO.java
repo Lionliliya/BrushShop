@@ -5,6 +5,7 @@ import com.gmail.liliyayalovchenko.Domains.FeedBack;
 import com.gmail.liliyayalovchenko.Domains.Product;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ProductDAO {
 
@@ -44,4 +45,6 @@ public interface ProductDAO {
     void removeFromCategory(int id);
 
     void remove(int id);
+
+    Set<String> getAllBrands();
 }

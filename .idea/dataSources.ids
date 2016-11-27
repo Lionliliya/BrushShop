@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - beautydbRus@localhost" uuid="92b518ba-b07d-4559-82dc-e5177472709e">
-    <database-info product="MySQL" version="5.7.15-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.16-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -103,6 +103,7 @@
       <column name="FeedBack_mark" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
       <column name="isNew" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
       <column name="discount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="brand" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK7mwlviymhj4bl4mvr24ixj8dh" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="Products_ibfk_1" columns="category_id" ref-table="Categories" ref-schema="" ref-catalog="beautydbRus" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
