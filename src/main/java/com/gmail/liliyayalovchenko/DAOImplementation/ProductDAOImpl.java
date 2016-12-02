@@ -65,14 +65,23 @@ public class ProductDAOImpl implements ProductDAO {
         Query query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
         List<Product> resultList = query.getResultList();
         Set<String> brands = resultList.stream().map(Product::getBrand).collect(Collectors.toSet());
-
-        for (String brand : brands) {
-
-            System.out.println(brand);
-        }
-
-
         return brands;
+    }
+
+    @Override
+    public List<Product> getProductsByBrandPriceUp(String curBrand) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p where p.brand = :parameter order by p.price", Product.class);
+        query.setParameter("parameter", curBrand);
+        List<Product> resultList = query.getResultList();
+        return resultList;
+    }
+
+    @Override
+    public List<Product> getProductsByBrandPriceDown(String curBrand) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p where p.brand = :parameter order by p.price desc", Product.class);
+        query.setParameter("parameter", curBrand);
+        List<Product> resultList = query.getResultList();
+        return resultList;
     }
 
     @Override

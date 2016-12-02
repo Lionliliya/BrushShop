@@ -1,9 +1,6 @@
 package com.gmail.liliyayalovchenko.Controllers;
 
-import com.gmail.liliyayalovchenko.DAO.CategoryDAO;
-import com.gmail.liliyayalovchenko.DAO.ClientDAO;
-import com.gmail.liliyayalovchenko.DAO.OrderDAO;
-import com.gmail.liliyayalovchenko.DAO.ProductInCartDAO;
+import com.gmail.liliyayalovchenko.DAO.*;
 import com.gmail.liliyayalovchenko.Domains.Client;
 import com.gmail.liliyayalovchenko.Domains.Order;
 import com.gmail.liliyayalovchenko.Domains.ProductInCart;
@@ -39,6 +36,9 @@ public class OrderController {
     private ProductInCartDAO productInCartDAO;
 
     @Autowired
+    private ProductDAO productDAO;
+
+    @Autowired
     private ClientDAO clientDAO;
 
     @RequestMapping(value = "/updateCart", method = RequestMethod.POST)
@@ -64,7 +64,7 @@ public class OrderController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", productsCart);
         modelAndView.addObject("cartSize", productsCart.size());
-
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         session.setAttribute("ProductsInCart", productsCart);
         session.setAttribute("cartSize", productsCart.size());
 
@@ -118,6 +118,7 @@ public class OrderController {
         modelAndView.addObject("client", client);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", productsInCart);
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("order", order);
         modelAndView.addObject("totalAmount", amount);
         session.removeAttribute("ProductsInCart");

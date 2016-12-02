@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Качественные кисти для макияжа купить в Киеве недорого Можно! У нас вы найдете
     красивые и стильные кисти, аксессуары по уходу за ними и многое другое.">
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="author" content="Liliya Yalovchenko | liliyayalovchenko@gmail.com">
     <meta name="keywords" content="макияж, кисти, купить, недорого">
 
     <title>

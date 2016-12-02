@@ -68,6 +68,7 @@ public class CategoryController {
         modelAndView.addObject("currentCategory", categoryDAO.getCategoryById(id));
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         List<Product> products = productDAO.getProductsByCategoryId(id);
         if (products.size() == 0) {
             modelAndView.addObject("productsSize", 0);
@@ -90,6 +91,7 @@ public class CategoryController {
         modelAndView.addObject("currentCategory", category);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
 
         if (productList.size() == 0) {
             modelAndView.addObject("productsSize", 0);
@@ -99,6 +101,52 @@ public class CategoryController {
         }
 
         modelAndView.setViewName("category");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/brand/priceUp/{curBrand}")
+    public ModelAndView sortBrandByPriceUp(@PathVariable("curBrand") String curBrand,
+                                        HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        List<Product> productList = productDAO.getProductsByBrandPriceUp(curBrand);
+        modelAndView.addObject("curBrand", curBrand);
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+
+        if (productList.size() == 0) {
+            modelAndView.addObject("productsSize", 0);
+        } else {
+            modelAndView.addObject("productBrand", productList);
+            modelAndView.addObject("productsSize", productList.size());
+        }
+
+        modelAndView.setViewName("brand");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/brand/priceDown/{curBrand}")
+    public ModelAndView sortBrandByPriceDown(@PathVariable("curBrand") String curBrand,
+                                           HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        List<Product> productList = productDAO.getProductsByBrandPriceDown(curBrand);
+        modelAndView.addObject("curBrand", curBrand);
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+
+        if (productList.size() == 0) {
+            modelAndView.addObject("productsSize", 0);
+        } else {
+            modelAndView.addObject("productBrand", productList);
+            modelAndView.addObject("productsSize", productList.size());
+        }
+
+        modelAndView.setViewName("brand");
         return modelAndView;
     }
 
@@ -113,6 +161,7 @@ public class CategoryController {
         modelAndView.addObject("currentCategory", category);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
 
         if (productList.size() == 0) {
             modelAndView.addObject("productsSize", 0);
@@ -156,6 +205,7 @@ public class CategoryController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("contact");
         return modelAndView;
     }

@@ -48,6 +48,7 @@ public class ProductController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("products", productDAO.getAllProducts());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("catalog");
         return modelAndView;
     }
@@ -60,6 +61,7 @@ public class ProductController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("products", productDAO.getAllPriceDown());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("catalog");
         return modelAndView;
     }
@@ -72,6 +74,7 @@ public class ProductController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("products", productDAO.getAllPriceUp());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("catalog");
         return modelAndView;
     }
@@ -96,6 +99,7 @@ public class ProductController {
         session.setAttribute("cartSize", productsInCart.size());
 
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
         modelAndView.addObject("totalValue", totalAmount(session));
@@ -110,6 +114,7 @@ public class ProductController {
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("ProductsInCart", session.getAttribute("ProductsInCart"));
         modelAndView.addObject("totalValue", totalAmount(session));
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
@@ -126,6 +131,7 @@ public class ProductController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("product", productDAO.getProductById(id));
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("product");
         return modelAndView;
     }
@@ -157,6 +163,7 @@ public class ProductController {
 
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("product", productDAO.getProductById(id));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         return modelAndView;
     }
@@ -173,6 +180,7 @@ public class ProductController {
         } else {
             modelAndView.addObject("products", productList);
         }
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("search");
         return modelAndView;

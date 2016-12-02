@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -116,14 +117,11 @@
                                         <div class="col-sm-3">
                                             <h5>Бренды</h5>
                                             <ul>
-                                                <li><a href="#">Real Techniques</a>
-                                                </li>
-                                                <li><a href="#">Eco Tools</a>
-                                                </li>
-                                                <li><a href="#">JAF</a>
-                                                </li>
-                                                <li><a href="#">MSQ Professional</a>
-                                                </li>
+                                                <c:forEach items="${brands}" var="brand">
+                                                    <li>
+                                                        <a href="/catalog/brand/${brand}">${brand}</a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
@@ -219,10 +217,12 @@
 
                                     <thead>
                                         <tr>
-                                            <th colspan="2">Товар</th>
+                                            <th style="text-align: center" colspan="2">Товар</th>
                                             <th>Кол-во</th>
                                             <th>Цена</th>
-                                            <th>Удалить</th>
+                                            <th>Скидка</th>
+                                            <th style="text-align: center">Итог</th>
+                                            <th style="text-align: center">Удалить</th>
                                             <th colspan="2">Всего</th>
                                         </tr>
                                     </thead>
@@ -235,25 +235,27 @@
                                                         <img src="/resources/${product.smallimage}" alt="<c:out value="${product.name}"/>">
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <td align="center">
                                                     <a href="/product/${product.product_id.id}">
                                                         <c:out value="${product.name}"/>
                                                     </a>
                                                 </td>
-                                                <td>
+                                                <td align="center">
                                                     <input type="number" name="quantity" value="${product.quantity}" class="form-control">
                                                 </td>
-                                                <td>₴${product.price}</td>
-                                                <td><a href="/deleteFromCart"><i class="fa fa-trash-o"></i></a>
-                                                <td>₴${product.price * product.quantity}</td>
+                                                <td align="center">₴<fmt:formatNumber value="${product.price/((100 - product.product_id.discount)/100)}" type="number" pattern="#"/></td>
+                                                <td align="center">${product.product_id.discount}%</td>
+                                                <td align="center">₴${product.price}</td>
+                                                <td align="center"><a href="/deleteFromCart"><i class="fa fa-trash-o"></i></a>
+                                                <td align="center">₴${product.price * product.quantity}</td>
                                             </tr>
                                         </c:forEach>
 
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th colspan="5">Всего</th>
-                                            <th colspan="3">₴${totalValue}</th>
+                                            <th style="text-align: right;" colspan="5">Всего</th>
+                                            <th style="text-align: right;" colspan="3">₴${totalValue}</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -338,7 +340,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <textarea rows="5" class="form-control" name="comments" maxlength="400" placeholder="Напиши склад Новой почты, город или твои коментарии и пожеланя"></textarea>
+                                        <textarea rows="5" class="form-control" name="comments" maxlength="400" placeholder="Напиши склад Новой почты, город или твои коментарии и пожелания"></textarea>
                                     </div>
                                 </div>
 

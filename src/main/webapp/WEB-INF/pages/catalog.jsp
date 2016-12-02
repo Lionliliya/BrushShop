@@ -122,14 +122,11 @@ _________________________________________________________ -->
                   <div class="col-sm-3">
                     <h5>Бренды</h5>
                     <ul>
-                      <li><a href="#">Real Techniques</a>
-                      </li>
-                      <li><a href="#">Eco Tools</a>
-                      </li>
-                      <li><a href="#">JAF</a>
-                      </li>
-                      <li><a href="#">MSQ Professional</a>
-                      </li>
+                      <c:forEach items="${brands}" var="brand">
+                        <li>
+                          <a href="/catalog/brand/${brand}">${brand}</a>
+                        </li>
+                      </c:forEach>
                     </ul>
                   </div>
                   <div class="col-sm-3">

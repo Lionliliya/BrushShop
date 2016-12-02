@@ -47,4 +47,8 @@ public interface ProductDAO {
     void remove(int id);
 
     Set<String> getAllBrands();
+
+    List<Product> getProductsByBrandPriceUp(String curBrand);
+
+    List<Product> getProductsByBrandPriceDown(String curBrand);
 }

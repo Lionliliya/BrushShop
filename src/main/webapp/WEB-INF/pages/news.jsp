@@ -11,7 +11,7 @@
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Как выбрать кисти для макияжа, кисти для макияжа по скидке, акции">
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="author" content="Liliya Yalovchenko">
     <meta name="keywords" content="совет, макияж, кисти, акция, скидка, make-up, brush">
 
     <title>
@@ -124,14 +124,11 @@
                                         <div class="col-sm-3">
                                             <h5>Бренды</h5>
                                             <ul>
-                                                <li><a href="#">Real Techniques</a>
-                                                </li>
-                                                <li><a href="#">Eco Tools</a>
-                                                </li>
-                                                <li><a href="#">JAF</a>
-                                                </li>
-                                                <li><a href="#">MSQ Professional</a>
-                                                </li>
+                                                <c:forEach items="${brands}" var="brand">
+                                                    <li>
+                                                        <a href="/catalog/brand/${brand}">${brand}</a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">

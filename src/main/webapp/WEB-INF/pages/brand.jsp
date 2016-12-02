@@ -121,7 +121,7 @@ _________________________________________________________ -->
                   <div class="col-sm-3">
                     <h5>Бренды</h5>
                     <ul>
-                      <c:forEach items="brands" var="brand">
+                      <c:forEach items="${brands}" var="brand">
                         <li>
                           <a href="/catalog/brand/${brand}">${brand}</a>
                         </li>
@@ -248,10 +248,9 @@ _________________________________________________________ -->
       <div class="col-md-9">
         <div class="box">
           <h1>${curBrand}</h1>
-          <p>Все товары ${curBrand}</p>
         </div>
 
-        <div class="box info-bar">
+        <div class="box info-bar" style="padding-bottom: 15px;padding-top: 15px ">
           <div class="row">
 
             <div class="col-sm-12 col-md-8  products-number-sort">
@@ -261,8 +260,9 @@ _________________________________________________________ -->
                   <div class="products-sort-by">
                     <div class="row">
                       <div class="col-xs-5">
-                        <a href="/catalog/priceUp/${curBrand}"><i class="fa fa-arrow-up"></i></a>
-                        <a href="/catalog/priceDown/${curBrand}"><i class="fa fa-arrow-down"></i>Цена</a>
+                        <a href="/catalog/brand/priceUp/${curBrand}"><i class="fa fa-arrow-up"></i></a>
+                        <a href="/catalog/brand/priceDown/${curBrand}"><i class="fa fa-arrow-down"></i></a>
+                        Цена
                       </div>
                     </div>
                   </div>

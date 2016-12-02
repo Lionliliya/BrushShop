@@ -2,6 +2,7 @@ package com.gmail.liliyayalovchenko.Controllers;
 
 import com.gmail.liliyayalovchenko.DAO.CategoryDAO;
 import com.gmail.liliyayalovchenko.DAO.PostDAO;
+import com.gmail.liliyayalovchenko.DAO.ProductDAO;
 import com.gmail.liliyayalovchenko.Domains.ProductInCart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,9 @@ public class InformationController {
     @Autowired
     private CategoryDAO categoryDAO;
 
+    @Autowired
+    private ProductDAO productDAO;
+
     @RequestMapping("/news")
     public ModelAndView news(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -31,6 +35,7 @@ public class InformationController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("articles", postDAO.getAllPostAsc());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("news");
         return modelAndView;
@@ -43,6 +48,7 @@ public class InformationController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("articles", postDAO.getAllPostsDesc());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("news");
         return modelAndView;
@@ -59,6 +65,7 @@ public class InformationController {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String date = sdf.format(postDAO.get(id).getDateOfPublication());
         modelAndView.addObject("date", date);
+        modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("article");
         return modelAndView;

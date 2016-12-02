@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,7 +11,7 @@
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="BeautyTree || Интернет магазин кистей для макияжа">
-    <meta name="author" content="Liliya Yalovchenko">
+    <meta name="author" content="Liliya Yalovchenko | liliyayalovchenko@gmail.com">
     <meta name="keywords" content="кисти, макияж, киев, недорого">
 
     <title>
@@ -118,14 +119,11 @@
                                         <div class="col-sm-3">
                                             <h5>Бренды</h5>
                                             <ul>
-                                                <li><a href="#">Real Techniques</a>
-                                                </li>
-                                                <li><a href="#">Eco Tools</a>
-                                                </li>
-                                                <li><a href="#">JAF</a>
-                                                </li>
-                                                <li><a href="#">MSQ Professional</a>
-                                                </li>
+                                                <c:forEach items="${brands}" var="brand">
+                                                    <li>
+                                                        <a href="/catalog/brand/${brand}">${brand}</a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
@@ -227,7 +225,7 @@
                         <h1>Заказ #${order.id}</h1>
 
                         <p class="lead"><c:out value="${client.firstName}"/>, твой заказ #10${order.id} оформлен <strong>${date}</strong> и сейчас <strong>обрабатывается.</strong>.</p>
-                        <p class="text-muted">Если у тебя есть любые вопросы, <a href="/contact">свяжись с нами</a>, мы будем рады тебе помочь.</p>
+                        <p class="text-muted">Если у тебя есть любые вопросы, <a href="/contacts">свяжись с нами</a>, мы будем рады тебе помочь.</p>
 
                         <hr>
 
@@ -235,26 +233,28 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Товар</th>
-                                        <th>Количество</th>
-                                        <th>Цена</th>
-                                        <th>Скидка</th>
-                                        <th>Всего</th>
+                                        <th style="text-align: center" colspan="2">Товар</th>
+                                        <th style="text-align: center">Количество</th>
+                                        <th style="text-align: center">Цена</th>
+                                        <th style="text-align: center">Скидка</th>
+                                        <th style="text-align: center">Итог</th>
+                                        <th style="text-align: center">Всего</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${ProductsInCart}" var="product">
                                     <tr>
-                                        <td>
+                                        <td align="center">
                                             <a href="/product/${product.product_id.id}">
                                                 <img src="/resources/${product.product_id.image1}" alt="<c:out value="${product.name}"/>">
                                             </a>
                                         </td>
-                                        <td><a href="/product/${product.product_id.id}"><c:out value="${product.name}"/></a>
-                                        <td>${product.quantity}</td>
-                                        <td>₴${product.price}</td>
-                                        <td>₴0.00</td>
-                                        <td>₴${product.price * product.quantity}</td>
+                                        <td align="center"><a href="/product/${product.product_id.id}"><c:out value="${product.name}"/></a>
+                                        <td align="center">${product.quantity}</td>
+                                        <td align="center"><fmt:formatNumber value="${product.price/((100 - product.product_id.discount)/100)}" type="number" pattern="#"/></td>
+                                        <td align="center">${product.product_id.discount}%</td>
+                                        <td align="center">₴${product.price}</td>
+                                        <td align="center">₴${product.price * product.quantity}</td>
 
                                     </tr>
                                 </c:forEach>

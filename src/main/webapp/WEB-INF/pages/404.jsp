@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Качественные кисти для макияжа купить в Киеве недорого Можно! У нас вы найдете
     красивые и стильные кисти, аксессуары по уходу за ними и многое другое.">
-    <meta name="author" content="Liliya Yalochenko">
+    <meta name="author" content="Liliya Yalovchenko | liliyayalovchenko@gmail.com">
     <meta name="keywords" content="макияж, кисти, киев, мейкап">
 
     <title>
@@ -116,14 +116,17 @@
                                         <div class="col-sm-3">
                                             <h5>Бренды</h5>
                                             <ul>
-                                                <li><a href="#">Real Techniques</a>
-                                                </li>
-                                                <li><a href="#">Eco Tools</a>
-                                                </li>
-                                                <li><a href="#">JAF</a>
-                                                </li>
-                                                <li><a href="#">MSQ Professional</a>
-                                                </li>
+                                                <c:forEach items="${brands}" var="brand">
+                                                    <li>
+                                                        <a href="/catalog/brand/${brand}">${brand}</a>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Другое</h5>
+                                            <ul>
+                                                <li><a href="/catalog">Все товары</a></li>
                                             </ul>
                                         </div>
                                     </div>

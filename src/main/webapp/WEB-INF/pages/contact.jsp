@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Качественные кисти для макияжа купить в Киеве недорого Можно! Контакты:
     380634906783, 380682013301 Левый берег, Березняки">
-    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="author" content="Liliya Yalovchenko">
     <meta name="keywords" content="макияж, кисти, купить, недорого">
 
     <title>
@@ -118,14 +118,11 @@
                                         <div class="col-sm-3">
                                             <h5>Бренды</h5>
                                             <ul>
-                                                <li><a href="#">Real Techniques</a>
-                                                </li>
-                                                <li><a href="#">Eco Tools</a>
-                                                </li>
-                                                <li><a href="#">JAF</a>
-                                                </li>
-                                                <li><a href="#">MSQ Professional</a>
-                                                </li>
+                                                <c:forEach items="${brands}" var="brand">
+                                                    <li>
+                                                        <a href="/catalog/brand/${brand}">${brand}</a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
@@ -257,8 +254,8 @@
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
                                 <h3><i class="fa fa-phone"></i> Звони нам!</h3>
-                                <p class="text-muted">Набирай нас по этому номеру, мы перезвоним тебе и звонок для тебя будет абсолютно бесплатным</p>
-                                <p><strong>+33 555 444 333</strong>
+                                <p class="text-muted">Набирай нас по этому номеру или пишите в Viber, мы перезвоним тебе и звонок для тебя будет абсолютно бесплатным</p>
+                                <p><strong>+38 063 490 6783</strong>
                                 </p>
                             </div>
                             <!-- /.col-sm-4 -->
@@ -266,7 +263,7 @@
                                 <h3><i class="fa fa-envelope"></i> Электронная поддержка</h3>
                                 <p class="text-muted">Пожалуйста, не стесняйтесь написать нам письмо по этому электронному адресу</p>
                                 <ul>
-                                    <li><strong><a href="mailto:">beautytree@gmail.com</a></strong>
+                                    <li><strong><a href="mailto:">service.beautytree@gmail.com</a></strong>
                                     </li>
 
                                 </ul>
