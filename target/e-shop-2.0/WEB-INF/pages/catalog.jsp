@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -195,7 +196,18 @@ _________________________________________________________ -->
         <ul class="breadcrumb">
           <li><a href="/">Главная</a>
           </li>
-          <li>Все товары</li>
+          <c:choose>
+            <c:when test="${fn:length(activeBrands) > 0}">
+              <li>Бренды:
+                <c:forEach items="${activeBrands}" var="brand">
+                  ${brand }
+                </c:forEach>
+              </li>
+            </c:when>
+            <c:otherwise>
+              <li>Все товары</li>
+            </c:otherwise>
+          </c:choose>
         </ul>
       </div>
 
@@ -231,28 +243,15 @@ _________________________________________________________ -->
 
           <div class="panel-body">
 
-            <form>
+            <form action="/catalog/brandSort" method="post">
               <div class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">Real Techniques
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">JAF
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">Eco Tools
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox">MSQ Professional
-                  </label>
-                </div>
+                <c:forEach items="${brands}" var="brand">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="brandName" value="${brand}">${brand}
+                    </label>
+                  </div>
+                </c:forEach>
               </div>
 
               <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Применить</button>

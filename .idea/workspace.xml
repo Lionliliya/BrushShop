@@ -2,45 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210644af-f650-4d3c-95df-f9bd2d957a64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/CategoryController.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/CategoryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/CategoryController.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/CategoryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/OrderController.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/OrderController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/OrderController.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/OrderController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/ProductController.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/ProductController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/ProductController.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ProductDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAO/ProductDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ProductDAO.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAO/ProductDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/404.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/404.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/InformationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/InformationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAO/ProductDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/article.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/article.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/brand.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/brand.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/cart.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/cart.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/contact.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/contact.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/home.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/news.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/news.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/ordering.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/ordering.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/product.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/catalog.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/catalog.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BrushShop.iws" />
@@ -111,51 +77,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="news.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.148148" vertical-offset="2147" max-vertical-offset="7992">
-              <caret line="130" column="60" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/OrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="3618">
-              <caret line="66" column="68" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.481482" vertical-offset="1877" max-vertical-offset="9720">
-              <caret line="123" column="60" selection-start-line="119" selection-start-column="48" selection-end-line="123" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="catalog.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.407408" vertical-offset="2023" max-vertical-offset="8982">
-              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.25405404" vertical-offset="4179" max-vertical-offset="8964">
+              <caret line="240" column="101" selection-start-line="240" selection-start-column="101" selection-end-line="240" selection-end-column="101" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ordering.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp">
+      <file leaf-file-name="CategoryController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.888889" vertical-offset="1992" max-vertical-offset="7506">
-              <caret line="133" column="46" selection-start-line="128" selection-start-column="40" selection-end-line="133" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1879" max-vertical-offset="4068">
+              <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -164,28 +100,8 @@
       <file leaf-file-name="ProductController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2674" max-vertical-offset="3564">
-              <caret line="173" column="30" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="468">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45585585" vertical-offset="4355" max-vertical-offset="8946">
-              <caret line="256" column="100" selection-start-line="256" selection-start-column="100" selection-end-line="256" selection-end-column="100" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="3960">
+              <caret line="72" column="44" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -255,11 +171,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/GlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
       </list>
     </option>
   </component>
@@ -342,7 +258,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -627,7 +543,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -959,6 +875,7 @@
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.26" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="BrushShop:war exploded">
           <settings>
@@ -1094,12 +1011,14 @@
       <workItem from="1480178108180" duration="6046000" />
       <workItem from="1480332527916" duration="7951000" />
       <workItem from="1480685345627" duration="3702000" />
-      <workItem from="1480702400298" duration="2307000" />
+      <workItem from="1480702400298" duration="2520000" />
+      <workItem from="1481912848489" duration="2722000" />
+      <workItem from="1481993890905" duration="2064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426102000" />
+    <option name="totallyTimeSpent" value="431101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="24" width="1321" height="744" extended-state="6" />
@@ -1314,7 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1454" max-vertical-offset="2556">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1406,10 +1324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="515" max-vertical-offset="1332">
           <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-          <folding>
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2080#2081#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1417,7 +1331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.592592" vertical-offset="2000" max-vertical-offset="10044">
           <caret line="130" column="27" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,7 +1338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6666665" vertical-offset="2133" max-vertical-offset="10836">
           <caret line="127" column="60" selection-start-line="127" selection-start-column="60" selection-end-line="127" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1433,7 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.851852" vertical-offset="1993" max-vertical-offset="7128">
           <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1441,7 +1352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.074074" vertical-offset="1987" max-vertical-offset="8568">
           <caret line="127" column="49" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1449,7 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50084037" vertical-offset="674" max-vertical-offset="1440">
           <caret line="67" column="68" selection-start-line="67" selection-start-column="68" selection-end-line="67" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1457,39 +1366,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4864865" vertical-offset="2016" max-vertical-offset="9648">
           <caret line="127" column="60" selection-start-line="127" selection-start-column="60" selection-end-line="127" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.481482" vertical-offset="1877" max-vertical-offset="9720">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1877" max-vertical-offset="9720">
           <caret line="123" column="60" selection-start-line="119" selection-start-column="48" selection-end-line="123" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.407408" vertical-offset="2023" max-vertical-offset="8982">
-          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2886596" vertical-offset="3486" max-vertical-offset="4068">
-          <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.148148" vertical-offset="2147" max-vertical-offset="7992">
-          <caret line="130" column="60" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1497,7 +1380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="3618">
           <caret line="66" column="68" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1511,9 +1393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.888889" vertical-offset="1992" max-vertical-offset="7506">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1992" max-vertical-offset="7506">
           <caret line="133" column="46" selection-start-line="128" selection-start-column="40" selection-end-line="133" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1521,30 +1402,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7927928" vertical-offset="1900" max-vertical-offset="6264">
           <caret line="130" column="46" selection-start-line="130" selection-start-column="46" selection-end-line="130" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="468">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.814816" vertical-offset="5062" max-vertical-offset="8946">
+          <caret line="256" column="100" selection-start-line="256" selection-start-column="100" selection-end-line="256" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34774774" vertical-offset="2147" max-vertical-offset="7992">
+          <caret line="130" column="60" selection-start-line="130" selection-start-column="60" selection-end-line="130" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1879" max-vertical-offset="4068">
+          <caret line="70" column="68" selection-start-line="70" selection-start-column="68" selection-end-line="70" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2674" max-vertical-offset="3564">
-          <caret line="173" column="30" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="3960">
+          <caret line="72" column="44" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="468">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45585585" vertical-offset="4355" max-vertical-offset="8946">
-          <caret line="256" column="100" selection-start-line="256" selection-start-column="100" selection-end-line="256" selection-end-column="100" />
+        <state vertical-scroll-proportion="0.25405404" vertical-offset="4179" max-vertical-offset="8964">
+          <caret line="240" column="101" selection-start-line="240" selection-start-column="101" selection-end-line="240" selection-end-column="101" />
           <folding />
         </state>
       </provider>

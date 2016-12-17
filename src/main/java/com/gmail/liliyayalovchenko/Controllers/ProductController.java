@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +49,28 @@ public class ProductController {
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
         modelAndView.addObject("products", productDAO.getAllProducts());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.setViewName("catalog");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/brandSort")
+    public ModelAndView catalogBrandSort(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+
+        ModelAndView modelAndView = new ModelAndView();
+        List<String> brandsForFiltering = Arrays.asList(request.getParameterValues("brandName"));
+        List<Product> filteredProducts = new ArrayList<>();
+
+        for (String s : brandsForFiltering) {
+            filteredProducts.addAll(productDAO.getProductsByBrand(s));
+        }
+
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("products", filteredProducts);
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("activeBrands", brandsForFiltering);
         modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.setViewName("catalog");
         return modelAndView;
