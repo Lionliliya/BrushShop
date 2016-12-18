@@ -281,7 +281,7 @@
                         <hr>
                         <h2>Форма для связи</h2>
 
-                        <form>
+                        <form action="/contacts/sendMail" method="post">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -316,7 +316,6 @@
 
                                 <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Отправить сообщение</button>
-
                                 </div>
                             </div>
                             <!-- /.row -->
