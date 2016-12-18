@@ -51,4 +51,6 @@ public interface ProductDAO {
     List<Product> getProductsByBrandPriceUp(String curBrand);
 
     List<Product> getProductsByBrandPriceDown(String curBrand);
+
+    List<Product> getProductsByBrandAndCategory(String brandName, int categoryId);
 }

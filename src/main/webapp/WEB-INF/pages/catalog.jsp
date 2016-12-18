@@ -248,16 +248,28 @@ _________________________________________________________ -->
                 <c:forEach items="${brands}" var="brand">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="brandName" value="${brand}">${brand}
+                      <c:set var="present" value="${false}"/>
+                      <c:forEach items="${activeBrands}" var="currentBrand">
+                        <c:choose>
+                          <c:when test="${currentBrand eq brand}">
+                            <c:set var="present" value="${true}"/>
+                          </c:when>
+                        </c:choose>
+                      </c:forEach>
+                      <c:choose>
+                        <c:when test="${present eq true}">
+                          <input type="checkbox" name="brandName" value="${brand}" checked>${brand}
+                        </c:when>
+                        <c:otherwise>
+                          <input type="checkbox" name="brandName" value="${brand}">${brand}
+                        </c:otherwise>
+                      </c:choose>
                     </label>
                   </div>
                 </c:forEach>
               </div>
-
               <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Применить</button>
-
             </form>
-
           </div>
         </div>
 

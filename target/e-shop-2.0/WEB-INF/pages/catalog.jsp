@@ -238,7 +238,7 @@ _________________________________________________________ -->
         <div class="panel panel-default sidebar-menu">
 
           <div class="panel-heading">
-            <h3 class="panel-title">Бренды <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> Clear</a></h3>
+            <h3 class="panel-title">Бренды <a class="btn btn-xs btn-danger pull-right" href="/catalog"><i class="fa fa-times-circle"></i> Clear</a></h3>
           </div>
 
           <div class="panel-body">
@@ -248,16 +248,28 @@ _________________________________________________________ -->
                 <c:forEach items="${brands}" var="brand">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="brandName" value="${brand}">${brand}
+                      <c:set var="present" value="${false}"/>
+                      <c:forEach items="${activeBrands}" var="currentBrand">
+                        <c:choose>
+                          <c:when test="${currentBrand eq brand}">
+                            <c:set var="present" value="${true}"/>
+                          </c:when>
+                        </c:choose>
+                      </c:forEach>
+                      <c:choose>
+                        <c:when test="${present eq true}">
+                          <input type="checkbox" name="brandName" value="${brand}" checked>${brand}
+                        </c:when>
+                        <c:otherwise>
+                          <input type="checkbox" name="brandName" value="${brand}">${brand}
+                        </c:otherwise>
+                      </c:choose>
                     </label>
                   </div>
                 </c:forEach>
               </div>
-
               <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Применить</button>
-
             </form>
-
           </div>
         </div>
 

@@ -61,6 +61,14 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
+    public List<Product> getProductsByBrandAndCategory(String brandName, int categoryId) {
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.brand =:brand and p.productCategory.id =:category", Product.class);
+        query.setParameter("brand", brandName);
+        query.setParameter("category", categoryId);
+        return (List<Product>) query.getResultList();
+    }
+
+    @Override
     public Set<String> getAllBrands() {
         Query query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
         List<Product> resultList = query.getResultList();

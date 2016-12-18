@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -75,6 +76,33 @@ public class CategoryController {
         } else {
             modelAndView.addObject("products", products);
             modelAndView.addObject("productsSize", products.size());
+        }
+        modelAndView.setViewName("category");
+        return modelAndView;
+    }
+
+    @RequestMapping("/catalog/brandSort/{id}")
+    public ModelAndView categoryBrandFilter(@PathVariable("id") int id,
+                                 HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        List<String> brandsForFiltering = Arrays.asList(request.getParameterValues("brandName"));
+        List<Product> filteredProducts = new ArrayList<>();
+
+        for (String brandName : brandsForFiltering) {
+            filteredProducts.addAll(productDAO.getProductsByBrandAndCategory(brandName, id));
+        }
+        modelAndView.addObject("currentCategory", categoryDAO.getCategoryById(id));
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.addObject("activeBrands", brandsForFiltering);
+        if (filteredProducts.size() == 0) {
+            modelAndView.addObject("productsSize", 0);
+        } else {
+            modelAndView.addObject("products", filteredProducts);
+            modelAndView.addObject("productsSize", filteredProducts.size());
         }
         modelAndView.setViewName("category");
         return modelAndView;
