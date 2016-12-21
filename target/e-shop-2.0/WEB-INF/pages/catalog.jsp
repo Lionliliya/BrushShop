@@ -48,17 +48,16 @@
 _________________________________________________________ -->
 <div id="top">
   <div class="container">
-    <div class="col-md-6 offer" data-animate="fadeInDown">
+    <div class="col-sm-3 offer" data-animate="fadeInDown">
       <a href="#" class="btn btn-success btn-sm" style="background-color: #f1e1ef; color: #777777; border-color: #f1e1ef;" data-animate-hover="shake">Предложение дня</a>
-      <a href="#">Получи скидку 20% от заказа на сумму больше 1000 грн</a>
     </div>
-    <div class="col-md-6" data-animate="fadeInDown">
-      <ul class="menu">
-        <li>
-          <a href="/contacts">Контакты</a>
-        </li>
+    <div class="col-sm-5 offer" data-animate="fadeInDown">
+      <p style="padding-top: 5px;"><a href="#">Получи скидку 20% от заказа на сумму больше 1000 грн</a></p>
+    </div>
+    <div class="col-sm-4" data-animate="fadeInDown">
 
-      </ul>
+      <p class="text-center"><a href="/contacts">Контакты</a></p>
+
     </div>
   </div>
 </div>
@@ -444,7 +443,7 @@ _________________________________________________________ -->
           <h4>Stay in touch</h4>
 
           <p class="social">
-            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+            <%--<a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>--%>
 
             <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
 

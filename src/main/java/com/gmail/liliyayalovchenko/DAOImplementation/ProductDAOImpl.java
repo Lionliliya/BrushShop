@@ -231,13 +231,15 @@ public class ProductDAOImpl implements ProductDAO {
         Query query = entityManager.createQuery("SELECT a FROM Product a WHERE a.productCategory.id = :var", Product.class);
         query.setParameter("var", id);
         List<Product> productList = query.getResultList();
-        try {
-            entityManager.getTransaction().begin();
-            productList.forEach(entityManager::remove);
-            entityManager.getTransaction().commit();
-        } catch (Exception ex) {
-            entityManager.getTransaction().rollback();
-            ex.printStackTrace();
+        if (productList.size() != 0) {
+            try {
+                entityManager.getTransaction().begin();
+                productList.forEach(entityManager::remove);
+                entityManager.getTransaction().commit();
+            } catch (Exception ex) {
+                entityManager.getTransaction().rollback();
+                ex.printStackTrace();
+            }
         }
     }
 

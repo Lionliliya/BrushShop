@@ -45,17 +45,16 @@
  _________________________________________________________ -->
     <div id="top">
         <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
+            <div class="col-sm-3 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" style="background-color: #f1e1ef; color: #777777; border-color: #f1e1ef;" data-animate-hover="shake">Предложение дня</a>
-                <a href="#">Получи скидку 20% от заказа на сумму больше 1000 грн</a>
             </div>
-            <div class="col-md-6" data-animate="fadeInDown">
-                <ul class="menu">
-                    <li>
-                        <a href="/contacts">Контакты</a>
-                    </li>
+            <div class="col-sm-5 offer" data-animate="fadeInDown">
+                <p style="padding-top: 5px;"><a href="#">Получи скидку 20% от заказа на сумму больше 1000 грн</a></p>
+            </div>
+            <div class="col-sm-4" data-animate="fadeInDown">
 
-                </ul>
+                <p class="text-center"><a href="/contacts">Контакты</a></p>
+
             </div>
         </div>
     </div>
@@ -243,7 +242,7 @@
                                 <div class="icon"><i class="fa fa-thumbs-up"></i>
                                 </div>
 
-                                <h3><a href="#">Гарантированное 100% удовлетворение клиентов</a></h3>
+                                <h3><a href="#">100% довольных клиентов</a></h3>
                                 <p>Бесплатный возврат в течени 14 дней</p>
                             </div>
                         </div>

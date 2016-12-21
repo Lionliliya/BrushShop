@@ -37,10 +37,10 @@
 
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
-    function AlertIt(name) {
-      var answer = confirm("Вы собираетесь удалить категорию и ВСЕ ТОВАРЫ В НЕЙ по  № " + id + ". Нажмите OK что бы продолжить.")
+    function AlertIt(id) {
+      var answer = confirm("Вы собираетесь товар по  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8081/admin/catalog/remove/" + name + "";
+        window.location = "http://localhost:8081/admin/catalog/product/remove/" + id + "";
     }
   </script>
 

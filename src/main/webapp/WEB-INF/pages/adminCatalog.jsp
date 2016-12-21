@@ -37,10 +37,10 @@
 
   <link rel="shortcut icon" href="/resources/favicon.png">
   <script type="text/javascript">
-    function AlertIt(name) {
+    function AlertIt(id) {
       var answer = confirm("Вы собираетесь удалить категорию и ВСЕ ТОВАРЫ В НЕЙ по  № " + id + ". Нажмите OK что бы продолжить.")
       if (answer)
-        window.location = "http://localhost:8081/admin/catalog/remove/" + name + "";
+        window.location = "http://localhost:8081/admin/catalog/remove/" + id + "";
     }
   </script>
 
@@ -161,7 +161,7 @@ _________________________________________________________ -->
                       <td>${category.metaTitle}</td>
                       <td>
                         <a href="/admin/catalog/edit/${category.name}" charset="utf-8" class="btn btn-primary btn-sm">Редактировать</a><br><br>
-                        <a href="javascript:AlertIt(${category.name});" class="btn btn-primary btn-sm">Удалить</a><br><br>
+                        <a href="javascript:AlertIt(${category.id});" class="btn btn-primary btn-sm">Удалить</a><br><br>
                         <a href="/admin/catalog/${category.name}" class="btn btn-primary btn-sm">Просмотреть</a>
                       </td>
                     </tr>
@@ -183,7 +183,7 @@ _________________________________________________________ -->
               <div class="form-group">
                 <blockquote>
                 <label for="category"><strong>Категория товара</strong></label>
-                <select  class="form-control" id="category" name="productCategory" required>
+                <select  class="form-control" id="category" name="id" required>
                   <c:forEach items="${categories}" var="category">
                     <option value="${category.id}">${category.name}</option>
                   </c:forEach>
