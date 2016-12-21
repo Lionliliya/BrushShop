@@ -54,6 +54,19 @@ public class CategoryController {
         return modelAndView;
     }
 
+    @RequestMapping("/about")
+    public ModelAndView about(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("articles", postDAO.getTwoLatest());
+        modelAndView.setViewName("about");
+        return modelAndView;
+    }
+
     @RequestMapping("/catalog/brand/{brand}")
     public ModelAndView brand(@PathVariable("brand") String brand,
                               HttpServletRequest request) {
@@ -272,16 +285,16 @@ public class CategoryController {
 
         Session getMailSession = Session.getDefaultInstance(mailServerProperties, null);
         MimeMessage generateMailMessage = new MimeMessage(getMailSession);
-        generateMailMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
+
         generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("service.beautytree@gmail.com"));
         generateMailMessage.setSubject("FROM CUSTOMER");
         StringBuilder emailBody = new StringBuilder();
         emailBody.append("От клиента: " + firstName + " " + secondName + "\n");
-        emailBody.append(subject + "\n");
+        emailBody.append("Тема: " + subject + "\n");
         emailBody.append("Email: " + email + "\n");
         emailBody.append(massage);
 
-        generateMailMessage.setContent(emailBody.toString(), "text/html; charset=utf-8");
+        generateMailMessage.setText(emailBody.toString(), "utf-8");
         Transport transport = getMailSession.getTransport("smtp");
         transport.connect("smtp.gmail.com", "service.beautytree", "Mne_24_let");
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());

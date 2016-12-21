@@ -398,11 +398,11 @@
                         <h4>Stay in touch</h4>
 
                         <p class="social">
-                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <%--<a href="http://fb.me/ShopBeautyTree"  target="_blank" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>--%>
 
-                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                            <a href="#"  target="_blank" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
 
-                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                            <a href="#"  target="_blank" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
                         </p>
 
 

@@ -48,17 +48,16 @@
  _________________________________________________________ -->
     <div id="top">
         <div class="container">
-            <div class="col-md-6 offer" data-animate="fadeInDown">
+            <div class="col-sm-2 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" style="background-color: #f1e1ef; color: #777777; border-color: #f1e1ef;" data-animate-hover="shake">Предложение дня</a>
+            </div>
+            <div class="col-sm-6 offer" data-animate="fadeInDown">
                 <a href="#">Получи скидку 20% от заказа на сумму больше 1000 грн</a>
             </div>
-            <div class="col-md-6" data-animate="fadeInDown">
-                <ul class="menu">
-                    <li>
-                        <a href="/contacts">Контакты</a>
-                    </li>
+            <div class="col-sm-4" data-animate="fadeInDown">
 
-                </ul>
+                <p class="text-right" ><a href="/contacts">Контакты</a></p>
+
             </div>
         </div>
     </div>
@@ -268,7 +267,7 @@
                 <!-- *** LEFT COLUMN END *** -->
 
 
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <!-- *** BLOG MENU ***
  _________________________________________________________ -->
                     <div class="panel panel-default sidebar-menu">
