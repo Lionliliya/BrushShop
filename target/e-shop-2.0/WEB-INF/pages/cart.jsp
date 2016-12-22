@@ -201,11 +201,13 @@
 
                             <h1>Корзина</h1>
                             <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-sm-6">
                                     <p class="text-muted text-left">Сейчас у вас ${cartSize} товара в корзине.</p>
                                 </div>
-                                <div class="col-xs-6">
-                                    <p class="text-right">
+                                </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="text-left">
                                         <a href="/cart-clear" class="btn"><i class="fa fa-trash-o"></i> Очистить корзну</a>
                                     </p>
                                 </div>

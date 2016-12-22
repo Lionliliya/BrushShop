@@ -225,7 +225,7 @@
                 </div>
                 <!-- /#blog-post -->
 
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <!-- *** BLOG MENU ***
  _________________________________________________________ -->
                     <div class="panel panel-default sidebar-menu">

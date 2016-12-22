@@ -2,41 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="210644af-f650-4d3c-95df-f9bd2d957a64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/Controllers/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/classes/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/404.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/404.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/DAOImplementation/ProductDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/about.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/about.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/about.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/about.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminCatalog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminCatalog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/adminCatalog.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/adminCatalog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminProducts.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminProducts.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/article.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/article.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/brand.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/brand.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/cart.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/catalog.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/catalog.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/contact.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/contact.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/home.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/news.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/news.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/ordering.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/ordering.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/product.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/search.jsp" afterPath="$PROJECT_DIR$/target/e-shop-2.0/WEB-INF/pages/search.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BrushShop.iws" />
@@ -107,34 +75,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="brand.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.0" vertical-offset="630" max-vertical-offset="8604">
-              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.925926" vertical-offset="731" max-vertical-offset="6246">
-              <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-              <folding>
-                <marker date="1482316624363" expanded="true" signature="11273:11372" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="7435" max-vertical-offset="19566">
               <caret line="440" column="59" selection-start-line="440" selection-start-column="59" selection-end-line="440" selection-end-column="59" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#46361#46362#0" expanded="false" />
+                <element signature="e#46439#46440#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,7 +94,95 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="4446">
               <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#5933#5934#0" expanded="false" />
+                <element signature="e#5958#5959#0" expanded="false" />
+                <element signature="e#5991#5992#0" expanded="false" />
+                <element signature="e#6019#6020#0" expanded="false" />
+                <element signature="e#6050#6051#0" expanded="false" />
+                <element signature="e#6077#6078#0" expanded="false" />
+                <element signature="e#6117#6118#0" expanded="false" />
+                <element signature="e#6149#6150#0" expanded="false" />
+                <element signature="e#6178#6179#0" expanded="false" />
+                <element signature="e#6206#6207#0" expanded="false" />
+                <element signature="e#6245#6246#0" expanded="false" />
+                <element signature="e#6279#6280#0" expanded="false" />
+                <element signature="e#6314#6315#0" expanded="false" />
+                <element signature="e#6345#6346#0" expanded="false" />
+                <element signature="e#6393#6394#0" expanded="false" />
+                <element signature="e#6433#6434#0" expanded="false" />
+                <element signature="e#6477#6478#0" expanded="false" />
+                <element signature="e#6515#6516#0" expanded="false" />
+                <element signature="e#6579#6580#0" expanded="false" />
+                <element signature="e#6633#6634#0" expanded="false" />
+                <element signature="e#6671#6672#0" expanded="false" />
+                <element signature="e#6705#6706#0" expanded="false" />
+                <element signature="e#6759#6760#0" expanded="false" />
+                <element signature="e#6805#6806#0" expanded="false" />
+                <element signature="e#6841#6842#0" expanded="false" />
+                <element signature="e#6873#6874#0" expanded="false" />
+                <element signature="e#6923#6924#0" expanded="false" />
+                <element signature="e#6965#6966#0" expanded="false" />
+                <element signature="e#6995#6996#0" expanded="false" />
+                <element signature="e#7024#7025#0" expanded="false" />
+                <element signature="e#7065#7066#0" expanded="false" />
+                <element signature="e#7101#7102#0" expanded="false" />
+                <element signature="e#7135#7136#0" expanded="false" />
+                <element signature="e#7165#7166#0" expanded="false" />
+                <element signature="e#7211#7212#0" expanded="false" />
+                <element signature="e#7249#7250#0" expanded="false" />
+                <element signature="e#7282#7283#0" expanded="false" />
+                <element signature="e#7311#7312#0" expanded="false" />
+                <element signature="e#7355#7356#0" expanded="false" />
+                <element signature="e#7391#7392#0" expanded="false" />
+                <element signature="e#7424#7425#0" expanded="false" />
+                <element signature="e#7453#7454#0" expanded="false" />
+                <element signature="e#7497#7498#0" expanded="false" />
+                <element signature="e#7533#7534#0" expanded="false" />
+                <element signature="e#7566#7567#0" expanded="false" />
+                <element signature="e#7595#7596#0" expanded="false" />
+                <element signature="e#7639#7640#0" expanded="false" />
+                <element signature="e#7675#7676#0" expanded="false" />
+                <element signature="e#7708#7709#0" expanded="false" />
+                <element signature="e#7737#7738#0" expanded="false" />
+                <element signature="e#7781#7782#0" expanded="false" />
+                <element signature="e#7817#7818#0" expanded="false" />
+                <element signature="e#7864#7865#0" expanded="false" />
+                <element signature="e#7899#7900#0" expanded="false" />
+                <element signature="e#7963#7964#0" expanded="false" />
+                <element signature="e#8011#8012#0" expanded="false" />
+                <element signature="e#8050#8051#0" expanded="false" />
+                <element signature="e#8085#8086#0" expanded="false" />
+                <element signature="e#8141#8142#0" expanded="false" />
+                <element signature="e#8189#8190#0" expanded="false" />
+                <element signature="e#8231#8232#0" expanded="false" />
+                <element signature="e#8269#8270#0" expanded="false" />
+                <element signature="e#8331#8332#0" expanded="false" />
+                <element signature="e#8385#8386#0" expanded="false" />
+                <element signature="e#8421#8422#0" expanded="false" />
+                <element signature="e#8453#8454#0" expanded="false" />
+                <element signature="e#8503#8504#0" expanded="false" />
+                <element signature="e#8545#8546#0" expanded="false" />
+                <element signature="e#8578#8579#0" expanded="false" />
+                <element signature="e#8606#8607#0" expanded="false" />
+                <element signature="e#8649#8650#0" expanded="false" />
+                <element signature="e#8683#8684#0" expanded="false" />
+                <element signature="e#8715#8716#0" expanded="false" />
+                <element signature="e#8746#8747#0" expanded="false" />
+                <element signature="e#8791#8792#0" expanded="false" />
+                <element signature="e#8831#8832#0" expanded="false" />
+                <element signature="e#8863#8864#0" expanded="false" />
+                <element signature="e#8891#8892#0" expanded="false" />
+                <element signature="e#8933#8934#0" expanded="false" />
+                <element signature="e#8967#8968#0" expanded="false" />
+                <element signature="e#8997#8998#0" expanded="false" />
+                <element signature="e#9025#9026#0" expanded="false" />
+                <element signature="e#9066#9067#0" expanded="false" />
+                <element signature="e#9100#9101#0" expanded="false" />
+                <element signature="e#9285#9286#0" expanded="false" />
+                <element signature="e#9335#9336#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,9 +190,35 @@
       <file leaf-file-name="FeedBack.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/FeedBack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1764">
+            <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1764">
               <caret line="14" column="130" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="130" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#3178#3179#0" expanded="false" />
+                <element signature="e#3203#3204#0" expanded="false" />
+                <element signature="e#3236#3237#0" expanded="false" />
+                <element signature="e#3264#3265#0" expanded="false" />
+                <element signature="e#3299#3300#0" expanded="false" />
+                <element signature="e#3329#3330#0" expanded="false" />
+                <element signature="e#3376#3377#0" expanded="false" />
+                <element signature="e#3414#3415#0" expanded="false" />
+                <element signature="e#3443#3444#0" expanded="false" />
+                <element signature="e#3470#3471#0" expanded="false" />
+                <element signature="e#3508#3509#0" expanded="false" />
+                <element signature="e#3540#3541#0" expanded="false" />
+                <element signature="e#3573#3574#0" expanded="false" />
+                <element signature="e#3602#3603#0" expanded="false" />
+                <element signature="e#3646#3647#0" expanded="false" />
+                <element signature="e#3682#3683#0" expanded="false" />
+                <element signature="e#3716#3717#0" expanded="false" />
+                <element signature="e#3749#3750#0" expanded="false" />
+                <element signature="e#3798#3799#0" expanded="false" />
+                <element signature="e#3842#3843#0" expanded="false" />
+                <element signature="e#3877#3878#0" expanded="false" />
+                <element signature="e#3908#3909#0" expanded="false" />
+                <element signature="e#3956#3957#0" expanded="false" />
+                <element signature="e#3996#3997#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,17 +227,37 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Category.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQL - beautydbRus@localhost" pinned="false" current-in-tab="true">
-        <entry file="dbDummy://db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/">
+      <file leaf-file-name="news.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73913044" vertical-offset="564" max-vertical-offset="1116">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state vertical-scroll-proportion="-12.518518" vertical-offset="4252" max-vertical-offset="7974">
+              <caret line="255" column="74" selection-start-line="255" selection-start-column="74" selection-end-line="255" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.444445" vertical-offset="4326" max-vertical-offset="7110">
+              <caret line="259" column="67" selection-start-line="259" selection-start-column="67" selection-end-line="259" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43783784" vertical-offset="3483" max-vertical-offset="9738">
+              <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -182,7 +266,7 @@
       <file leaf-file-name="adminProducts.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminProducts.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.333333" vertical-offset="477" max-vertical-offset="3726">
+            <state vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="3726">
               <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
               <folding />
             </state>
@@ -194,7 +278,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="3891" max-vertical-offset="4590">
               <caret line="233" column="33" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1659#1668#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,7 +289,7 @@
       <file leaf-file-name="adminCatalog.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminCatalog.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.481482" vertical-offset="2516" max-vertical-offset="7452">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="7452">
               <caret line="163" column="65" selection-start-line="163" selection-start-column="65" selection-end-line="163" selection-end-column="65" />
               <folding />
             </state>
@@ -251,15 +338,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/contact.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ordering.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/product.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/catalog.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/about.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
         <option value="db-console:/bcc2d5a0/92b518ba-b07d-4559-82dc-e5177472709e/" />
@@ -268,6 +352,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminProducts.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp" />
       </list>
     </option>
   </component>
@@ -963,7 +1050,6 @@
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.26" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="BrushShop:war exploded">
           <settings>
@@ -1103,12 +1189,13 @@
       <workItem from="1481912848489" duration="2722000" />
       <workItem from="1481993890905" duration="6930000" />
       <workItem from="1482087730816" duration="24000" />
-      <workItem from="1482152246632" duration="13510000" />
+      <workItem from="1482152246632" duration="13602000" />
+      <workItem from="1482339792179" duration="2867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="449501000" />
+    <option name="totallyTimeSpent" value="452460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="24" width="1321" height="744" extended-state="6" />
@@ -1132,13 +1219,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" x="145" y="224" width="1121" height="544" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4768" sideWeight="0.49960783" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2698039" sideWeight="0.5008" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4784" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29960784" sideWeight="0.87857145" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2835131" sideWeight="0.12142857" order="6" side_tool="true" content_ui="tabs" />
@@ -1147,8 +1232,10 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Documentation" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" x="145" y="224" width="1121" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4784" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1325,8 +1412,8 @@
         <state vertical-scroll-proportion="0.33333334" vertical-offset="515" max-vertical-offset="1332">
           <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
           <folding>
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2080#2081#0" expanded="true" />
+            <element signature="e#2029#2030#0" expanded="false" />
+            <element signature="e#2080#2081#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1342,11 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="410" max-vertical-offset="1476">
           <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1895#1896#0" expanded="false" />
-            <element signature="e#1947#1948#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1354,9 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="3960">
           <caret line="67" column="9" selection-start-line="62" selection-start-column="7" selection-end-line="67" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1371,9 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="3618">
           <caret line="83" column="57" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1389,7 +1465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.7777777" vertical-offset="4182" max-vertical-offset="8550">
           <caret line="244" column="62" selection-start-line="244" selection-start-column="62" selection-end-line="244" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,7 +1472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="468">
           <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1405,15 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="218.11111" vertical-offset="6915" max-vertical-offset="8910">
           <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0740743" vertical-offset="6631" max-vertical-offset="7974">
-          <caret line="379" column="0" selection-start-line="378" selection-start-column="32" selection-end-line="379" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1421,7 +1486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.814815" vertical-offset="6224" max-vertical-offset="7488">
           <caret line="356" column="0" selection-start-line="355" selection-start-column="32" selection-end-line="356" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,7 +1493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.9259257" vertical-offset="9605" max-vertical-offset="10818">
           <caret line="544" column="0" selection-start-line="543" selection-start-column="23" selection-end-line="544" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1437,7 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.777778" vertical-offset="8655" max-vertical-offset="10026">
           <caret line="494" column="0" selection-start-line="493" selection-start-column="16" selection-end-line="494" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,7 +1507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.185185" vertical-offset="8329" max-vertical-offset="9630">
           <caret line="472" column="0" selection-start-line="471" selection-start-column="32" selection-end-line="472" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1453,30 +1514,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.296296" vertical-offset="7831" max-vertical-offset="9162">
           <caret line="446" column="0" selection-start-line="445" selection-start-column="16" selection-end-line="446" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.814815" vertical-offset="8285" max-vertical-offset="9702">
-          <caret line="472" column="0" selection-start-line="471" selection-start-column="32" selection-end-line="472" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/brand.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.0" vertical-offset="630" max-vertical-offset="8604">
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="8604">
           <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.592592" vertical-offset="5816" max-vertical-offset="7110">
-          <caret line="336" column="0" selection-start-line="335" selection-start-column="32" selection-end-line="336" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1485,7 +1529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.851852" vertical-offset="2875" max-vertical-offset="3798">
           <caret line="170" column="101" selection-start-line="170" selection-start-column="101" selection-end-line="170" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,16 +1536,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.851851" vertical-offset="4063" max-vertical-offset="8568">
           <caret line="245" column="44" selection-start-line="245" selection-start-column="44" selection-end-line="245" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.925926" vertical-offset="731" max-vertical-offset="6246">
+        <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="6246">
           <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
           <folding>
-            <marker date="1482316624363" expanded="true" signature="11273:11372" placeholder="..." />
+            <marker date="1482316624363" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1511,7 +1553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1210084" vertical-offset="0" max-vertical-offset="1332">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1519,13 +1560,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3891" max-vertical-offset="4590">
           <caret line="233" column="33" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1659#1668#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminCatalog.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.481482" vertical-offset="2516" max-vertical-offset="7452">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="7452">
           <caret line="163" column="65" selection-start-line="163" selection-start-column="65" selection-end-line="163" selection-end-column="65" />
           <folding />
         </state>
@@ -1533,7 +1577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/adminProducts.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.333333" vertical-offset="477" max-vertical-offset="3726">
+        <state vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="3726">
           <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
           <folding />
         </state>
@@ -1543,7 +1587,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7435" max-vertical-offset="19566">
           <caret line="440" column="59" selection-start-line="440" selection-start-column="59" selection-end-line="440" selection-end-column="59" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#46361#46362#0" expanded="false" />
+            <element signature="e#46439#46440#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1551,7 +1599,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1764">
           <caret line="14" column="130" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="130" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3178#3179#0" expanded="false" />
+            <element signature="e#3203#3204#0" expanded="false" />
+            <element signature="e#3236#3237#0" expanded="false" />
+            <element signature="e#3264#3265#0" expanded="false" />
+            <element signature="e#3299#3300#0" expanded="false" />
+            <element signature="e#3329#3330#0" expanded="false" />
+            <element signature="e#3376#3377#0" expanded="false" />
+            <element signature="e#3414#3415#0" expanded="false" />
+            <element signature="e#3443#3444#0" expanded="false" />
+            <element signature="e#3470#3471#0" expanded="false" />
+            <element signature="e#3508#3509#0" expanded="false" />
+            <element signature="e#3540#3541#0" expanded="false" />
+            <element signature="e#3573#3574#0" expanded="false" />
+            <element signature="e#3602#3603#0" expanded="false" />
+            <element signature="e#3646#3647#0" expanded="false" />
+            <element signature="e#3682#3683#0" expanded="false" />
+            <element signature="e#3716#3717#0" expanded="false" />
+            <element signature="e#3749#3750#0" expanded="false" />
+            <element signature="e#3798#3799#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3877#3878#0" expanded="false" />
+            <element signature="e#3908#3909#0" expanded="false" />
+            <element signature="e#3956#3957#0" expanded="false" />
+            <element signature="e#3996#3997#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1559,15 +1633,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="4446">
           <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5933#5934#0" expanded="false" />
+            <element signature="e#5958#5959#0" expanded="false" />
+            <element signature="e#5991#5992#0" expanded="false" />
+            <element signature="e#6019#6020#0" expanded="false" />
+            <element signature="e#6050#6051#0" expanded="false" />
+            <element signature="e#6077#6078#0" expanded="false" />
+            <element signature="e#6117#6118#0" expanded="false" />
+            <element signature="e#6149#6150#0" expanded="false" />
+            <element signature="e#6178#6179#0" expanded="false" />
+            <element signature="e#6206#6207#0" expanded="false" />
+            <element signature="e#6245#6246#0" expanded="false" />
+            <element signature="e#6279#6280#0" expanded="false" />
+            <element signature="e#6314#6315#0" expanded="false" />
+            <element signature="e#6345#6346#0" expanded="false" />
+            <element signature="e#6393#6394#0" expanded="false" />
+            <element signature="e#6433#6434#0" expanded="false" />
+            <element signature="e#6477#6478#0" expanded="false" />
+            <element signature="e#6515#6516#0" expanded="false" />
+            <element signature="e#6579#6580#0" expanded="false" />
+            <element signature="e#6633#6634#0" expanded="false" />
+            <element signature="e#6671#6672#0" expanded="false" />
+            <element signature="e#6705#6706#0" expanded="false" />
+            <element signature="e#6759#6760#0" expanded="false" />
+            <element signature="e#6805#6806#0" expanded="false" />
+            <element signature="e#6841#6842#0" expanded="false" />
+            <element signature="e#6873#6874#0" expanded="false" />
+            <element signature="e#6923#6924#0" expanded="false" />
+            <element signature="e#6965#6966#0" expanded="false" />
+            <element signature="e#6995#6996#0" expanded="false" />
+            <element signature="e#7024#7025#0" expanded="false" />
+            <element signature="e#7065#7066#0" expanded="false" />
+            <element signature="e#7101#7102#0" expanded="false" />
+            <element signature="e#7135#7136#0" expanded="false" />
+            <element signature="e#7165#7166#0" expanded="false" />
+            <element signature="e#7211#7212#0" expanded="false" />
+            <element signature="e#7249#7250#0" expanded="false" />
+            <element signature="e#7282#7283#0" expanded="false" />
+            <element signature="e#7311#7312#0" expanded="false" />
+            <element signature="e#7355#7356#0" expanded="false" />
+            <element signature="e#7391#7392#0" expanded="false" />
+            <element signature="e#7424#7425#0" expanded="false" />
+            <element signature="e#7453#7454#0" expanded="false" />
+            <element signature="e#7497#7498#0" expanded="false" />
+            <element signature="e#7533#7534#0" expanded="false" />
+            <element signature="e#7566#7567#0" expanded="false" />
+            <element signature="e#7595#7596#0" expanded="false" />
+            <element signature="e#7639#7640#0" expanded="false" />
+            <element signature="e#7675#7676#0" expanded="false" />
+            <element signature="e#7708#7709#0" expanded="false" />
+            <element signature="e#7737#7738#0" expanded="false" />
+            <element signature="e#7781#7782#0" expanded="false" />
+            <element signature="e#7817#7818#0" expanded="false" />
+            <element signature="e#7864#7865#0" expanded="false" />
+            <element signature="e#7899#7900#0" expanded="false" />
+            <element signature="e#7963#7964#0" expanded="false" />
+            <element signature="e#8011#8012#0" expanded="false" />
+            <element signature="e#8050#8051#0" expanded="false" />
+            <element signature="e#8085#8086#0" expanded="false" />
+            <element signature="e#8141#8142#0" expanded="false" />
+            <element signature="e#8189#8190#0" expanded="false" />
+            <element signature="e#8231#8232#0" expanded="false" />
+            <element signature="e#8269#8270#0" expanded="false" />
+            <element signature="e#8331#8332#0" expanded="false" />
+            <element signature="e#8385#8386#0" expanded="false" />
+            <element signature="e#8421#8422#0" expanded="false" />
+            <element signature="e#8453#8454#0" expanded="false" />
+            <element signature="e#8503#8504#0" expanded="false" />
+            <element signature="e#8545#8546#0" expanded="false" />
+            <element signature="e#8578#8579#0" expanded="false" />
+            <element signature="e#8606#8607#0" expanded="false" />
+            <element signature="e#8649#8650#0" expanded="false" />
+            <element signature="e#8683#8684#0" expanded="false" />
+            <element signature="e#8715#8716#0" expanded="false" />
+            <element signature="e#8746#8747#0" expanded="false" />
+            <element signature="e#8791#8792#0" expanded="false" />
+            <element signature="e#8831#8832#0" expanded="false" />
+            <element signature="e#8863#8864#0" expanded="false" />
+            <element signature="e#8891#8892#0" expanded="false" />
+            <element signature="e#8933#8934#0" expanded="false" />
+            <element signature="e#8967#8968#0" expanded="false" />
+            <element signature="e#8997#8998#0" expanded="false" />
+            <element signature="e#9025#9026#0" expanded="false" />
+            <element signature="e#9066#9067#0" expanded="false" />
+            <element signature="e#9100#9101#0" expanded="false" />
+            <element signature="e#9285#9286#0" expanded="false" />
+            <element signature="e#9335#9336#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1575,6 +1729,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73913044" vertical-offset="564" max-vertical-offset="1116">
           <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gmail/liliyayalovchenko/Domains/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/news.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.518518" vertical-offset="4252" max-vertical-offset="7974">
+          <caret line="255" column="74" selection-start-line="255" selection-start-column="74" selection-end-line="255" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/article.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.444445" vertical-offset="4326" max-vertical-offset="7110">
+          <caret line="259" column="67" selection-start-line="259" selection-start-column="67" selection-end-line="259" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/cart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43783784" vertical-offset="3483" max-vertical-offset="9738">
+          <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
           <folding />
         </state>
       </provider>

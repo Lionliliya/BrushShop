@@ -253,9 +253,9 @@
 
 
                     <ul class="pager">
-                        <li class="previous"><a href="#">&larr; Предыдущая сраница</a>
+                        <li class="previous"><a href="#">&larr; Предыдущая</a>
                         </li>
-                        <li class="next disabled"><a href="#">Следущая &rarr;</a>
+                        <li class="next"><a href="#">Следущая &rarr;</a>
                         </li>
                     </ul>
 
