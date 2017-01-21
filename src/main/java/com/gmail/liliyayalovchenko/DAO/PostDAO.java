@@ -30,4 +30,7 @@ public interface PostDAO {
     List<Post> getAllPostsNameUp();
 
     List<Post> getAllPostsNameDown();
+
+    List<Post> getNextPosts(Integer starRow);
+
 }

@@ -33,8 +33,41 @@ public class InformationController {
         HttpSession session = request.getSession();
         checkSession(session);
         ModelAndView modelAndView = new ModelAndView();
+        session.setAttribute("startRow", 1);
         modelAndView.addObject("categories", categoryDAO.getAllCategories());
-        modelAndView.addObject("articles", postDAO.getAllPostAsc());
+        modelAndView.addObject("articles", postDAO.getNextPosts(1));
+//        modelAndView.addObject("articles", postDAO.getAllPostAsc());
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("news");
+        return modelAndView;
+    }
+
+    @RequestMapping("/news/next")
+    public ModelAndView newsNextPage(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        Integer startRow = (Integer) session.getAttribute("startRow");
+        session.setAttribute("startRow", startRow + 3);
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("articles", postDAO.getNextPosts(startRow + 3));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.setViewName("news");
+        return modelAndView;
+    }
+
+    @RequestMapping("/news/previous")
+    public ModelAndView newsPrevPage(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+        ModelAndView modelAndView = new ModelAndView();
+        Integer startRow = (Integer) session.getAttribute("startRow");
+        startRow -= 3;
+        session.setAttribute("startRow",startRow);
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("articles", postDAO.getNextPosts(startRow));
         modelAndView.addObject("brands", productDAO.getAllBrands());
         modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
         modelAndView.setViewName("news");

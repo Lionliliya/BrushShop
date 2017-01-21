@@ -63,6 +63,16 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
+    public List<Post> getNextPosts(Integer startRow) {
+        Query query = entityManager.createQuery("SELECT a FROM Post a order by a.dateOfPublication desc",
+                Post.class);
+        if (startRow == 1) {
+            return query.setFirstResult(0).setMaxResults(3).getResultList();
+        }
+        return query.setFirstResult(startRow - 1).setMaxResults(3).getResultList();
+    }
+
+    @Override
     public void save(Post article) {
         try {
             entityManager.getTransaction().begin();

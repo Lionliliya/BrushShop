@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -210,57 +211,79 @@
                         <%--<p>Читайте нас и вы не купите новую раскрученую в Инсаграмме ненужную бьюти-игрушку!</p>--%>
 
                     <%--</div>--%>
-                    <c:forEach items="${articles}" var="article">
-                        <div class="post">
-                            <h2>
-                                <a href="/news/${article.id}">
-                                    <c:out value="${article.title}"/>
-                                </a>
-                            </h2>
+                    <c:choose>
+                        <c:when test="${fn:length(articles) == 0}">
+                            <p class="price">Больше нет постов...</p>
 
-                            <hr>
-                            <p class="date-comments">
-                                <c:set var="date" value="${article.dateOfPublication}" />
-                                <a href="/news/${article.id}"><i class="fa fa-calendar-o"></i>
-                                    <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
-                                </a>
-                                <%--<a href="post.html"><i class="fa fa-comment-o"></i> 8 Comments</a>--%>
-                            </p>
-                            <div class="row">
-                                <div class="col-xs-2">
-                                    <div class="image">
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach items="${articles}" var="article">
+                                <div class="post">
+                                    <h2>
                                         <a href="/news/${article.id}">
-                                            <img src="/resources/${article.imagePath}" class="img-responsive" alt="<c:out value="${article.title}"/>">
+                                            <c:out value="${article.title}"/>
                                         </a>
+                                    </h2>
+
+                                    <hr>
+                                    <p class="date-comments">
+                                        <c:set var="date" value="${article.dateOfPublication}" />
+                                        <a href="/news/${article.id}"><i class="fa fa-calendar-o"></i>
+                                            <fmt:formatDate type="date" dateStyle="short" timeStyle="short" value="${date}" />
+                                        </a>
+                                            <%--<a href="post.html"><i class="fa fa-comment-o"></i> 8 Comments</a>--%>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="image">
+                                                <a href="/news/${article.id}">
+                                                    <img src="/resources/${article.imagePath}" class="img-responsive" alt="<c:out value="${article.title}"/>">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <%--<p class="intro">--%>
+                                                    ${article.shortDescription}
+                                            <%--</p>--%>
+                                            <p class="read-more">
+                                                <a href="/news/${article.id}" class="btn btn-primary">
+                                                    <c:out value="${article.buttonText}"/>
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
+
                                 </div>
-                                <div class="col-xs-9">
-                                    <p class="intro">
-                                        ${article.shortDescription}
-                                    </p>
-                                    <p class="read-more">
-                                        <a href="/news/${article.id}" class="btn btn-primary">
-                                            <c:out value="${article.buttonText}"/>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </c:forEach>
-
-
-
-
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                     <ul class="pager">
-                        <li class="previous"><a href="#">&larr; Предыдущая</a>
-                        </li>
-                        <li class="next"><a href="#">Следущая &rarr;</a>
-                        </li>
+                        <c:choose>
+                            <c:when test="${sessionScope.startRow eq 1}">
+                                <li class="previous disabled"><a href="#">
+                                    &larr; Предыдущая</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="previous"><a href="/news/previous">
+                                    &larr; Предыдущая</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <c:choose>
+                            <c:when test="${fn:length(articles) == 0}">
+                                <li class="next disabled"><a href="/news/next">
+                                    Следущая &rarr;</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="next"><a href="/news/next">
+                                    Следущая &rarr;</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
-
-
-
                 </div>
                 <!-- /.col-md-9 -->
 
