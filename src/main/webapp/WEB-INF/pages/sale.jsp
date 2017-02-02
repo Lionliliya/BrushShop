@@ -274,11 +274,6 @@ _________________________________________________________ -->
 
         <!-- *** MENUS AND FILTERS END *** -->
 
-        <div class="banner">
-          <a href="/catalog/sale">
-            <img src="/resources/img/banner-2.png" alt="Распродажа Киев" class="img-responsive">
-          </a>
-        </div>
       </div>
 
       <div class="col-md-9">
@@ -305,65 +300,65 @@ _________________________________________________________ -->
 
         <div class="row products">
           <c:forEach items="${products}" var="product">
-                <div class="col-md-4 col-sm-6">
-                  <div class="product">
-                    <form action="/cart" method="post">
+            <div class="col-md-4 col-sm-6">
+              <div class="product">
+                <form action="/cart" method="post">
 
-                      <input type=hidden name="id" value="${product.id}">
-                      <input type=hidden name="productCategory" value="<c:out value="${product.productCategory.name}"/>">
-                      <input type=hidden name="smallimage" value="${product.image1}">
-                      <input type=hidden name="name" value="<c:out value="${product.name}"/>">
-                      <input type=hidden name="price" value="${product.price}">
-                      <input type=hidden name="currency" value="<c:out value="${product.currency}"/>">
-                      <div class="flip-container">
-                        <div class="flipper">
-                          <div class="front">
-                            <a href="/product/${product.id}">
-                              <img src="/resources/${product.image2}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
-                            </a>
-                          </div>
-                          <div class="back">
-                            <a href="/product/${product.id}">
-                              <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
-                            </a>
-                          </div>
-                        </div>
+                  <input type=hidden name="id" value="${product.id}">
+                  <input type=hidden name="productCategory" value="<c:out value="${product.productCategory.name}"/>">
+                  <input type=hidden name="smallimage" value="${product.image1}">
+                  <input type=hidden name="name" value="<c:out value="${product.name}"/>">
+                  <input type=hidden name="price" value="${product.price}">
+                  <input type=hidden name="currency" value="<c:out value="${product.currency}"/>">
+                  <div class="flip-container">
+                    <div class="flipper">
+                      <div class="front">
+                        <a href="/product/${product.id}">
+                          <img src="/resources/${product.image2}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
+                        </a>
                       </div>
-                      <a href="/product/${product.id}" class="invisible">
-                        <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
-                      </a>
-                      <div class="text">
-                        <h3>
-                          <a href="/product/${product.id}">
-                            <c:out value="${product.name}"/>
-                          </a>
-                        </h3>
-                        <c:set value="${product.getRating()}" var="rate"/>
-                        <p class="text-center">${product.getStarRate(rate)}</p>
-                        <p class="price" style="margin-top: 15px;">${product.price} грн</p>
-                        <p class="buttons">
-                          <a href="/product/${product.id}" class="btn btn-default">Подробнее</a>
-                          <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Добавить в корзину</button>
-                        </p>
+                      <div class="back">
+                        <a href="/product/${product.id}">
+                          <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
+                        </a>
                       </div>
-                      <!-- /.text -->
-                      <c:if test="${product.discount gt 0}">
-                        <div class="ribbon sale">
-                          <div class="theribbon">SALE   ${product.discount}%</div>
-                          <div class="ribbon-background"></div>
-                        </div>
-                      </c:if>
-                      <c:if test="${product.isNew eq true}">
-                        <div class="ribbon new">
-                          <div class="theribbon">NEW</div>
-                          <div class="ribbon-background"></div>
-                        </div>
-                      </c:if>
-                    </form>
+                    </div>
                   </div>
-                  <!-- /.product -->
-                </div>  <!-- /.col-md-4 -->
-              </c:forEach>
+                  <a href="/product/${product.id}" class="invisible">
+                    <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
+                  </a>
+                  <div class="text">
+                    <h3>
+                      <a href="/product/${product.id}">
+                        <c:out value="${product.name}"/>
+                      </a>
+                    </h3>
+                    <c:set value="${product.getRating()}" var="rate"/>
+                    <p class="text-center">${product.getStarRate(rate)}</p>
+                    <p class="price" style="margin-top: 15px;">${product.price} грн</p>
+                    <p class="buttons">
+                      <a href="/product/${product.id}" class="btn btn-default">Подробнее</a>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Добавить в корзину</button>
+                    </p>
+                  </div>
+                  <!-- /.text -->
+                  <c:if test="${product.discount gt 0}">
+                    <div class="ribbon sale">
+                      <div class="theribbon">SALE   ${product.discount}%</div>
+                      <div class="ribbon-background"></div>
+                    </div>
+                  </c:if>
+                  <c:if test="${product.isNew eq true}">
+                    <div class="ribbon new">
+                      <div class="theribbon">NEW</div>
+                      <div class="ribbon-background"></div>
+                    </div>
+                  </c:if>
+                </form>
+              </div>
+              <!-- /.product -->
+            </div>  <!-- /.col-md-4 -->
+          </c:forEach>
         </div>
         <!-- /.products -->
 

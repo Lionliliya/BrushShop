@@ -275,7 +275,7 @@ _________________________________________________________ -->
         <!-- *** MENUS AND FILTERS END *** -->
 
         <div class="banner">
-          <a href="#">
+          <a href="/catalog/sale">
             <img src="/resources/img/banner-2.png" alt="Распродажа Киев" class="img-responsive">
           </a>
         </div>
@@ -319,12 +319,12 @@ _________________________________________________________ -->
                         <div class="flipper">
                           <div class="front">
                             <a href="/product/${product.id}">
-                              <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
+                              <img src="/resources/${product.image2}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
                             </a>
                           </div>
                           <div class="back">
                             <a href="/product/${product.id}">
-                              <img src="/resources/${product.image2}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
+                              <img src="/resources/${product.image1}" alt="<c:out value="${product.name} Киев"/>" class="img-responsive">
                             </a>
                           </div>
                         </div>

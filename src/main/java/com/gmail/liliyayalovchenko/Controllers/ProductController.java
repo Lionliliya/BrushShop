@@ -54,6 +54,22 @@ public class ProductController {
         return modelAndView;
     }
 
+    @RequestMapping("/catalog/sale")
+    public ModelAndView onSale(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        checkSession(session);
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("categories", categoryDAO.getAllCategories());
+        modelAndView.addObject("products", productDAO.getAllProductsOnSale());
+        modelAndView.addObject("cartSize", session.getAttribute("cartSize"));
+        modelAndView.addObject("brands", productDAO.getAllBrands());
+        modelAndView.setViewName("sale");
+        return modelAndView;
+    }
+
+
+
     @RequestMapping("/catalog/brandSort")
     public ModelAndView catalogBrandSort(HttpServletRequest request) {
         HttpSession session = request.getSession();

@@ -303,7 +303,7 @@
 
                             <ul class="nav nav-pills nav-stacked">
                                 <li>
-                                    <a href="#">Акции</a>
+                                    <a href="/catalog/sale">Акции</a>
                                 </li>
                                 <li class="active">
                                     <a href="#">Новости</a>
@@ -321,7 +321,7 @@
                     <!-- *** BLOG MENU END *** -->
 
                     <div class="banner">
-                        <a href="#">
+                        <a href="/catalog/sale">
                             <img src="/resources/img/banner-1.png" alt="sales 2014" class="img-responsive">
                         </a>
                     </div>

@@ -222,7 +222,7 @@
 
 
                     <div class="banner">
-                        <a href="#">
+                        <a href="/catalog/sale">
                             <img src="/resources/img/banner-1.png" alt="sales 2014" class="img-responsive">
                         </a>
                     </div>

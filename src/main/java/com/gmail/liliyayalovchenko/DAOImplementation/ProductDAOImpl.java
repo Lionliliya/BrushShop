@@ -69,6 +69,12 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
+    public List<Product> getAllProductsOnSale() {
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.discount > 0", Product.class);
+        return (List<Product>) query.getResultList();
+    }
+
+    @Override
     public Set<String> getAllBrands() {
         Query query = entityManager.createQuery("SELECT p FROM Product p", Product.class);
         List<Product> resultList = query.getResultList();

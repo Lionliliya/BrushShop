@@ -37,6 +37,7 @@
   <script type="text/javascript">
     tinymce.init({
       selector: 'textarea',
+      extended_valid_elements : 'img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
       theme: 'modern',
       plugins: [
         'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker',

@@ -276,7 +276,7 @@
                     <!-- *** MENUS AND FILTERS END *** -->
 
                     <div class="banner">
-                        <a href="#">
+                        <a href="/catalog/sale">
                             <img src="/resources/img/banner-2.png" alt="Распродажа Киев" class="img-responsive">
                         </a>
                     </div>
